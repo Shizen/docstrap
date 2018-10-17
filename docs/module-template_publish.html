@@ -1,0 +1,6578 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>shinstrap Module: template/publish</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
+	<link type="text/css" rel="stylesheet" href="styles/supplemental.css">
+	
+		<link type="text/css" rel="stylesheet" href="styles/local.css">
+	
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">shinstrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-template_publish-view.html">template/publish~view</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-base.html">base</a></li><li><a href="module-base_chains.html">base/chains</a></li><li><a href="module-documents_binder.html">documents/binder</a></li><li><a href="module-documents_model.html">documents/model</a></li><li><a href="module-documents_probe.html">documents/probe</a></li><li><a href="module-documents_schema.html">documents/schema</a></li><li><a href="module-Gruntfile.html">Gruntfile</a></li><li><a href="module-ink_collector.html">ink/collector</a></li><li><a href="module-mixins_bussable.html">mixins/bussable</a></li><li><a href="module-mixins_signalable.html">mixins/signalable</a></li><li><a href="module-strings_format.html">strings/format</a></li><li><a href="module-template_publish.html">template/publish</a></li><li><a href="module-utils_logger.html">utils/logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="base.html">base</a></li><li><a href="base_chains.html">base/chains</a></li><li><a href="documents_model.html">documents/model</a></li><li><a href="module-documents_probe.queryOperators.html">documents/probe.queryOperators</a></li><li><a href="module-documents_probe.updateOperators.html">documents/probe.updateOperators</a></li><li><a href="module-ink_collector-ACollector.html">ink/collector~ACollector</a></li><li><a href="module-ink_collector-CollectorBase.html">ink/collector~CollectorBase</a></li><li><a href="module-ink_collector-OCollector.html">ink/collector~OCollector</a></li><li><a href="module-mixins_signalable-Signal.html">mixins/signalable~Signal</a></li><li><a href="utils_logger.Logger.html">utils/logger.Logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="mixins.list.html" class="dropdown-toggle" data-toggle="dropdown">Mixins<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="documents_schema.html">documents/schema</a></li><li><a href="mixins_bussable.html">mixins/bussable</a></li><li><a href="mixins_signalable.html">mixins/signalable</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="Usage.list.html" class="dropdown-toggle" data-toggle="dropdown">Usage<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="tutorial-Usage.html">Usage</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+    
+        <h1 class="page-title">Module: template/publish</h1>
+        <section>
+        
+            <header>
+                
+            </header>
+
+            <article>
+                <div class="container-overview">
+                    
+                        
+                        
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This is the primary export module for <code>shinstrap</code>.  <code>jsdoc</code> looks for this file in the referenced
+<code>template/</code> directory when specified as a template in jsdoc's config file.</p>
+<p><code>shinstrap</code> is a fork of <a href="https://github.com/docstrap/docstrap"><code>ink-docstrap</code></a>, and the bulk of 
+<em>this</em> file remains untouched.  <code>shinstrap</code>, like <code>docstrap</code> before it follows the patterns set down 
+in <code>jsdoc</code>'s default template.  See <code>jsdoc/templates/default/publish.js</code> (no link because, ironically,
+jsdoc didn't comment their templates :) ).  </p>
+<p>In addition to <code>docstrap</code>'s baseline of features, <code>shinstrap</code> primarily adds customization.  The order
+and organization of default tags can be changed (from configuration settings), as well as new rules to 
+allow for the rendering of custom tags.  The menus for tutorials can likewise be customized.<br><code>shinstrap</code> adds a few simple features to override the built-in templates even for complex reworks 
+with a minimum amount of futzing.  Full details should be available in the <code>Usage.md</code> document in this
+module's documentation (or in <code>design/Usage.md</code>) [<a href="tutorial-Usage.html">Usage</a>].</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                    
+                </div>
+
+                <div class="container-body">
+                    
+                    
+                                
+                            
+                    
+                                
+                            
+                    
+                                
+                            
+                    
+                                
+                            
+                    
+                                
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h3 class=subsection-title> 
+    namespaces
+  </h3>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<dl>
+  <!-- This namespaces.html# link doesn't do anything :/ -->
+  <dt><a href="namespaces.html#module:template/publish~view"><a href="module-template_publish-view.html">view</a></a></dt>
+  <dd></dd>
+</dl>
+    
+  
+
+  
+
+  
+
+
+
+
+                            
+                    
+                                
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h3 class='jsdoc-template-title subsection-title shinstrap-collapsible' data-hide='false' title='Documentation for the templates used by this module.'> 
+    templates
+  </h3>
+
+  
+
+
+
+
+
+  
+
+  
+    
+    <dl > 
+  
+
+  
+    
+    
+      
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-template" id=".attribs">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+attribs<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+
+
+
+
+
+<h5 class=jsdoc-template-filename-title> 
+  Template File:
+  
+  
+    
+    <span class=jsdoc-template-filename> 
+      partial.scaffolded.attribs.tmpl
+    </span>
+  
+</h5>
+
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 class=jsdoc-honors-title> 
+    <em>Honors</em> the following configuration settings:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>template.displayStyle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>One of <code>buttons</code>, <code>badges</code> or <code>csl</code> describing how the doclet's attribs should be displayed.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>The &quot;first&quot; scaffolded partial template, this template controls the display of attributes.  This partial is designed to fit in
+with the display layout of docstrap, attempting to provide a &quot;terse&quot; easy rendering of the attributes for an entity.</p>
+<p>By default, this template is called from <code>method.tmpl</code> and <code>members.tmpl</code>.</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-template" id=".container">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+container<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+
+
+
+
+
+<h5 class=jsdoc-template-filename-title> 
+  Template File:
+  
+  
+    
+    <span class=jsdoc-template-filename> 
+      container.tmpl
+    </span>
+  
+</h5>
+
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>The &quot;root&quot; level display template for <code>jsdoc</code>.  <code>container.tmpl</code> marhalls and displays most of the doclets which have their own landing page.
+This includes modules, interfaces, classes, namespace, events, mixins, etc. displayed as <code>&lt;article&gt;</code>s.  This template is broken into two 
+sections in <code>docstrap</code>, an &quot;overview&quot; section and what I am calling the body. </p>
+<p>Display of contents of the &quot;overview&quot; area are controlled in the <code>customizeOutput</code> area of the template's configuration by the specifier path:<br><code>&quot;container:article:overview:...&quot;</code><br>This specifier has three branches -- &quot;class&quot;, &quot;module-with-modules&quot; and the default (every other case).  This is a legacy of <code>docstrap</code></p>
+<p>The &quot;body&quot; portion of this template's display is controlled by the specifier path:<br><code>&quot;container:article:body:default&quot;</code></p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-template" id=".details">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+details<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+
+
+
+
+
+<h5 class=jsdoc-template-filename-title> 
+  Template File:
+  
+  
+    
+    <span class=jsdoc-template-filename> 
+      details.tmpl
+    </span>
+  
+</h5>
+
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>One of the three workhorse templates for <code>jsdoc</code> display.  <code>details.tmpl</code> marshals and displays the details of a doclet.  Specifically...<br><code>[ &quot;properties&quot;, &quot;version&quot;, &quot;since&quot;, &quot;inherits&quot;, &quot;overrides&quot;, &quot;implementations&quot;, &quot;implements&quot;,
+   &quot;mixes&quot;, &quot;deprecated&quot;, &quot;author&quot;, &quot;copyright&quot;, &quot;license&quot;, &quot;defaultvalue&quot;, &quot;meta&quot;, &quot;tutorials&quot;, &quot;see&quot;, &quot;todo&quot; ]</code></p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-template" id=".General">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+General<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+
+
+
+
+
+<h5 class=jsdoc-template-filename-title> 
+  Template File:
+  
+  
+    
+    <span class=jsdoc-template-filename> 
+      listing.scaffolded.general.tmpl
+    </span>
+  
+</h5>
+
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 class=jsdoc-honors-title> 
+    <em>Honors</em> the following configuration settings:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>entryWrapper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The tag which the entire entry should be wrapped in.  For situations where you want to wrap both the title and
+the contents.  For example, when making a <code>&lt;details&gt;</code> entry or a <code>&lt;fieldset&gt;</code> entry.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>entryWrapperAttributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The attributes which should be rendered for the entityWrapper.  Only valid if entityWrapper has a 
+value.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>suppressTitle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>If true, no title will be generated.  This causes <code>title</code>, <code>titleCaption</code> and <code>titleAttributes</code> to be ignored.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>outerTitleWrapper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The &quot;outer&quot; wrapper for the title (title only supports two &quot;tiers&quot; of wrappers).</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>outerTitleAttributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The attributes to associate with the outer title tag.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>titleWrapper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The tag to wrap the title in.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>titleCaption</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>A string with which to replace the normally auto-generated title text.  (See module:template/publish.handleScaffolding)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>titleContextPluralize</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Causes the title to be pluralized if the doclet is an array with more than one member.  This object
+has two fields--<code>singular</code> and <code>plural</code>, the value for each is used as the title in their respective cases.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>titleWrapperAttributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The attributes to associate with the title tag.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>suppressValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last"><p>If true, no value will be display for this entry.  This causes the various wrapper and use* 
+descriptors to be ignored.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>outermostWrapper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p><code>listing.scaffolded.general.tmpl</code> allows for up to three tiers of embedded html wrappers.<br>This is the outermost wrapper.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>outermostWrapperAttributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The attributes to assign to the outermostWrapper.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>outerWrapper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The &quot;second tier&quot; or outer html wrapper for an entry value.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>outerWrapperAttributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The attributes to assign to the outerWrapper.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>wrapper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>If <code>usePartial</code> is <em>not set</em>, <code>wrapper</code> indicates the tag in which to wrap the value of this listing.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>wrapperAttributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The attributes to associate with the wrapping tag.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usePartial</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The template to display the tag's value with.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usePartialOnField</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>When <code>usePartial</code> is set, allows the specification of which field on the doclet to supply to the 
+partial as its <code>data</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usePerItemPartial</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>In the event that the entry's value is an array, <code>usePerItemPartial</code> allows the specification
+of a partial template to be used <em>on each value</em> in this entry's value array.  This setting is overridden by <code>usePartial</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>perItemMapPartial</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>If set, this setting allows the specification of an object, where each field name in the object is an
+expression, which if it evaluates to true will cause this template to use as a partial the value of that field.  Conditions are tested in 
+order and used on a first found basis.  If a &quot;default&quot; field is specified, it will be used in the event none of the other conditions 
+evaluate to true.  <code>usePartial</code> and <code>usePerItemPartial</code> both override this setting.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>alternateHandler</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>itemMarshalling</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>:advanced: This is an array of view helpers and parameters to execute on each entry's value before 
+rendering it.  The format for each call is <code>[&quot;functionName&quot;, &quot;param1&quot;, &quot;param2&quot;, ...]</code>.  An arbitrary number of marshal calls may be
+made, and they will be executed in order (e.g. <code>itemMarshalling: [ [ &quot;linkto&quot;, &quot;&quot;, &quot;&quot; ] ]</code>).  Param specifications are relative to the 
+entry value itself (for brevity), so <code>&quot;&quot;</code> references the entry value itself, and &quot;kind&quot; would reference <code>data.kind</code> (for instance).</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>find</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>:advanced:</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>:advanced:</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This is the general case listing handler for <code>shinstrap</code>.</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-template" id=".KeyValue">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+KeyValue<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+
+
+
+
+
+<h5 class=jsdoc-template-filename-title> 
+  Template File:
+  
+  
+    
+    <span class=jsdoc-template-filename> 
+      listing.scaffolded.kv.tmpl
+    </span>
+  
+</h5>
+
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 class=jsdoc-honors-title> 
+    <em>Honors</em> the following configuration settings:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>titleWrapper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The tag to wrap the title in.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>titleCaption</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A string with which to replace the normally auto-generated title text.  (See module:template/publish.handleScaffolding)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>titleWrapperAttributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The attributes to associate with the title tag.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usePartial</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The template to display the tag's value with.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usePartialOnField</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>When <code>usePartial</code> is set, allows the specification of which field on the doclet to supply to the 
+partial as its <code>data</code>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>wrapper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If <code>usePartial</code> is <em>not set</em>, <code>wrapper</code> indicates the tag in which to wrap the value of this listing.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>wrapperAttributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The attributes to associate with the wrapping tag.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This template handles the display of key-value pairs.  For instance,<br>    Type: {Object}</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-template" id=".method">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+method<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+
+
+
+
+
+<h5 class=jsdoc-template-filename-title> 
+  Template File:
+  
+  
+    
+    <span class=jsdoc-template-filename> 
+      method.tmpl
+    </span>
+  
+</h5>
+
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>One of the three workhorse templates for <code>jsdoc</code> display.  <code>method.tmpl</code> marshals and displays the common features of javascript entites
+and is used for methods, classes (when not on their own landing page), typedefs, and events.  This is a common template to leverage for
+complex custom tags as well.  By default it displays...<br><code>[ &quot;description&quot;, &quot;augments&quot;, &quot;type&quot;, &quot;this&quot;, &quot;params&quot;, &quot;details&quot;, &quot;requires&quot;, &quot;fires&quot;, &quot;listens&quot;, &quot;listeners&quot;, &quot;exceptions&quot;, &quot;returns&quot;, &quot;examples&quot; ]</code></p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-template" id=".source">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+source<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+
+
+
+
+
+<h5 class=jsdoc-template-filename-title> 
+  Template File:
+  
+  
+    
+    <span class=jsdoc-template-filename> 
+      source.tmpl
+    </span>
+  
+</h5>
+
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This template controls the presentation of source files by <code>jsdoc</code> (when <code>&quot;outputSourceFiles&quot;: true</code>).</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-template" id=".tutorial">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+tutorial<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+
+
+
+
+
+<h5 class=jsdoc-template-filename-title> 
+  Template File:
+  
+  
+    
+    <span class=jsdoc-template-filename> 
+      tutorial.tmpl
+    </span>
+  
+</h5>
+
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This template controls the presentation of tutorials by <code>jsdoc</code>.</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+    
+  
+
+  
+    
+    </dl> 
+  
+
+  
+
+
+
+
+                            
+                    
+                                    
+                                
+                                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h3 class='subsection-title shinstrap-collapsible' data-hide='false'> 
+    methods
+  </h3>
+
+  
+
+
+
+
+
+  
+
+  
+    
+    <div > 
+  
+
+  
+    
+    
+      
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-function" id=".publish">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+publish(taffyData, opts, tutorials)</h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This is the primary entry point into <code>docstrap</code> (and <code>shinstrap</code>).</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Parameters:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>taffyData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">TAFFY</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>See <a href="http://taffydb.com/">http://taffydb.com/</a>.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tutorials</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Tutorial</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-function" id=".utils.addScopeToAttribs">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+utils.addScopeToAttribs(_doclet)</h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This is a simple helper function which simple adds a doclet's scope to its <code>attribs</code> collection.  This
+is normally done in publish by calling jsdoc/util/templateHelper.getAttribs but that helper function
+only adds scope attribs for doclets of specific <code>kind</code>s.  For custom doclet types, we have this function.</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Parameters:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>_doclet</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The doclet for which to accumulate attributes.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-function" id=".utils.buildNamespaceLink">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+utils.buildNamespaceLink()</h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>Stub marshalling function to build namespace links.</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-function" id=".utils.capitalize">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+utils.capitalize(_string)</h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This is a simple helper function to capitalize a string.  It is currently not wired into the system, being &quot;pre&quot; deprecated ;).</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Parameters:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>_string</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The string to capitalize</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-function" id=".utils.handleScaffolding">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+utils.handleScaffolding(_tmpl, _doclet, _arrangement, _listing, _title)</h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This is the primary helper function for the new custom listing mechanism.  All listings are now routed through this method and, 
+in conjunction with <code>listing.scaffolded.general.tmpl</code>, the capabilities of the custom listing declarations are enabled.</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Parameters:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>_tmpl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The template object for which this function is doing the scaffolding</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>_doclet</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Doclet object being described</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>_arrangement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Describes how the listing should be displayed</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>_listing</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The portion of the doclet being documented</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>_title</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The doclet title as understood in the current template.  <em>Not</em> the title of the listing being documented.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Returns:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+      
+        
+<div class="param-desc">
+    <p>The rendered HTML for the doclet or doclet fragment passed in.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+      
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-function" id=".utils.marshalItemDisplay">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+utils.marshalItemDisplay(_item, _marshallingRules, _view)</h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This is the handler function for the <code>itemMarshalling</code> rule.  This function will interpret the arrangment and the marshalling rules
+in the context of the indicated <code>_item</code> to derive the appropriate parameters, invoke the indicated function and return the result 
+to the calling template.</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Parameters:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>_item</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The display item or doclet being marshalled.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>_marshallingRules</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The marshalling rules which dictate the handling of this item's marshalling.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>_view</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The template view which is handing the rendering of this listing.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Returns:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+      
+        
+<div class="param-desc">
+    <p>&quot;marshalled&quot; html representation for <code>_item</code> as indicated in the <code>_marshallingRules</code>.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+      
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-function" id=".utils.renderDoclet">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+utils.renderDoclet(_arrangement, _defaults, _docOrData)</h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>The default rendering pattern for a sectioned/named renderer (template).</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Parameters:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>_arrangement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The rules array for the doclet/fragment being rendered.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>_defaults</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The default array of entries which are expected/valide for this doclet.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>_docOrData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">array</span>
+|
+
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The doclet or fragment being rendered.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+
+<dl class="details">
+	
+	
+							
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <dt class='tag-todo method-doc-label method-doc-details-label'> 
+    ToDo:
+  </dt>
+
+  
+
+
+
+
+
+  
+    
+    <dd class=tag-todo> 
+  
+
+  
+    
+    <ul > 
+  
+
+  
+    
+    
+      
+      
+        <li > 
+          <p>Once I'm satisfied, this function should probably replace all the renderer snippets.</p>
+        </li>
+      
+    
+  
+
+  
+    
+    </ul> 
+  
+
+  
+    
+    </dd> 
+  
+
+
+
+
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-function" id=".utils.resolveArrangement">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+utils.resolveArrangement(_aSelectors)</h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This function resolves two sets of information for doclets of the specified selectors...  </p>
+<ol>
+<li>It will determine the order which tags are intended to be displayed in the listing.</li>
+<li>It will generate the tags descriptor object for all tags.<br>This information is derived from the conf settings passed into the publish module.</li>
+</ol>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 class='jsdoc-remarks-title capitalize-title'> 
+    remarks
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=jsdoc-remarks-body> 
+      <p>I debate here whether I should capture in the closure the entirety of <code>conf.customizeOutput</code> or if I should instead
+pass it in on the stack (which might also allow for some recursive/contextual resolution in the future)...</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Parameters:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>_aSelectors</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>An array of selectors indicating for which context to resolve the arrangement information.
+The last (most specific) specifier in the array may be replaced by &quot;default&quot;  (although because of the
+behavior for unrecognized specifiers, this is just a convention)</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Returns:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+      
+        
+<div class="param-desc">
+    <p>An object consisting of two fields--An <code>order</code> field as an array of listings to be displayed, and a 
+<code>tags</code> field containing any custom listing specifications for that section.  If the specified path is not found, the 
+default arrangment will be returned (<code>{ order: [ &quot;*&quot; ] , tags: {} }</code>).  If the specified path exists, but the specific
+specifier does not (e.g. <code>container:article:body:module-with-modules</code>) this function will return the default arrangement
+<em>for that path</em>, as specified in the <code>all</code> keyword, if present.</p>
+<p>{
+ order: [ &quot;description&quot;, &quot;notes&quot;, &quot;remarks&quot;, &quot;*&quot; ],
+ tags: {}
+}</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+      
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 class=subsection-title> 
+    Example
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+    <pre class="sunlight-highlight-javascript">var arrangement = resolveArrangement([ &quot;container&quot;, &quot;article&quot;, &quot;body&quot;, &quot;default&quot; ]);</pre>
+
+
+    
+  
+
+  
+
+  
+
+
+
+
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-function" id=".utils.scaffoldFromSpecifier">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+utils.scaffoldFromSpecifier(_tmpl, _doclet, _tagSpecifier)</h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This is a simple wrapper on <a href="module-template_publish.html#.utils.handleScaffolding">module:template/publish.utils.handleScaffolding</a> which will retrieve the rules for a listing
+from a specifier (and then call <code>handleScaffolding</code> with those rules for the specified listing).</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Parameters:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>_tmpl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The template object for which this function will be doing the scaffolding.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>_doclet</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The doclet or fragment being rendered.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>_tagSpecifier</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A colon-delimeted specifier to the rules which dictate the rendering
+pattern for the doclet.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Returns:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+      
+        
+<div class="param-desc">
+    <p>HTML for the doclet or doclet fragment passed in.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+      
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+        
+
+
+<hr>
+<dt>
+    <h4 class="name method-title-function" id="~buildNav">
+
+
+<span class="type-signature">
+  
+    
+
+    
+
+    
+    
+      <img class="jsdoc-badge" src="img/inner.svg" alt="inner" title="Scope inner"/>
+    
+
+    
+
+    
+
+    
+
+    
+
+  
+</span>
+buildNav(members)</h4>
+    
+    
+</dt>
+<dd>
+    
+
+    
+                
+            
+    
+                
+            
+    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>Create the navigation sidebar.</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+            
+    
+                
+            
+    
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Parameters:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>members</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The members that will be used to create the sidebar.</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>classes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array.&lt;object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>externals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array.&lt;object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>globals</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array.&lt;object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mixins</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array.&lt;object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>interfaces</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array.&lt;object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>modules</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array.&lt;object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>namespaces</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array.&lt;object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tutorials</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array.&lt;object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>events</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array.&lt;object></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <h5 > 
+    Returns:
+  </h5>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+    
+    
+      
+      
+        
+<div class="param-desc">
+    <p>The HTML for the navigation sidebar.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+      
+    
+  
+
+  
+
+  
+
+
+
+
+                
+                    
+                
+            
+    
+                
+            
+    
+                
+            
+    
+
+    
+</dd>
+
+      
+    
+  
+
+  
+    
+    </div> 
+  
+
+  
+
+
+
+
+                                
+                                    
+                                
+                                    
+                                
+                            
+                    
+
+                </div>
+            </article>
+        </section>
+    
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	`shinstrap` (forked from `ink-docstrap`) by <a href='emailto:shin@shinworks.co'>Shin</a>
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on Wed Oct 17th 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/shinstrap.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

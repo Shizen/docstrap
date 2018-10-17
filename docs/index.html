@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>shinstrap Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
+	<link type="text/css" rel="stylesheet" href="styles/supplemental.css">
+	
+		<link type="text/css" rel="stylesheet" href="styles/local.css">
+	
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">shinstrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-template_publish-view.html">template/publish~view</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-base.html">base</a></li><li><a href="module-base_chains.html">base/chains</a></li><li><a href="module-documents_binder.html">documents/binder</a></li><li><a href="module-documents_model.html">documents/model</a></li><li><a href="module-documents_probe.html">documents/probe</a></li><li><a href="module-documents_schema.html">documents/schema</a></li><li><a href="module-Gruntfile.html">Gruntfile</a></li><li><a href="module-ink_collector.html">ink/collector</a></li><li><a href="module-mixins_bussable.html">mixins/bussable</a></li><li><a href="module-mixins_signalable.html">mixins/signalable</a></li><li><a href="module-strings_format.html">strings/format</a></li><li><a href="module-template_publish.html">template/publish</a></li><li><a href="module-utils_logger.html">utils/logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="base.html">base</a></li><li><a href="base_chains.html">base/chains</a></li><li><a href="documents_model.html">documents/model</a></li><li><a href="module-documents_probe.queryOperators.html">documents/probe.queryOperators</a></li><li><a href="module-documents_probe.updateOperators.html">documents/probe.updateOperators</a></li><li><a href="module-ink_collector-ACollector.html">ink/collector~ACollector</a></li><li><a href="module-ink_collector-CollectorBase.html">ink/collector~CollectorBase</a></li><li><a href="module-ink_collector-OCollector.html">ink/collector~OCollector</a></li><li><a href="module-mixins_signalable-Signal.html">mixins/signalable~Signal</a></li><li><a href="utils_logger.Logger.html">utils/logger.Logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="mixins.list.html" class="dropdown-toggle" data-toggle="dropdown">Mixins<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="documents_schema.html">documents/schema</a></li><li><a href="mixins_bussable.html">mixins/bussable</a></li><li><a href="mixins_signalable.html">mixins/signalable</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="Usage.list.html" class="dropdown-toggle" data-toggle="dropdown">Usage<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="tutorial-Usage.html">Usage</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+    
+        
+        
+
+
+
+
+
+
+
+    
+
+
+
+    
+        
+        
+
+
+
+
+
+    <section class="readme-section">
+        <article><h1>Shinstrap</h1><p><code>shinstrap</code> is a WIP fork of the <a href="https://github.com/docstrap/docstrap"><code>ink-docstrap</code></a> <a href="https://github.com/jsdoc3/jsdoc"><code>jsdoc</code></a> template.  Fundamentally, this template allows you to control how you want to display [new] jsdoc comments without resorting to writing a new template.  The capabilities exposed by this template allow comments in code to document semantic relationships and meanings which go beyond the basic semantics of javascript.  You can comment tasks in Grunt, routes in Express, or as this template itself demonstrates, its own template files.  You can make new tags to document env variables and settings you honor or which impact your behavior, and these documentation fragments can even be aggregated in various ways.</p>
+<p>Of course, you can also augment the documentation generated by this template with various display sugar like collapsible panes, icons and the like with minimal effort (in fact this last one I demonstrate in brief in <code>shinstrap</code>'s own documentation).  With the ability to provide your own templates you can create dependency charts and the like in <code>d3</code> and embed them into your documentation.  The possibilities are really endless.</p>
+<p>To get started, checkout the <a href="tutorial-Usage.html">Usage guide</a>.</p>
+<h2>Installation</h2><p>To install <code>shinstrap</code> you can use <code>npm</code>:</p>
+<pre class="prettyprint source"><code>npm install --save-dev shinstrap</code></pre><p>Remember you need <code>jsdoc</code> as well:</p>
+<pre class="prettyprint source"><code>npm install --save-dev jsdoc</code></pre><h2>New <code>templates</code> options</h2><p>The <code>templates</code> section of your <a href="http://usejsdoc.org/about-configuring-jsdoc.html">jsdoc configuration json</a> file is where template specific settings are expected to go.  <code>shinstrap</code> leverages these settings as the primary method for customizing the output of this jsdoc generator template.  See <a href="tutorial-Usage.html">Usage</a> for more details.</p>
+<p><code>supplmentalCSS</code>
+:        Custom supplemental css file option for simple tweaks.</p>
+<p><code>templateOverrideDir</code>
+:        Specify a directory in which to place custom documentation templates.  These can be referenced from your jsdoc configuration files in the tag descriptors specified in the <code>customizeOutput</code> section of the <code>templates</code> section.  This directory <em>does</em> override the standard templates directory, allowing one to override standard templates like <code>container.tmpl</code>.</p>
+<p><code>customizeOutput</code>
+:        An object which allows customization of listing generation ordering and output.  <code>customizeOutput</code> is made up of three sections--</p>
+<ol>
+<li>The <code>menus</code> section which allows for the custom specification of menus into which &quot;tutorials&quot; may be organized.</li>
+<li>The <code>doclets</code> section which allows the specification of custom pre-processing and handling for a given doclet type.</li>
+<li>Zero or more <code>tmpl</code> customization sections, allowing the specification of entry order by template specifier path, with defaults, as well as specification of custom tag display handling (again by specifier path).</li>
+</ol>
+<p>! Note</p>
+<p>This package uses evals in a few places to augment documentation generation.  It is my belief that as a developer tool used to document source code to which you clearly have access, this doesn't represent a security issue (although it could allow for some interesting mistakes).  It is possible that in certain large orgs with hard to predict separation of responsibilities and access that this could represent a problem, especially with automated documentation generation.  This should still be a manageable security issue, just treat your <code>.jsdoc.json</code> with similar precautions to the rest of your protected sources.</p>
+<h2>Issues (poor man's version)</h2><ul>
+<li>The scoping of sections is &quot;naive&quot;, and largely inherited from <code>jsdoc</code>'s default template.  This poorly worded issue is a reminder to myself to reconsider the section specifiers used to identify which sections of the generated documentation a set of custom output configurations applies to.  (i.e. the structure of <code>customizeOutput</code>).  See commentary on this topic in <code>DESIGN.md#Design Notes</code>.  It is not hard to imagine wanting this to be an actual semantic description which discovers its own scope from reflection on the template being rendered, but that's out of scope for the moment.</li>
+<li>As with the original templates from which it was derived, there is no error handling or debugging for documentation generation per se.  This could be added as a feature.  Debugging documentation generation, especially when documenting a large project for the first time can be exceptionally time consuming for people who are not currently deeply invested in jsdoc patterns.</li>
+<li>The naming conventions for classes in <code>docstrap</code> is inconsistant as written.  I leave correction of this for a <code>shinzen</code> template--<code>shinstrap</code>'s output is intended to be structurally consistant with <code>docstrap</code> (including classes on elements).  These are, of course, overridable.  Similarly, these templates could probably use some re-syncing with the original <code>jsdoc</code> default templates.</li>
+<li>attribs in toc (e.g. the right hand side toc)
+  The &quot;issue&quot; here, is members in the toc display attributes.  It might be desireable to have that display controlled by something.  Conversely, it might also be nice to be able to decorate other toc-heading displays with alternate information depending on type, etc.  This is a specific case of a broader question of customization of nav titles.  One might like icons, etc.  Right now, these are largely generated by &quot;client&quot; side javascript.</li>
+<li>Unit tests.  One could imagine a set of unit tests for jsdoc templates and a second, less useful set for shinstrap.  Also some unit tests for shinstrap templates specifically (<code>partial.scaffolded.*</code> and <code>listing.scaffolded.*</code>).  One could get arbitrarily &quot;silly&quot; by wiring in a relationship between documented <code>@honors</code> specifications with actual behavior, at least for known settings (non-template settings).  Feels pretty marginal utility to me though.</li>
+<li>Data specifier.  Currently there is an explicit association between the tag name and where its information lives on the <code>doclet</code> or data fragment.  This has proven to work fine in all my use cases thus far, but it's not hard to imagine a scenario where someone might wish to refer to another part of the doclet, and its not clear that the system as written can cover all these scenarios.</li>
+</ul>
+<h2>Possible Futures</h2><ul>
+<li>The full text search capabilities of this package could be significantly enhanced with the creation of an <code>sqlite</code> database and using its full-text search capabilities along with a &quot;contextualizer&quot; (I forget the sqlite name) to inform various important details of the sources for search criteria, particularly semantic information.  This doubly so because we have the doclet tree from which to build out the database.<ul>
+<li>A &quot;live&quot; or client side &quot;cache&quot; of the AST could prove useful for many other features, including client-side exploration of various relationships via various data visualizers.</li>
+</ul>
+</li>
+<li>On the subject of data visualizers, I could include some examples thereof.  I have an <code>@tag</code> example in <code>shin-jsdoc-tags</code> which could be used to make a tag graph (if, you know, I used it).  </li>
+<li>This template could be extended to allow for some measure of error handling, mostly in the form of reporting unexpected input to enhance &quot;debugging&quot; situations where generated documentation does not live up to expectations :). </li>
+<li>Add a <code>generateLandingPage</code> option, to generate a page for doclets which normally would not generate a page of their own (say you had an alternate sort of &quot;class&quot; or whatever).  Do a find on the doclet kind; tie into <code>see</code> mechanics to wire up links; call <code>generate</code> to generate the page.  Theoretically feasible.
+  Such pages could also be used for other types of aggregators, for instance, tagging functions in a group or an &quot;aspect&quot;, a landing page displaying modules/functions by author or design group, etc.  Or by access-group (see below).  And so on.<ul>
+<li>This mechanism would probably include a template handler binding for the generated doclet, but if not <code>container.tmpl</code> would want to be able to defer to another template similar to how it handles <code>doc.kind===&quot;class&quot;</code> atm.</li>
+</ul>
+</li>
+<li>Introduce &quot;access-scopes&quot;, for custom access grouping/displays.  One step away from TBA style tag filtering.  The idea would be to allow setting an access scope like &quot;For Developers&quot; or &quot;Sites Group&quot; or whatever, possibly as a first order entity with its own doclet and page generation, but specifically to allow tagging of other doclets for filtering when creating documentation to allow making docs for specific audiences.</li>
+<li>I debate introducing <code>useScaffolded</code> for <code>usePartial</code>, <code>usePerItemScaffolded</code> for <code>usePerItemPartial</code>, <code>usePreItemMapScaffolded</code> for <code>usePerItemMapPartial</code> (and any others I missed?).  <code>defer</code> does not need a <code>deferScaffolded</code> as <code>alternateHandler</code> should serve that purpose.</li>
+<li>Grouping and Collapsibility (wire in bootstrap's collapse pattern)</li>
+<li>Add a <code>supplementalJS</code> setting for customizing js.</li>
+<li>Add a medal decorator item marshaller (so one can decorate certain items with specific medals, e.g. Deprecated or Not Implemented, Template-Helper, etc.)
+  This possibly wants to be something more generic and bindable, possibly decorated in various fashions (short/brief, verbose, decorated, listing) for based on the context being displayed (e.g. in a toc, as a title, in a list, etc).</li>
+<li>I have commented.. somewhere on the idea of pre-processed expansions (e.g. {@CurrentVersion}).  Another fun example of a preprocessor expansion would be hitting your github/webservice to pull issues related to the entity being documented.  Internal feature requests, api expansions, etc. could be annotated and included in generated documentation based on the context for said generation.  Which reminds me to comment somewhere about the idea of targetted documentation--jsdoc provides a seldom used ability to scope the generated documentation according to programmatic scope (allowing, basically an internal and an external set of documentation).  As noted in access-groups above, there are several other scenarios and targetted documentation types you might want to be able to create, and there is no (good) reason why this system shouldn't be able to accomodate.</li>
+<li>Adopt a proper template plugin pattern.</li>
+<li>Another pet peeve is the disconnect between markdown generation and jsdoc generation, particularly in the area of links.  It would be nice if I could put in a link to say, <code>Usage.md</code> in a document which is going to go through both markdown and jsdoc and have it link to the &quot;right&quot; file.  Probably via a preprocessor in jsdoc.  The details are a bit complicated, having to do with targets and context and what not.  A markdown link to a file which <em>will</em> be generated (but may not be) in a reference list at the end of the markdown document, with some sort of patch processor to fixup registered markdown documents to update their references when they reference jsdoc documentation...  in situ when the file is a tutorial or README.md as its processed for use, but also external to the process for files on disks...  But which version do I want to link to, though?  The private/internally generated docs' version?  The public?  Seems problematic.  A handle-like link registry is what we want, but is out of scope for markdown.  And also you can nearly achieve the same thing through conventions.  <code>docs/</code>, <code>internal-docs/</code>, make your link and if it has been generated...  Of course also not hard to imagine more nuanced features at the point where you had a more robust system.  Meh, irritating.</li>
+<li>Merge in <a href=""><code>wicked</code></a> type functionality, which is effectively a template itself, to allow direct exportation to github wiki format.  One could even envision extending jsdoc to have a generator plugin separate from the template, to generate marshalled output, but that might be splitting nits.</li>
+<li>Re-scope the documentation for older <code>docstrap</code> documentation.</li>
+</ul>
+<h3>About these docs</h3><p>The documentation in this repos' wiki was generated using this template and jsdoc pointing at itself.  As a fork of <code>docstrap</code>, there is a host of documentation derived from that project which has not [yet] been modified, and is largely &quot;noise&quot; at this elevation for most users.  The primary bits to look at should be described in more detail in the <a href="tutorial-Usage.html">Usage</a> document.  As a shorthand/fallback, however, the primary documents to look at are the <a href="module-template_publish.html">module:template/publish</a> module and the <a href="module-template_publish-view.html">module:template/publish~view</a> &quot;namespace&quot; which documents the helper functions available in scope of every template (<code>tmpl</code>) file, which are the primary renderers for templates in <code>jsdoc</code>. </p>
+<p>! Below is the old README for docstrap, unmodified (afaik)</p>
+<hr>
+<h1>DocStrap <a href="http://gruntjs.com/"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt"></a></h1><p>DocStrap is <a href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a> based template for <a href="http://usejsdoc.org/">JSDoc3</a>.
+In addition, it includes all of the themes from <a href="http://bootswatch.com/">Bootswatch</a> giving you a great deal of look
+and feel options for your documentation, along with a simple search. Additionally, it adds some options to the conf.json file that gives
+you even more flexibility to tweak the template to your needs. It will also make your teeth whiter.</p>
+<h2>Features</h2><ul>
+<li>Right side TOC for navigation in pages</li>
+<li>Integrated offline search</li>
+<li>Themed</li>
+<li>Customizable</li>
+<li>Syntax highlighting</li>
+</ul>
+<h3>What It Looks Like</h3><p>Here are examples of this template with the different Bootswatch themes:</p>
+<ul>
+<li><a href="http://docstrap.github.io/docstrap/themes/cerulean">Cerulean</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/cosmo">Cosmo</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/cyborg">Cyborg</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/flatly">Flatly</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/journal">Journal</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/lumen">Lumen</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/paper">Paper</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/readable">Readable</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/sandstone">Sandstone</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/simplex">Simplex</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/slate">Slate</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/spacelab">Spacelab</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/superhero">Superhero</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/united">United</a></li>
+<li><a href="http://docstrap.github.io/docstrap/themes/yeti">Yeti</a></li>
+</ul>
+<p>To change your theme, just change it in the <code>conf.json</code> file. See below for details.</p>
+<h2>Ooooh, I want it! How do I get it?</h2><p>If you manage your own version of jsdoc:</p>
+<pre class="prettyprint source lang-bash"><code>npm install ink-docstrap</code></pre><p>When using <a href="http://gruntjs.com/">grunt</a>, please look at <a href="https://github.com/krampstudio/grunt-jsdoc">grunt-jsdoc</a> which you can use with
+docstrap.</p>
+<h3>Command Line Example</h3><pre class="prettyprint source lang-bash"><code>jsdoc -c path/to/conf.json -t ./node_modules/ink-docstrap/template -R README.md -r .</code></pre><p>The <code>-c</code> sets the config, and the docstrap README does talk about the options you can put in templates that docstrap is supposed to look for.</p>
+<p>The <code>-t</code> sets the template. This is the option you need to set to get the docstrap template to be used.</p>
+<p>The <code>-R</code> sets a markdown file to be the front page of the documentation.</p>
+<p>The <code>-r</code> tells jsdoc to run recursively.</p>
+<p>The <code>.</code> says from current directory.</p>
+<h2>Configuring the template</h2><p>DocStrap ships with a <code>conf.json</code> file in the template/ directory. It is just a regular old
+<a href="http://usejsdoc.org/about-configuring-jsdoc.html">JSDoc configuration file</a>, but with the following new options:</p>
+<pre class="prettyprint source lang-javascript"><code>&quot;templates&quot;: {
+    &quot;systemName&quot;            : &quot;{string}&quot;,
+    &quot;footer&quot;                : &quot;{string}&quot;,
+    &quot;copyright&quot;             :  &quot;{string}&quot;,
+    &quot;includeDate&quot;           : &quot;{boolean}&quot;,
+    &quot;navType&quot;               : &quot;{vertical|inline}&quot;,
+    &quot;theme&quot;                 : &quot;{theme}&quot;,
+    &quot;linenums&quot;              : &quot;{boolean}&quot;,
+    &quot;collapseSymbols&quot;       : &quot;{boolean}&quot;,
+    &quot;inverseNav&quot;            : &quot;{boolean}&quot;,
+    &quot;outputSourceFiles&quot;     : &quot;{boolean}&quot; ,
+    &quot;outputSourcePath&quot;      : &quot;{boolean}&quot;,
+    &quot;dateFormat&quot;            : &quot;{string}&quot;,
+    &quot;syntaxTheme&quot;           : &quot;{string}&quot;,
+    &quot;sort&quot;                    : &quot;{boolean|string}&quot;,
+    &quot;search&quot;                : &quot;{boolean}&quot; 
+}
+</code></pre><h3>Options</h3><ul>
+<li><strong>systemName</strong>
+The name of the system being documented. This will appear in the page title for each page</li>
+<li><strong>footer</strong>
+Any markup want to appear in the footer of each page. This is not processed at all, just printed exactly as you enter it</li>
+<li><strong>copyright</strong>
+You can add a copyright message below the footer and above the JSDoc timestamp at the bottom of the page</li>
+<li><strong>includeDate</strong>
+By default, the current date is always shown in the footer of the generated documentation. You can omit the current date by setting this option to <code>false</code></li>
+<li><strong>navType</strong>
+The template uses top level navigation with dropdowns for the contents of each category. On large systems these dropdowns
+can get large enough to expand beyond the page. To make the dropdowns render wider and stack the entries vertically, set this
+option to <code>&quot;inline&quot;</code>. Otherwise set it to <code>&quot;vertical&quot;</code> to make them regular stacked dropdowns.</li>
+<li><strong>theme</strong>
+This is the name of the them you want to use <strong>in all lowercase</strong>. The valid options are<ul>
+<li><code>cerulean</code></li>
+<li><code>cosmo</code></li>
+<li><code>cyborg</code></li>
+<li><code>flatly</code></li>
+<li><code>journal</code></li>
+<li><code>lumen</code></li>
+<li><code>paper</code></li>
+<li><code>readable</code></li>
+<li><code>sandstone</code></li>
+<li><code>simplex</code></li>
+<li><code>slate</code></li>
+<li><code>spacelab</code></li>
+<li><code>superhero</code></li>
+<li><code>united</code></li>
+<li><code>yeti</code></li>
+</ul>
+</li>
+<li><strong>linenums</strong>
+When true, line numbers will appear in the source code listing. If you have
+<a href="http://usejsdoc.org/about-configuring-jsdoc.html">also turned that on</a>.</li>
+<li><strong>collapseSymbols</strong>
+If your pages have a large number of symbols, it can be easy to get lost in all the text. If you turn this to <code>true</code>
+all of the symbols in the page will roll their contents up so that you just get a list of symbols that can be expanded
+and collapsed.</li>
+<li><strong>analytics</strong> Add a <a href="http://www.google.com/analytics">Google Analytics</a> code to the template output
+<em>e.g.</em> <code>&quot;analytics&quot;:{&quot;ua&quot;:&quot;UA-XXXXX-XXX&quot;, &quot;domain&quot;:&quot;XXXX&quot;}</code><ul>
+<li><strong>ua</strong> The google agent (see Google Analytics help for details)</li>
+<li><strong>domain</strong> The domain being served. (see Google Analytics help for details)</li>
+</ul>
+</li>
+<li><strong>inverseNav</strong>
+Bootstrap navbars come in two flavors, regular and inverse where inverse is generally higher contrast. Set this to <code>true</code> to
+use the inverse header.</li>
+<li><strong>outputSourceFiles</strong>
+When true, the system will produce source pretty printed file listings with a link from the documentation.</li>
+<li><strong>outputSourcePath</strong>
+When <code>outputSourceFiles</code> is <code>false</code>, you may still want to name the file even without a link to the pretty printed output.
+Set  this to <code>true</code> when <code>outputSourceFiles</code> is <code>false</code>. <code>outputSourceFiles</code> when <code>true</code> takes precedence over this setting.</li>
+<li><strong>dateFormat</strong> The date format to use when printing dates. It accepts any format string understood by <a href="http://momentjs.com/docs/#/displaying/format/">moment.js</a></li>
+<li><strong>syntaxTheme</strong> String that determines the theme used for code blocks. Default value is <code>&quot;default&quot;</code>. It can be any value supported
+at <a href="https://github.com/tmont/sunlight/tree/master/src/themes">sunlight themes</a> which right now consists of...uh...<code>&quot;default&quot;</code> and <code>&quot;dark&quot;</code>,
+but at least you have it if you need it.</li>
+<li><strong>sort</strong> Defaults to true. Specifies whether jsdoc should sort data or use file order. Can also be a string and if so it is passed to jsdoc directly. The default string is <code>&quot;longname, version, since&quot;</code>.</li>
+<li><strong>search</strong> By default, the template includes a quick search box. For large APIs, the search database can be too expensive to load. If needed you can disable this feature setting this option to false. </li>
+</ul>
+<h2>Syntax Highlighting</h2><h3>Language</h3><p>The default language will be JavaScript, but there are a couple of ways to secify the language.</p>
+<p>DocStrap support the language specified in the standard way e.g.</p>
+<pre class="prettyprint source"><code>```html
+&lt;html>&lt;/html></code></pre><p>DocStrap also introduces a new documentation tag which can appear inside any example block in source code,
+or in any fenced code block in markdown: <code>{@lang languageName}</code>, where
+<em><code>language</code></em> can be any of the languages supported by <a href="http://sunlightjs.com/">Sunlight</a></p>
+<p>When in a doclet, add the tag just after the <code>@example</code> tag like this:</p>
+<p><code>@example {@lang xml}</code>
+<code>&lt;div&gt;This is the most interesting web site ever&lt;/div&gt;</code></p>
+<p>These are the supported languages.</p>
+<ul>
+<li>ActionScript</li>
+<li>bash</li>
+<li>C/C++</li>
+<li>C♯</li>
+<li>CSS</li>
+<li>Diff</li>
+<li>DOS batch</li>
+<li>Erlang</li>
+<li>Haskell</li>
+<li>httpd (Apache)</li>
+<li>Java</li>
+<li>JavaScript</li>
+<li>Lisp</li>
+<li>Lua</li>
+<li>MySQL</li>
+<li>nginx</li>
+<li>Objective-C</li>
+<li>Perl</li>
+<li>PHP</li>
+<li>PowerShell</li>
+<li>Python</li>
+<li>Ruby</li>
+<li>Scala</li>
+<li>T-SQL</li>
+<li>VB.NET</li>
+<li>XML (HTML)</li>
+</ul>
+<h3>Example Caption</h3><p>If you want a caption to your example, add it in a HTML caption before your example e.g.</p>
+<pre class="prettyprint source"><code>@example &lt;caption>my caption&lt;/caption>
+{@lang xml}
+&lt;mycode>&lt;/mycode></code></pre><h2>Customizing DocStrap</h2><p>No template can meet every need and customizing templates is a favorite pastime of....well, no-one, but you may need to anyway.
+First make sure you have <a href="https://github.com/bower/bower">bower</a> and <a href="https://github.com/gruntjs/grunt-cli">grunt-cli</a> installed.
+Fetch the source using <code>git</code> or grab the <a href="https://github.com/docstrap/docstrap/archive/master.zip">zip file from github.</a> and unzip
+it somewhere. Everything that follows happens in the unzip directory.</p>
+<p>Next, prepare the environment:</p>
+<pre class="prettyprint source"><code>bower install</code></pre><p>and</p>
+<pre class="prettyprint source"><code>npm install</code></pre><p>When that is done, you have all of the tools to start modifying the template. The template, like Bootstrap, uses <a href="http://lesscss.org/">less</a>.
+The way it works is that <code>./styles/main.less</code> pulls in the bootstrap files uncompiled so that you have access to all of bootstraps mixins, colors,
+etc, that you would want. There are two more files in that directory, <code>variables.less</code>, <code>bootswatch.less</code>. These are the
+theme files and you can modify them, but keep in mind that if you apply a new theme (see below) those files will be overwritten. It is best
+to keep your changes to the <code>main.less</code> file.</p>
+<p>To compile your changes to <code>main.less</code> and any other files it loads up,</p>
+<pre class="prettyprint source"><code>grunt less</code></pre><p>The output is will be put in <code>./template/static/styles/site.&lt;theme-name&gt;.css</code>. The next time you create your documentation, it
+will have the new css file included.</p>
+<p>To apply a different template to the <code>styles</code> directory to modify, open up the <code>conf.json</code> in the template directory and
+change the <code>theme</code> option to the theme you want. Then</p>
+<pre class="prettyprint source"><code>grunt apply</code></pre><p>And the new theme will be in <code>variables.less</code>, <code>bootswatch.less</code>. Don't forget to compile your changes using <code>grunt apply</code> to
+get that change into the template.</p>
+<p><strong>NOTE</strong> that these steps are not necessary to just change the theme, this is only to modify the theme. If all you want to do is
+change the theme, just update conf.json with the new theme and build your docs!</p>
+<h2>Contributing</h2><p>Yes! Contribute! Test! Share your ideas! Report Bugs!</p>
+<h3>Contributers</h3><p><em>Huge</em> thanks to all contributors. If your name should be here, but isn't, please let us know</p>
+<ul>
+<li><a href="https://github.com/marklagendijk">marklagendijk</a></li>
+<li><a href="https://github.com/michaelward82">michaelward82</a></li>
+<li><a href="https://github.com/kaustavdm">kaustavdm</a></li>
+<li><a href="https://github.com/vmeurisse">vmeurisse</a></li>
+<li><a href="https://github.com/bmathern">bmathern</a></li>
+<li><a href="https://github.com/jrkim123us">jrkim123us</a></li>
+<li><a href="https://github.com/shawke">shawke</a></li>
+<li><a href="https://github.com/mar10">mar10</a></li>
+<li><a href="https://github.com/mwcz">mwcz</a></li>
+<li><a href="https://github.com/pocesar">pocesar</a></li>
+<li><a href="https://github.com/hyperandroid">hyperandroid</a></li>
+<li><a href="https://github.com/vmadman">vmadman</a></li>
+<li><a href="https://github.com/whitelynx">whitelynx</a></li>
+<li><a href="https://github.com/tswaters">tswaters</a></li>
+<li><a href="https://github.com/lukeapage">lukeapage</a></li>
+<li><a href="https://github.com/rcosnita">rcosnita</a></li>
+</ul>
+<h2>History</h2><h2>1.3.0</h2><ul>
+<li>Update dependencies and update CSS</li>
+<li>Fixed TOC labels for members</li>
+<li>Apply code highlighting to code blocks in markdown</li>
+<li>Added an option to disable search</li>
+</ul>
+<h2>1.2.1</h2><ul>
+<li>Update lunr dependency used for searching</li>
+</ul>
+<h2>1.2.0</h2><ul>
+<li>Add square brackets around optional parameters</li>
+<li>new option disablePackagePath option which if true makes docstrap not append the package and version to the out path</li>
+<li>allow version to be missing in package.json</li>
+</ul>
+<h2>1.1.4</h2><ul>
+<li>Remove the unreadable orange on pre/code tags and use a dark red. Remove white background as is readable on black or white.</li>
+</ul>
+<h2>1.1.3</h2><ul>
+<li>Get sort option from navOptions as per docs</li>
+<li>tweaks from bootswatch</li>
+</ul>
+<h2>1.1.2</h2><ul>
+<li>Allow example captions to contain markdown if configured in the markdown config <code>includeTags</code> section.</li>
+<li>Fixes full path used as source URL for projects with one source file</li>
+<li>Allow users to update the default template layout file</li>
+</ul>
+<h2>1.1.1</h2><ul>
+<li>Bootswatch update</li>
+<li>Add viewport meta tag to html for better mobile experience</li>
+</ul>
+<h2>1.1.0</h2><ul>
+<li>Added includeDate option</li>
+</ul>
+<h2>1.0.5</h2><ul>
+<li>Navigation to anchor links now works in IE (with some flicker)</li>
+<li>links to other pages now work (with some flicker in some browsers)</li>
+</ul>
+<h2>1.0.4</h2><ul>
+<li>Search results no longer erroneously included in side navbar</li>
+<li>Tutorials now get page titles consistent with everything else</li>
+<li>Improvements to the highlighted nav heading</li>
+</ul>
+<h2>1.0.3</h2><ul>
+<li>Drop-down shows a scrollbar when too big (regression in 1.0.1)</li>
+</ul>
+<h2>1.0.2</h2><ul>
+<li>Support older jsdoc by not looking in &quot;interfaces&quot;</li>
+</ul>
+<h2>1.0.1</h2><ul>
+<li>Tweak side nav and dropdowns to be the bootswatch style</li>
+<li>Make the documentation responsive</li>
+</ul>
+<h2>1.0.0</h2><ul>
+<li>Bump to follow semver (initial development is well and truly over)</li>
+<li>Corrected list of themes</li>
+<li>Added Search</li>
+<li>Remove highlightTutorialCode option - it didnt work</li>
+</ul>
+<h2>0.5.4</h2><ul>
+<li>Fix layout glitch on hte bottom of code samples</li>
+<li>Support for specifying the language for fenced code blocks in the normal way</li>
+<li>Fix the active item in some themes, which was missing a background</li>
+<li>Tables get marked as tables</li>
+<li>Dependency updates</li>
+</ul>
+<h2>0.5.3</h2><ul>
+<li>Removed duplicate headers</li>
+<li>Remove &quot;Index&quot; header</li>
+<li>re-fixed navigation</li>
+<li>removed some dubious features (now pr's that can be re-added with a little polishing)</li>
+</ul>
+<h2>0.5.2</h2><p>Major update__. Amazing help from <a href="https://github.com/tswaters">tswaters</a> to solve a bunch of little problems and a to bring the codebase up to Bootstrap3.
+Make sure you are running the latest version of JSDoc before using this build.</p>
+<p>Again huge, huge thanks to <a href="https://github.com/tswaters">tswaters</a>. Make sure you send him thanks or a tip!!!!!</p>
+<h3>v0.4.15</h3><ul>
+<li>PR Issue #76</li>
+<li>PR Issue #77</li>
+</ul>
+<h3>v0.4.14</h3><ul>
+<li>Issue #69</li>
+</ul>
+<h3>v0.4.13</h3><ul>
+<li>Issue #68</li>
+</ul>
+<h3>v0.4.11</h3><ul>
+<li>Pull Request #59</li>
+</ul>
+<h3>v0.4.8</h3><ul>
+<li>Issue #58</li>
+</ul>
+<h3>v0.4.7</h3><ul>
+<li>Issue #57</li>
+</ul>
+<h3>v0.4.5</h3><ul>
+<li>Issue #55</li>
+<li>Issue #54</li>
+<li>Issue #52</li>
+<li>Issue #51</li>
+<li>Issue #50</li>
+<li>Issue #45</li>
+<li>Issue #44</li>
+</ul>
+<h3>v0.4.3</h3><ul>
+<li>Issue #46</li>
+<li>Issue #46</li>
+<li>Issue #47</li>
+</ul>
+<h3>v0.4.1-1</h3><ul>
+<li>Issue #44</li>
+<li>Update documentation</li>
+<li>Issue #43</li>
+<li>Issue #42</li>
+<li>Issue #34</li>
+</ul>
+<h3>v0.4.0</h3><ul>
+<li>Issue #41</li>
+<li>Issue #40</li>
+<li>Issue #39</li>
+<li>Issue #36</li>
+<li>Issue #32</li>
+</ul>
+<h3>v0.3.0</h3><ul>
+<li>Fixed navigation at page top</li>
+<li>Adds -d switch to example jsdoc command.</li>
+<li>Fixed typo in readme</li>
+<li>Improve search box positioning and styles</li>
+<li>Add dynamic quick search in TOC</li>
+<li>Fix for line numbers styling issue</li>
+</ul>
+<h3>v0.2.0</h3><ul>
+<li>Added jump to source linenumers - still a problem scrolling with fixed header</li>
+<li>changed syntax highlighter to <a href="http://sunlightjs.com/">sunlight</a></li>
+<li>Modify incoming bootswatch files to make font calls without protocol.</li>
+</ul>
+<h3>v0.1.0</h3><p>Initial release</p>
+<h2>Notices</h2><p>If you like DocStrap, be sure and check out these excellent projects and support them!</p>
+<p><a href="https://github.com/jsdoc3/jsdoc/blob/master/LICENSE.md">JSDoc3 is licensed under the Apache License</a></p>
+<p><a href="https://github.com/twitter/bootstrap/blob/master/LICENSE">So is Bootstrap</a></p>
+<p><a href="https://github.com/thomaspark/bootswatch/blob/gh-pages/LICENSE">And Bootswatch</a></p>
+<p><a href="https://github.com/jgallen23/toc/blob/master/LICENSE">TOC is licensed under MIT</a></p>
+<p><a href="https://github.com/gruntjs/grunt-cli/blob/master/LICENSE-MIT">Grunt is also MIT</a></p>
+<p>DocStrap <a href="https://github.com/docstrap/docstrap/blob/master/LICENSE.md">is licensed under the MIT license.</a></p>
+<p><a href="http://sunlightjs.com/">Sunlight uses the WTFPL</a></p>
+<h2>License</h2><p>DocStrap Copyright (c) 2012-2015 Terry Weiss &amp; Contributors. All rights reserved.</p>
+<p>Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the &quot;Software&quot;), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:</p>
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.</p></article>
+    </section>
+
+
+
+    
+
+
+
+    
+        <h1 class="page-title">Index</h1>
+        <section>
+        
+            <header>
+                
+                    <h2>
+                        <span class="ancestors"><a href="module-template_publish.html">template/publish</a></span>
+                    
+                    template/shin-utils.js
+                    </h2>
+                    
+                
+            </header>
+
+            <article>
+                <div class="container-overview">
+                    
+                        
+                        
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+    
+    <div class=description> 
+      <p>This won't show up anywhere, but...</p>
+<p>These are the helper functions introduced by me to supplement the features of <code>ink-docstrap</code> to &quot;become&quot; 
+<code>shinstrap</code>.  There are still quite a few piecemeal code insertions in <code>publish.js</code> (I wasn't particularly 
+trying to create an innoculated or patch apparent version).  This file contains my custom helpers and 
+utilities in the same vein as jsdoc's own <code>templateHelpers.js</code>. (jsdoc/lib/jsdoc/util/templateHelper.js).</p>
+<p>  (<br>  )\ )    )                                 )<br>(()/( ( /( (          (  (         (    ( /(<br>  /(<em>)))()))\   (     )))(    (   )(   )()) (<br>(</em>)) ((<em>)((</em>)  )\ ) ((<em>)()\   )\ (()\ ((</em>) )\<br>/ <strong>|| |(_)(_) _(_/( <em>(()((</em>) ((<em>) ((</em>)| |(<em>)((</em>)<br>\</strong> | ' \ | || ' ))\ V  V // _ | '<em>|| / / (</em>-&lt;<br>|<strong>_/|_||_||_||_||<em>|  \</em>/_/ _</strong>/|<em>|  |</em>_\ /__/</p>
+    </div>
+  
+
+  
+
+  
+
+
+
+
+
+<dl class="details">
+	
+	
+							
+					
+	
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <dt class='tag-author method-doc-label method-doc-details-label'> 
+    Author:
+  </dt>
+
+  
+
+
+
+
+
+  
+    
+    <dd class=tag-author> 
+  
+
+  
+    
+    <ul > 
+  
+
+  
+    
+    
+      
+      
+        <li > 
+          <a href="mailto:shin@shinworks.co">Shin</a>
+        </li>
+      
+    
+  
+
+  
+    
+    </ul> 
+  
+
+  
+    
+    </dd> 
+  
+
+
+
+
+							
+									
+							
+									
+							
+									
+							
+									
+
+
+	
+
+							
+									
+							
+									
+							
+					
+	
+
+</dl>
+                    
+                </div>
+
+                <div class="container-body">
+                    
+                    
+                                
+                            
+                    
+                                
+                            
+                    
+                                
+                            
+                    
+                                
+                            
+                    
+                                
+                            
+                    
+                                
+                            
+                    
+                                    
+                                
+                                    
+                                
+                                    
+                                
+                                    
+                                
+                            
+                    
+
+                </div>
+            </article>
+        </section>
+    
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	`shinstrap` (forked from `ink-docstrap`) by <a href='emailto:shin@shinworks.co'>Shin</a>
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on Wed Oct 17th 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/shinstrap.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

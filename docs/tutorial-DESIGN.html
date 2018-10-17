@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>shinstrap Tutorial: DESIGN</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
+	<link type="text/css" rel="stylesheet" href="styles/supplemental.css">
+	
+		<link type="text/css" rel="stylesheet" href="styles/local.css">
+	
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">shinstrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-template_publish-view.html">template/publish~view</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-base.html">base</a></li><li><a href="module-base_chains.html">base/chains</a></li><li><a href="module-documents_binder.html">documents/binder</a></li><li><a href="module-documents_model.html">documents/model</a></li><li><a href="module-documents_probe.html">documents/probe</a></li><li><a href="module-documents_schema.html">documents/schema</a></li><li><a href="module-Gruntfile.html">Gruntfile</a></li><li><a href="module-ink_collector.html">ink/collector</a></li><li><a href="module-mixins_bussable.html">mixins/bussable</a></li><li><a href="module-mixins_signalable.html">mixins/signalable</a></li><li><a href="module-strings_format.html">strings/format</a></li><li><a href="module-template_publish.html">template/publish</a></li><li><a href="module-utils_logger.html">utils/logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="base.html">base</a></li><li><a href="base_chains.html">base/chains</a></li><li><a href="documents_model.html">documents/model</a></li><li><a href="module-documents_probe.queryOperators.html">documents/probe.queryOperators</a></li><li><a href="module-documents_probe.updateOperators.html">documents/probe.updateOperators</a></li><li><a href="module-ink_collector-ACollector.html">ink/collector~ACollector</a></li><li><a href="module-ink_collector-CollectorBase.html">ink/collector~CollectorBase</a></li><li><a href="module-ink_collector-OCollector.html">ink/collector~OCollector</a></li><li><a href="module-mixins_signalable-Signal.html">mixins/signalable~Signal</a></li><li><a href="utils_logger.Logger.html">utils/logger.Logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="mixins.list.html" class="dropdown-toggle" data-toggle="dropdown">Mixins<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="documents_schema.html">documents/schema</a></li><li><a href="mixins_bussable.html">mixins/bussable</a></li><li><a href="mixins_signalable.html">mixins/signalable</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="Usage.list.html" class="dropdown-toggle" data-toggle="dropdown">Usage<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="tutorial-Usage.html">Usage</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			<section class="tutorial-section">
+
+<header>
+    
+
+    <h2>DESIGN</h2>
+</header>
+
+<article>
+    <h1>Design Documentation</h1><p><code>shinzen</code> which I've now rebranded to <code>shinstrap</code> as I've decided to stick closer to its <code>docstrap</code> roots for this version (and to remove dependencies on things like <code>shinmark</code>) was originally designed to enable easy inclusion of flexible/powerful rendering rules for new, custom jsdoc tags.</p>
+<h2>Percolation/RFC Issues</h2><p>These are, theoretically, the issues I'm currently pondering on a &quot;design&quot; level.</p>
+<ul>
+<li>Some doclets get extra, special handling within <code>docstrap</code> before being rendered.  If we want to enable such things ourselves, we need to extend <code>publish</code> to patch in settings from the conf settings.  The trickiness here is that doclet are not tags, this is a separate level of reference :(.
+  Currently I do this in <code>customizeOutput.doclets.*.processing</code> which probably should be called preprocessing, but also is an extremely limited solution. More exploration is needed to determine a &quot;better&quot; one, however.</li>
+<li><code>extends</code> from <code>method.tmpl</code> and <code>implementors</code> from <code>details.tmpl</code> have not been tested.</li>
+<li>Allow setting of &quot;master&quot; defaults used in <code>listing.scaffolded.general.tmpl</code>?</li>
+<li>I contemplate replacing eval processing with a finite set of flags for each specific use case once I have them all enumerated. -- Increasingly less inclined to do so.</li>
+<li>[Sideways] Convert to using one <code>env</code> (which would then be unpacked in <code>handleScaffolding</code>)?  Here I mean <code>title</code> and <code>kind</code> in addition to <code>doc</code>/<code>data</code> rather than passing them in individually no the stack.  This is totally the way a sandbox call would end up being built.  Upon looking at it, there are only a few cases in use at the moment.  I'm strongly inclined to enumerate them directly as mentioned above, but I'm leaving it in for now while I test.  In the interim, I put in the env, but decided instead to simply access all the relevent information directly (e.g. from <code>_doclet.kind</code>, etc.).  In my testing these are always the same, but I haven't tunneled into the code enough to verify this to be factual.</li>
+<li>[No] Perhaps I should to use a json merge algorithm for defaults in the main tmpl files (e.g. <code>container.tmpl</code>). <code>_.defaults(object, *defaults)</code>.  The issue here is unintended consequences and desired precedence.  At the moment, something which has a default is entirely overwritten if you set any preference for it.  If you were only intending to tweak the settings, this might be inconvenient (and even unexpected), but the inverse is also true (having to override each individual setting).  I feel like the defaults applying per &quot;listing&quot; (or tag) is most intuitive.  Which is to say, &quot;no&quot;, let's not do this.</li>
+<li><p>[No] Summary.  Do I add summary option with an option to suppress to every tag, basically?  <code>if(data.contents.summary &amp;&amp; data.scaffolding.allowSummary)</code>...  Why didn't I do a <code>var rules = data.scaffolding</code> at the start of that file, ffs :(?  Anyway.  I'm inclined to say yes I should, but I suppose the issues are two-fold.  First, I'm introducing aberrant behavior--by default, some listings allow summaries while most listings do not.  Whichever way I make the default of <code>allowSummary</code> will not match that, although I suppose I control the defaults in each of the aggregator templates, so I can mimic the defaults presumed, and thus I'm simply allowing people to customize more which seems fine.  Ok.  So then the main problem stems from the structure of the summaryList itself.  The summary appears in a <code>&lt;dd&gt;</code> which is both not valid for many other listing formats (which is maybe not my concern), but also not possible within my system as specced atm to emit two values for a listing at different layers.  I could add.. what...  <code>allowSummary: 'templateName.tmpl'</code> and then.. I guess <em>inside</em> itemMarshalling I could do something like <code>if(data.contents.summary &amp;&amp; data.scaffolding.allowSummary) { self.partial(data.contents.summary, data.scaffolding.allowSummary) }</code> modulo context of not being in a tmpl at that moment.  And then I have to add a <code>listing.summary-in-dd.tmpl</code> as the default...  I'm feeling very meh about this now.</p>
+<p>  Similarly, the <code>namespaceLinkedSummary.tmpl</code> file ought to be replacable with an application of something more generic, but I haven't figured on a reasonable format that doesn't involve yet another eval.  I could allow for an interpolated string with only direct value references (basically a poor man's sandbox).  Still conflicted on the whole avoid the eval in an internal dev tool.  Tempted to just make a marshaller for this pattern and use itemMarshalling...  Would require setting up linkedSummary.tmpl as a customized <code>tmpl</code>, e.g. <code>partial.custom.summarizable.tmpl</code>.  This would involve needing to pass in/decorate <code>data.contents</code> with <code>data.scaffolding</code> in the <code>usePartial</code> and <code>usePerItemPartial</code> conditions of each <code>listing.custom.*</code>.  This pattern would obviate the need for a <code>allowSummary</code> setting (it's implied by using the summarizable template, right?).  It'd look something like this.  </p>
+<pre class="prettyprint source"><code>  &quot;classes&quot;: {
+      find: {
+          kind: 'class', 
+          memberof: &quot;doc.longname&quot;
+      },
+      validate: &quot;doc.kind !== 'globalobj'&quot;,
+      titleWrapper: &quot;h3&quot;,
+      titleWrapperAttributes: &quot;class=subsection-title&quot;,
+      outerWrapper: &quot;dl&quot;,    // pretty much required for well-formed html :/...
+      useScaffolded: &quot;partial.custom.summarizable.tmpl&quot;,
+      itemMarshalling: [ [ &quot;linkto&quot;, &quot;&quot;, &quot;&quot; ] ]        // resolveNamespaceLink for namespaces
+  };</code></pre></li>
+</ul>
+<h2>Design Goals</h2><p>Build a customizable template to get around those limits of <code>docstrap</code> which irritate me most.</p>
+<h3>Things I don't like about Docstrap...</h3><ul>
+<li>Like most (all?) templates there is no way without changing <code>.tmpl</code> files to add new tags reasonably (without hax, basically).  The <code>.tmpl</code> files aught to be built to look through and include AST leaves dynamically.</li>
+<li>Customizing requires modifying the <code>.less</code> files as specified in their readme below.  This is also super fragile.</li>
+<li>The customization pattern asks you to go into this module's directory and do an <code>npm install</code> and <code>bower install</code> (already unnecessary), so you can then run some grunt tasks to run <code>less</code>.</li>
+<li>Similar issues with recognizing AST nodes like <code>Tasks</code> or alternates to <code>Tutorials</code> so you could have arbitrary menus like <code>APIs</code> or whatever. </li>
+<li>I hate the style &quot;tweak&quot; methodology below.  It's incredibly fragile.</li>
+<li>Their use of bootstrap is currently broken but also feels fragile</li>
+</ul>
+<p>Probably unrelated...</p>
+<ul>
+<li>Shinmark markdown plugin.  The plugins in templates do not appear to be used as plugins for the base system.  So, basically, the plugin can be its own module, or included with this one, but has to be explicitly referenced from the root <code>.jsdoc.conf</code>.  </li>
+</ul>
+<h3>Menus</h3><p>The original idea was to allow something like:</p>
+<pre class="prettyprint source"><code>{
+    &quot;menus&quot; : {
+        &quot;APIs&quot; : {
+            order: 1,
+            &quot;parents&quot;: [ &quot;file-name-from-tutorial&quot; ]
+        }
+    }
+}</code></pre><p>Ideally, we'd add what I'm calling atm &quot;menu&quot; information to the tutorials directory's config .json (why that json file isn't part of the master config file I don't know).  So maybe I should say that ideally I'd merge it into the config json, but either way, these are effectively <code>jsdoc</code> level changes.  jsdoc create the doclets for tutorial files and munges them with <code>children</code> and <code>title</code> information within itself before it gets to the template.</p>
+<p>Now, of course, I can go grab this file again and parse it again.  I could even go steal the code from jsdoc to do it so as to ensure the same mapping/discovery.  The format I had envisioned would look something like this:</p>
+<pre class="prettyprint source"><code>{
+    &quot;test1&quot;: {
+        &quot;title&quot;: &quot;Tutorial One&quot;,
+        &quot;scope&quot;: &quot;private&quot;,
+        &quot;menu&quot;: &quot;APIs&quot;
+    },
+    &quot;test2&quot;: {
+        &quot;title&quot;: &quot;Tutorial Two&quot;
+    }
+}</code></pre><p>I don't particularly like the idea of reading it twice.  I also think all tutorial information really ought to live in the <code>.jsdoc.json</code>.  Multiple files is teh evil.  There's some legacy issues with per file <code>.json</code> config files (e.g. <code>test1.json</code> and <code>test2.json</code>).  Without drawing a definitive conclusion on this issue, I'm going, for the moment, to put scope information along with the &quot;menu&quot; settings currently in <code>customizeOutput</code>.  If it matters, the flames will likely inform the final pattern. </p>
+<p>Of course, once I've looked at the jsdoc source on this topic, it will likely turn out that menus can be subsumed into the parent/child system by simply allowing multiple root parents which would then be the menus (or having the direct children of the current tutorial root be the menus, etc.).  OT at this point.</p>
+<p>Currently we have</p>
+<pre class="prettyprint source"><code>&quot;menus&quot; : {
+    &quot;APIs&quot; : {
+      &quot;title&quot;: &quot;APIs&quot;,
+      &quot;order&quot;: 1,       // Ignored atm
+      &quot;members&quot;: [ &quot;DESIGN&quot; ],
+      &quot;access&quot;: &quot;private&quot;
+    },
+    &quot;Usage&quot; : {
+      &quot;title&quot;: &quot;Usage&quot;,
+      &quot;members&quot;: [&quot;Usage&quot;]
+    }
+}</code></pre><p>This means, btw, that <code>access</code> control is by menu and is all or nothing.  So we do not have per &quot;tutorial&quot; level access.  Also there are some ambiguities.  If you list the same file as a member of two or more menus, that will actually work (as in they will show up in both menus, or either menu in the event one is access restricted).  This does <em>not</em> hold true for tutorials itself.  There is currently no way to put a document both in a menu and in the default &quot;tutorials&quot; menu.  This could be considered a bug.  There's also issues with parents &amp; children.</p>
+<h3>Themes</h3><p>So, to generate their themes, they use an extended build process.</p>
+<p>First, you have to configure <code>jsdoc.conf.json</code> (yes that &quot;example&quot; conf file), and set it to the theme you want to modify.  Then you have to update the <code>.less</code> template files they have for that theme.  The links for this are broken, but their documentation says that <code>grunt apply</code> is supposed to update those.  Once updated, you can then modify them (they recommend you modify <code>main.less</code> only, probably because the other two get replaced everytime you load a new style).  Then you &quot;build&quot; your changes by doing <code>grunt less</code>.  Then <em>the next time</em> you build your docs, if you use the new modified theme, it will be included in the generated docs directory.  So to recap...</p>
+<ol start="0">
+<li>Install all this module's dependencies (<code>npm install</code>; <code>bower install</code>).</li>
+<li>Set the theme you want to modify in <code>jsdoc.conf.json</code> (the one inside the mod).</li>
+<li>Get the updated <code>bootswatch.less</code> and <code>variables.less</code> files by running <code>grunt apply</code> (currently bugged!)</li>
+<li>Modify the <code>main.less</code> file with the changes you want.</li>
+<li>Compile the new version of this theme by running <code>grunt less</code>.</li>
+<li>Rebuild your docs.</li>
+</ol>
+<p>Note that if you forget what you are doing, and change the theme in <code>jsdoc.conf.json</code> mid process, and then run <code>grunt less</code> later, you will just overwrite that theme.  There is no sanity testing of any kind.</p>
+<h2>Ideas</h2><p>I'm thinking I'd like to allow you to set something like this...</p>
+<p>&quot;template&quot;: {
+    &quot;sections&quot;: {
+        &quot;method&quot;: [ &quot;description&quot;, &quot;notes&quot;, &quot;remarks&quot;, &quot;*&quot;, &quot;futures&quot;, &quot;changelog&quot; ]
+    }
+}</p>
+<p>The idea here being that this would output <code>doclet.description</code> first, if present, than <code>doclet.notes</code>, then <code>doclet.remarks</code>, then all the predefined normal things we understand (params, see also, listens for, etc.), then <code>doclet.futures</code> and finally <code>changelog</code>.</p>
+<p>We could also allow some additionally configuration by extension...</p>
+<p>&quot;templates&quot;: {
+    &quot;container&quot; : {
+        &quot;header&quot; : {
+            ??
+        },
+        &quot;article&quot; : {
+            &quot;overview&quot;: {        // Module with modules, Class or every other case...
+                // &quot;class&quot;, &quot;module-with-modules&quot;  (cases for container)
+                &quot;all&quot; : [ &quot;desription&quot;, &quot;task&quot;, &quot;*&quot; ],
+                &quot;kind&quot; : [],        // How to catch the &quot;module with modules&quot; case?
+                &quot;module&quot; : []<br>            }
+            &quot;tags&quot; : {
+                &quot;task&quot;: {
+                    &quot;suppressTitle&quot; : false,        // Can be ommitted if false
+                    &quot;titleWrapper&quot;: &quot;h5&quot;,
+                    &quot;titleWrapperAttributes&quot;: &quot;class=jsdoc-task-title&quot;,
+                    &quot;wrapper&quot;: &quot;div&quot;,
+                    &quot;wrapperAttributes&quot; : &quot;class=jsdoc-task&quot;,
+                }
+            }
+        }</p>
+<pre class="prettyprint source"><code>}
+&quot;containers&quot; : {
+    &quot;module&quot; : [ &quot;task&quot; ]
+    &quot;method&quot; : [ &quot;description&quot;, &quot;algorithm&quot;, &quot;notes&quot;, &quot;remarks&quot;, &quot;*&quot;, &quot;futures&quot;, &quot;changelog&quot; ]
+}
+&quot;container-lists&quot; : {        // Define custom container lists
+    &quot;tasks&quot; : {
+        &quot;lists-kind&quot;: &quot;task&quot;
+    }
+}
+&quot;section-details&quot;: {        // Only necessary to override defaults;  The &quot;notes&quot; example I have below is what I imagine the default to be
+    &quot;notes&quot; : {
+        &quot;wrapper&quot;: &quot;div&quot;,
+        &quot;class&quot;: &quot;notes&quot;
+    },
+    &quot;shin-example&quot;: {            // So looking for doclet.example, to put it in a &lt;pre> tag with the class &quot;shin&quot;.  Could also do montages.  Another idea would be to allow
+                                                // some simple interpolation so you could maybe do... &quot;class&quot; : `${doclet.fullname}-example` or some such.
+        &quot;leaf&quot; : &quot;example&quot;,
+        &quot;wrapper&quot; : &quot;pre&quot;,
+        &quot;class&quot; : &quot;shin&quot;
+    }
+}</code></pre><p>}</p>
+<p>To override the theme default layout structure.  This allows a given project to specify its desired repos setup.</p>
+<p>I have a growing list of defaults.  I'm not sure how pandemic they are, but they may want to move into <code>publish.js</code> rather than being set &quot;inline&quot; in their respective <code>tmpl</code> files.</p>
+<p>container.tmpl (&quot;overview&quot;):</p>
+<pre class="prettyprint source"><code>    [ &quot;container&quot;, &quot;article&quot;, &quot;overview&quot;...
+     ... &quot;default&quot; ]
+     ... &quot;class&quot; ]
+     ... &quot;module-with-modules&quot; ]
+
+    // Conceptually we're looking at three parts
+
+    {
+        &quot;gather&quot;            // The information necessary to know what doclets to display
+        &quot;validation&quot;     // How to validate the &quot;gathered&quot; resources.  This is the most controversial one for me because I do not have an exhaustive understanding of the system.
+        &quot;display&quot;            // How the doclet(s) should be rendered.
+    }
+
+    // Similarly, there are three general cases or patterns of gathered data.
+
+    1. A string (e.g. description)
+    2. A doclet {object} (e.g. a method)
+    3. A collection of doclets {array} (e.g. a collection of parameters)
+
+    arrangement.tags.description = arrangement.tags.description || {
+            suppressTitle: true,
+            wrapper: &quot;div&quot;,
+            wrapperAttributes: &quot;class=description&quot;
+    };
+
+    arrangement.tags.details = arrangement.tags.details || {
+            defer: &quot;details.tmpl&quot;,
+    };
+
+    arrangement.tags.examples = arrangement.tags.examples || {
+            titleWrapper: &quot;h3&quot;,
+            usePartial: &quot;examples.tmpl&quot;,
+            titleContextPluralize: true
+    };
+
+    arrangement.tags.classes = arrangement.tags.classes || {
+        // This find has an extra validation -- `doc.kind !== 'globalobj'` -- the precise requirement cause I'm not clear on.
+            find: {     // Presence of find implies a list result which will be foreach'd with each result being applied
+                                    // This is implemented in `find.tmpl`
+                    kind: 'class', 
+                    memberof: &quot;doc.longname&quot;    // Right now this is convention that `memberof` is resolved while `kind` is static.  One could create an interpolation pattern instead, but overkill for the moment
+            },
+            titleWrapper: &quot;h3&quot;,
+            titleWrapperAttributes: &quot;class=subsection-title&quot;,
+            usePartial: &quot;linkedSummary.tmpl&quot;            // We could allow an examples.tmpl style template for `items` with a different line (or the converse--
+                                                                                        // usePartialPerItem: &quot;method.tmpl&quot; to signify calling inside a `forEach`)
+    };
+
+    arrangement.tags.methods = arrangement.tags.methods || {
+            find: {     // Presence of find implies a list result which will be foreach'd with each result being applied
+                                    // This is implemented in `find.tmpl`
+                    kind: 'function', 
+                    memberof: &quot;title === 'Global' ? {isUndefined: true} : doc.longname&quot;    // Right now this is convention that `memberof` is resolved while `kind` is static.  One could create an interpolation pattern instead, but overkill for the moment
+            },
+            titleWrapper: &quot;h3&quot;,
+            titleWrapperAttributes: &quot;class=subsection-title&quot;,
+            usePartial: &quot;method.tmpl&quot;            // usePartialPerItem: &quot;method.tmpl&quot;
+    };</code></pre><h3>Menus</h3><pre class="prettyprint source"><code>{
+    &quot;menus&quot; : {
+        &quot;APIs&quot; : {
+            order: 1,
+            &quot;parents&quot;: [ &quot;file-name-from-tutorial&quot; ]
+        }
+    }
+}</code></pre><p>By default, any file not explicitly assigned somewhere goes to the Tutorials list</p>
+<h2>The Plan</h2><p>I am currently debating whether I should get into modifying jsdoc directly.  Some of the issues above (shinmark interpretation of tutorial files, for instance), may require patching jsdoc directly to take advantage of.  <a href="https://github.com/jsdoc3/jsdoc/blob/master/lib/jsdoc/util/markdown.js">jsdoc</a> uses <code>markdown-it</code> internally but doesn't expose the parser, save through some hard coded predefines.  This would have to be patched in order to allow a custom markdown-it parser to be used.  This also aught to be integrated into markdown.js plugin (right now I have a hard-coded version which uses my <code>shinmark</code> lib).</p>
+<p>If I were to patch this, I would have to decide how to exactly specify or pass in the custom markdown-it parser.  This is problematic, of course, because it is specified in a <code>conf.json</code> file, which means I can't instantiate it and pass it in.  This may also be relevant to consider in the light of customizing VSC, which also allows a specification of a markdown-it tweaked parser.  I should really look at that.</p>
+<ul>
+<li>Custom markdown-it parser specification at <code>jsdoc</code> root.</li>
+<li>Custom template with dynamic layout by settings of containers (method, module, class, etc.).<ul>
+<li>Some mechanism for specifying new template files for custom containers and layout files patch configurable.</li>
+<li>Add a generic container that will basically just layout based on leaves it knows with generic/normal handling of custom leaves.</li>
+</ul>
+</li>
+<li>Specify custom added menus (ala. Tutorials) with configurable files listed.  Basically, alternate tutorials lists.  This probably requires modification of the <code>jsdoc</code> root as well.     The markdown parser is specified <a href="https://github.com/jsdoc3/jsdoc/blob/b21427343c7294bbf1f14c718a390f3e955e37cb/lib/jsdoc/tutorial.js#L102">here</a>.</li>
+</ul>
+<p>*I've moved <code>jsdoc</code> level issues and thoughts to shin-jsdoc's <code>DESIGN.md</code> file.</p>
+<h2>Design Notes</h2><p>As it stands, I currently associate templates with customization settings (directly).  These are done contextually in the <code>customizeOutput</code> object, using basically a specifier path (e.g. &quot;container:overview:case&quot;).  The idea basically being <code>{template}:{subsection|branch}*:{branch selector}</code>, where a <code>subsection</code> is a structural section like <code>&lt;article&gt;</code> or <code>&lt;div class=body&gt;</code>, etc. and a <code>branch</code> is a &quot;major&quot; template branch (e.g. <code>kind===&quot;class&quot;</code>, etc. where it makes sense by template).  Currently only the <code>container.tmpl</code> has &quot;branches&quot;.  These are obviously artificial and alterable by template as it grows.  The final branch selector is probably a bit sloppy<em>, but is designed to allow setting a default for all the final branches.  This could probably be rearchitected to allow defaulting anywhere along the path, but I have not done so, as yet.  In any event, the idea is you could specify <code>&quot;container:article:overview:class&quot;</code> or <code>&quot;container:article:overview:default&quot;</code>.  The former would look for a <code>customizeOutput.container.article.overview.class</code> object to describe the ordering in the &quot;class&quot; branch case.  If it was not present, it would instead lookd for <code>customizeOutput.container.article.overview.all</code> as the default.  If neither are present, it will set the order to `[ &quot;</em>&quot; ]<code>.</code>&quot;container:article:overview:default&quot;<code>on the other hand, simply looks in</code>customizeOutput.container.article.overview.all<code>or returns</code>[&quot;*&quot;]<code>for the order.  Tags are determined without consider the &quot;branch selector&quot;, so in both of the cases above, tag descriptors will be looked for at</code>customizeOutput.container.article.overview.tags<code>.  If not present, they will be set to defaults (</code>tags: {}`).</p>
+<p>It may turn out, in the long run, that it is desireable to have more context.  This will require some refactoring.  The thought here is that one might with to know, for instance if <code>details.tmpl</code> was called from <code>container.tmpl</code>, <code>members.tmpl</code> or <code>method.tmpl</code>, etc.  The specifier would need some new rules both for factoring and for determining defaults and fallbacks.  </p>
+<p>Another long term gotcha is that I'm probably going to want to be able to specify a data &quot;key&quot; that is different from the rule &quot;key&quot;.  I.e. the &quot;attribs&quot; rule may not always want to reference &quot;data.attribs&quot;.  We've seen this already with &quot;source&quot;, where the &quot;source&quot; rule is called &quot;meta&quot;, iir, because &quot;meta&quot; is where the source information is held.</p>
+<p>It seems as though there are two types of templates--scaffolded and direct pass-through.  The former expects to receive a complex object describing what it is displaying, including <code>rules</code>.  The later expects just a raw data object (these are the old style).  The former would require introduction of scaffolded directed keys, e.g. <code>useScaffoldedPartial</code>, <code>usePerItemScaffoldedPartial</code>, etc.  I haven't actually needed any yet.</p>
+<p>In addition to the standard tag descriptors, I have added the concept of template specific descriptors, to call out options which are only valid on a given template because, presumably, it has special handling for them.  These are held in a special <code>template</code> descriptor in the greater tag descriptor.
+&quot;attribs&quot;: </p>
+<pre class="prettyprint source"><code>{
+    &quot;alternateHandler&quot;: &quot;partial.scaffolded.attribs.tmpl&quot;,
+    &quot;template&quot;: {
+        &quot;displayStyle&quot;: &quot;badges&quot;  // One of badges, buttons, csl
+    }
+}</code></pre><hr>
+<p>So basically, when it comes to generation of html for a specific listing we have..</p>
+<p>With three levels of wrap plus title, with the bottom level being <code>forEach</code>able, and we can substitute a partial (in effect at any level by not declaring the levels above/below it)... Other than clear naming...  That would give me: <code>outermostWrapper</code>, <code>outerWrapper</code>, <code>wrapper</code> and <code>title</code> with <code>defer</code> (nothing), <code>usePartial</code> (wrapper), <code>usePerItemPartial</code> (wrapper, <code>forEach</code>ed), and <code>perItemMapPartial</code> maybe will cover all the cases?  Then <code>asDefinition.tmpl</code> goes away (save the defaults question), and instead is just </p>
+<pre class="prettyprint source"><code>&quot;futures&quot;: {
+    &quot;titleWrapper&quot;: &quot;dt&quot;,
+    &quot;titleCaption&quot;: &quot;Futures:&quot;,
+    &quot;titleWrapperAttributes&quot;: &quot;class='jsdoc-futures-title capitalize-title'&quot;,
+    &quot;outermostWrapper&quot;: &quot;dd&quot;,
+    &quot;outerWrapper&quot;: &quot;ul&quot;,
+    &quot;wrapper&quot;: &quot;li&quot;,
+}</code></pre><p>and <code>todo</code> becomes...</p>
+<pre class="prettyprint source"><code>&quot;todo&quot;: {
+    &quot;titleWrapper&quot;: &quot;dt&quot;,
+    &quot;titleCaption&quot;: &quot;ToDo:&quot;,
+    &quot;titleWrapperAttributes&quot;: &quot;class='tag-todo method-doc-label method-doc-details-label'&quot;,
+    &quot;outermostWrapper&quot;: &quot;dd&quot;,
+    &quot;outermostWrapperAttributes: &quot;class=tag-todo&quot;,
+    &quot;outerWrapper&quot;: &quot;ul&quot;,
+    &quot;wrapper&quot;: &quot;li&quot;,
+}</code></pre><p>The <code>linksList.tmpl</code> (e.g. requires) becomes...</p>
+<pre class="prettyprint source"><code>&quot;requires&quot;: {
+    validate: &quot;data.kind !== 'module'&quot;,
+    titleWrapper: &quot;h5&quot;,
+    titleCaption: &quot;Requires:&quot;,
+    titleWrapperAttributes: &quot;class=subsection-title&quot;,
+    &quot;outerWrapper&quot;: &quot;ul&quot;,
+    &quot;wrapper&quot;: &quot;li&quot;,
+    &quot;linkto&quot;: [ &quot;&quot;, &quot;&quot; ]
+};</code></pre><p><code>asLinksList.tmpl</code> simply goes away, as it is the non-array case of the above.</p>
+<p>Upon dealing with <code>details.tmpl</code> I have switched from a <code>linkto</code> specific marshaller to an <code>itemMarshalling</code> rule.  <code>itemMarshalling: [ [ &quot;linkto&quot;, &quot;&quot;, &quot;&quot; ] ]</code> where <code>linkto</code> could be any marshalling function defined on the <code>view</code> (for instance, <code>resolveAuthorLinks</code>).</p>
+<p>The &quot;KV&quot; listing case would remain.</p>
+<p>Initial notes/planning outlined these cases:</p>
+<ul>
+<li>the complex case (e.g. <code>method.tmpl</code>, etc.), which uses a custom template to piece together many disparate listings to present a view on a complex doclet.</li>
+<li>the definition case (e.g. <code>asDefinitionTerm.tmpl</code>) &lt;--  And this could just be a branch in <code>customizedListing.tmpl</code> : This would subsume <code>linkedSummary.tmpl</code> and <code>asDefinition.tmpl</code></li>
+<li>the list case (e.g. <code>customizedListing.tmpl</code>) : this would subsume <code>linksList.tmpl</code> and <code>asLinksList.tmpl</code> with the ability to specify asLink, but specifying the params to <code>self.linkto</code> seems problematic short of resorting to more evals.  I guess we could do &quot;item&quot;, &quot;item.longname&quot;, &quot;item.name&quot; and deref manually.  Or &quot;&quot; for item, and &quot;name&quot;, etc. for the subfield.  That would be workable.</li>
+<li>a basic title-wrapper/div listing (e.g. <code>customizedListing.tmpl</code>)</li>
+<li>the KV case (e.g. <code>asKVHeading.tmpl</code>).  This format is a-pattern, putting the title (key) and listing (value) inside the same tag (e.g. <code>&lt;H5&gt;</code>) to get something like...  <h5>Type: [Object]</h5>
+
+</li>
+</ul>
+<h2>Conventions</h2><p>First, some basic terminology.  A doclet is an entity, as defined generally by <code>jsdoc</code>.  (e.g. a method, class, module, namespace, etc.).  An &quot;entry&quot; is a discrete displayable chunk of data in the context of a doclet.  A entry can be, itself another doclet or even an array of doclets (e.g. the members of a class, methods in a namespace, etc.).  I use the term entry to refer to the overall information being rendered in this context.  I use the term &quot;listing&quot; to describe the internal name for the entry.  So the &quot;listing&quot; for the members of a namespace is &quot;members&quot;.  A [display] &quot;item&quot;, which I don't think I use often, refers to a member of an entry array in the event that an entry is an array of doclets.  (e.g. a single member doclet in &quot;members&quot;).</p>
+<p>I've decided to adopt a naming convention for <code>.tmpl</code> documents.  </p>
+<p>A full entry handler will start with <code>listing.</code>.  A <code>listing</code> template (maybe I should have called in <code>entry</code>, huh), should be &quot;deferred&quot; to, in that it is a complete entry handler in its own right.</p>
+<p>A fragment template will start with <code>partial.</code>.  These templates are expected to be invoked via something like <code>usePartial</code> or <code>usePerItemPartial</code>.</p>
+<p>A <code>scaffolded</code> template expects to be called from <code>handleScaffolding</code> module:template/publish.handleScaffolding, which primarily means it expects to receive a complex data object containing rendering rules.  The exact set or rendering rules a given template will honor should be listed in the template documentation in <a href="module-template_publish.html">module:template/publish</a> (not all rules are valid/applicable to all entry renderers).</p>
+<h3>Debatable</h3><p>I have come to refer to each individual display element of a doclet as a &quot;listing&quot;.  Originally, I called them <code>tags</code> (as is demonstrable in the <code>.jsdoc.json</code>).  Listings seems better than tags, but I'm not sure it is entirely appropriate either.  &quot;Entry&quot; might be better?  A namespace has entries for the classes and mixins it contains.  A module has entries for its methods, mixins, classes, namespaces, requires, augments, typedefs...  It still sounds a little awkward, but maybe best.  </p>
+</article>
+
+</section>
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	`shinstrap` (forked from `ink-docstrap`) by <a href='emailto:shin@shinworks.co'>Shin</a>
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on Wed Oct 17th 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/shinstrap.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

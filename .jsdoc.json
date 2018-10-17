@@ -1,0 +1,192 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "plugins": [ "node_modules/jsdoc/plugins/markdown", "shin-jsdoc-tags.js" ],  // "_plugins/shinmark", "plugins/summarize",  "node_modules/@shizen/jsdoc-tags/tags.js"
+  "markdown": {
+    "tags": ["issues", "notes", "remarks", "algorithm", "changelog", "honors", "todo" ]
+  },
+  "excludePattern": "(^|\\/|\\\\)",
+  "recurseDepth": 5,
+  "source": {
+    "exclude": [ "node_modules" ]
+  },
+  "opts": {
+    "template": "node_modules/@shizen/shinstrap/template",
+    // "template": "node_modules/jsdoc/templates/default",
+    "tutorials" : "design"    // Sadly, we can only specify one directory, so either links or a pre-gen hook is required.
+  },
+  "templates": {
+    "logoFile": "",
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "dateFormat": "ddd MMM Do YYYY",
+    "outputSourceFiles": false,
+    "outputSourcePath": false,
+    "systemName": "shinstrap",
+    "footer": "",
+    "copyright": "`shinstrap` (forked from `ink-docstrap`) by <a href='emailto:shin@shinworks.co'>Shin</a>",  // Does not go through markdown
+    "navType": "vertical",
+    "theme": "lumen",
+    "linenums": true,
+    "collapseSymbols": false,
+    "inverseNav": true,
+    "protocol": "html://",
+    "methodHeadingReturns": false,
+    "supplementalCSS": "local.css",
+    "templateOverrideDir": "localTmpl",
+    "customizeOutput": {
+      "menus" : {
+        "APIs" : {
+          "title": "APIs",
+          "order": 1,       // Ignored atm
+          "members": [ "DESIGN", "DEVLOG" ],
+          "access": "private"
+        },
+        "Usage" : {
+          "title": "Usage",
+          "members": ["Usage"]
+        }
+      },
+      "doclets" : { // This is where I could add rules to allow generation of separate pages
+        "template": {
+          "processing" : [ "addAttribs", "shinHelpers.addScopeToAttribs", "addSignatureTypes" ]
+        }
+      },
+      "container" : {
+        "article" : {
+          "overview": {		// Module with modules or every other case... ("class" case is covered by method)
+            "all" : [ "description", "notes", "design", "*" ],
+            "tags" : {
+              "notes": {
+                "entryWrapper": "details",
+                "titleWrapper": "summary",
+                "titleAttributesWrapper": "class='jsdoc-notes-title subsection-title'",
+                "wrapper": "div",
+                "wrapperAttributes" : "class=jsdoc-notes-body"
+              },
+              "design": {
+                "titleWrapper": "h5",
+                "titleAttributesWrapper": "class='jsdoc-design-title subsection-title'",
+                "wrapper": "div",
+                "wrapperAttributes" : "class=jsdoc-design-body"
+              }
+            }
+          },
+          "body": {
+            "all" : [ "augments", "requires", "classes", "mixins", "namespaces", "templates", "*" ],
+            "tags" : {
+              "tasks": {
+                "find": {     
+                    "kind": "task", 
+                    "memberof": "_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname"    // Right now this is convention that `memberof` is resolved while `kind` is static.  One could create an interpolation pattern instead, but overkill for the moment
+                },
+                "titleWrapper": "h3",
+                "titleAttributesWrapper": "class='jsdoc-task-title subsection-title'",
+                "usePerItemPartial": "method.tmpl"
+              }, 
+              "templates": {
+                "find": {     
+                    "kind": "template", 
+                    "memberof": "_doclet.longname"   
+                },
+                "validate": "_doclet.kind !== 'globalobj'",
+                "titleWrapper": "h3",
+                "titleAttributesWrapper": "class='jsdoc-template-title subsection-title shinstrap-collapsible' data-hide='false' title='Documentation for the templates used by this module.'",
+                "outerWrapper": "dl",
+                "usePerItemPartial": "method.tmpl"
+              },
+              // Look ma, I'm overriding defaults.
+              "members":{
+                "find": {     
+                    "kind": "member", 
+                    "memberof": "_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname"    
+                },
+                "titleWrapper": "h3",
+                "titleAttributesWrapper": "class='subsection-title shinstrap-collapsible' data-hide='true'",
+                "usePerItemPartial": "members.tmpl",
+                "outerWrapper": "div"
+              },
+              "methods":{
+                "find": {  
+                    "kind": "function", 
+                    "memberof": "_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname"    
+                    
+                },
+                "titleWrapper": "h3",
+                "titleAttributesWrapper": "class='subsection-title shinstrap-collapsible' data-hide='false'",
+                "usePerItemPartial": "method.tmpl",
+                "outerWrapper": "div"
+              }
+            }
+          }
+        }
+      },
+      "method": {
+        "all": [ "template", "honors", "description", "remarks", "*", "futures", "redirect" ],
+        "tags": {
+          "redirect": {
+            "entryWrapper": "fieldset",
+            "entryWrapperAttributes": "class='jsdoc-redirect shinstrap-collapsible' data-hide=true",
+            "titleWrapper": "legend",
+            "titleAttributesWrapper": "class='jsdoc-redirect-title'",
+            "titleCaption": "(Redirect)",
+            "titleInterpolation": "<span class='glyphicon glyphicon-time' aria-hidden='true'></span> Redirected: ${_doclet.redirect}",
+            "find": {
+              "longname": "_doclet.redirect"
+            },
+            "usePerItemPartial": "method.tmpl"
+          },
+          "template": {
+            "titleWrapper": "h5",
+            "titleAttributesWrapper": "class=jsdoc-template-filename-title",
+            "titleCaption": "Template File:",
+            "alternateHandler": "listing.scaffolded.kv.tmpl",
+            "wrapper": "span",
+            "wrapperAttributes": "class=jsdoc-template-filename"
+          },
+          "honors" : {
+            "titleWrapper": "h5",
+            "titleAttributesWrapper": "class=jsdoc-honors-title",
+            "titleCaption": "<em>Honors</em> the following configuration settings:",
+            "usePartial": "params.tmpl"
+          },
+          "remarks": {
+            "titleWrapper": "h5",
+            "titleAttributesWrapper": "class='jsdoc-remarks-title capitalize-title'",
+            "wrapper": "div",
+            "wrapperAttributes" : "class=jsdoc-remarks-body"
+          },
+          "futures": {
+            "titleWrapper": "dt",
+            "titleCaption": "Futures:",
+            "titleAttributesWrapper": "class='jsdoc-futures-title capitalize-title method-doc-label method-doc-details-label'",
+            "outermostWrapper": "dd",
+            "outermostWrapperAttributes": "class=jsdoc-futures",
+            "outerWrapper": "ul",
+            "wrapper": "li"
+          },
+          "attribs": {
+            "alternateHandler": "partial.scaffolded.attribs.tmpl",
+            "template": {
+              "displayStyle": "badges"  // One of badges, buttons, csl
+            }
+          }
+        }
+      },
+      "details": {
+        "all": [ "todo", "*" ]
+      },
+      "members": {
+        "tags": {
+          "attribs": {
+            "alternateHandler": "partial.scaffolded.attribs.tmpl",
+            "template": {
+              "displayStyle": "csl"  // One of badges, buttons, csl
+            }
+          }
+        }
+      }
+    }
+  }
+}

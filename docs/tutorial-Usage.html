@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>shinstrap Tutorial: Usage</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
+	<link type="text/css" rel="stylesheet" href="styles/supplemental.css">
+	
+		<link type="text/css" rel="stylesheet" href="styles/local.css">
+	
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">shinstrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-template_publish-view.html">template/publish~view</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-base.html">base</a></li><li><a href="module-base_chains.html">base/chains</a></li><li><a href="module-documents_binder.html">documents/binder</a></li><li><a href="module-documents_model.html">documents/model</a></li><li><a href="module-documents_probe.html">documents/probe</a></li><li><a href="module-documents_schema.html">documents/schema</a></li><li><a href="module-Gruntfile.html">Gruntfile</a></li><li><a href="module-ink_collector.html">ink/collector</a></li><li><a href="module-mixins_bussable.html">mixins/bussable</a></li><li><a href="module-mixins_signalable.html">mixins/signalable</a></li><li><a href="module-strings_format.html">strings/format</a></li><li><a href="module-template_publish.html">template/publish</a></li><li><a href="module-utils_logger.html">utils/logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="base.html">base</a></li><li><a href="base_chains.html">base/chains</a></li><li><a href="documents_model.html">documents/model</a></li><li><a href="module-documents_probe.queryOperators.html">documents/probe.queryOperators</a></li><li><a href="module-documents_probe.updateOperators.html">documents/probe.updateOperators</a></li><li><a href="module-ink_collector-ACollector.html">ink/collector~ACollector</a></li><li><a href="module-ink_collector-CollectorBase.html">ink/collector~CollectorBase</a></li><li><a href="module-ink_collector-OCollector.html">ink/collector~OCollector</a></li><li><a href="module-mixins_signalable-Signal.html">mixins/signalable~Signal</a></li><li><a href="utils_logger.Logger.html">utils/logger.Logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="mixins.list.html" class="dropdown-toggle" data-toggle="dropdown">Mixins<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="documents_schema.html">documents/schema</a></li><li><a href="mixins_bussable.html">mixins/bussable</a></li><li><a href="mixins_signalable.html">mixins/signalable</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="Usage.list.html" class="dropdown-toggle" data-toggle="dropdown">Usage<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="tutorial-Usage.html">Usage</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			<section class="tutorial-section">
+
+<header>
+    
+
+    <h2>Usage</h2>
+</header>
+
+<article>
+    <h1>Usage instructions</h1><p>Skip to | <a href="#details">Specification Documentation</a> |</p>
+<p>The <code>shinstrap</code> template is intended to be an &quot;in-place&quot; replacement for <a href="https://github.com/docstrap/docstrap"><code>ink-docstrap</code></a>.  In theory, all the bootstrappy goodness you could leverage with docstrap also works with shinstrap.  This mainly boils down to a toc, theming, sunlight highlighting and searching (although last I checked docstrap's theming was temporarily? broken).  </p>
+<p>What this template adds to the pantheon of capabilities of jsdoc/docstrap are four features.</p>
+<ol>
+<li><p>The ability to specify display for new tags. (Skip to the <a href="#newtag.quickstart">Quickstart guide to adding tags</a>)  </p>
+<p>This is the primary purpose of this template.  <code>jsdoc</code> <em>already</em> provides the ability to have its parsers consume unknown (new) tags, and via its &quot;plugins&quot; api, define those tags to allow parsing and decorating of the underlining AST.  (If that last part didn't make sense, it means that with a plugin you can have jsdoc actually record/do something internally with tags you make up).  What was missing from the jsdoc suite of tools was a template which could then <em>display</em> a newly defined tag.  The methodology to date was to jury rig a fragile solution by stuffing the information from a given tag into the display information for another tag (typically description).  The former has many issues, of course, including styling, ordering and munging of page structure.</p>
+<p><code>shinstrap</code> allows you to define when, where and how you want your tags to be displayed.  With <code>shinstrap</code> you define the display information in your project's <code>.jsdoc.json</code> (or whatever you've called your jsdoc conf file).  (<a href="http://usejsdoc.org/about-getting-started.html">go here for a quickstart in jsdoc</a>).  (<a href="http://usejsdoc.org/about-configuring-jsdoc.html">go here for documentation on jsdoc's configuration file</a>).  (<a href="http://usejsdoc.org/about-plugins.html#tag-definitions">go here for a quick overview of how to build a simple jsdoc plugin to recognize new tags</a>).</p>
+<p>All template settings in jsdoc are stored under the <code>&quot;templates&quot;</code> field in the config file's json structure.  For tag definitions in <code>shinstrap</code> you want to decorate <code>templates.customizeOutput</code>.  The &quot;JSONPtr&quot; path from there depends on where you want your tag to be displayed.  (Note that while the primary focus is on new tags, but you can also override how existing tags are displayed as well).</p>
+<p>By default, most jsdoc templates (including docstrap) inherit their structure from the default jsdoc template.  This template uses a particular hierarchy of <code>.tmpl</code> files to display its documentation.  Fortunately, this hierarchy is pretty simple.  At the root, you have <code>container.tmpl</code>.  This handles most of the top-level entities which are getting documented (e.g. modules, classes, namespaces, etc.).  This template then calls, as needed <code>method.tmpl</code> and <code>details.tmpl</code>.  These are the only templates you are likely going to need to know about to display your new tags.</p>
+<p>With this understanding in hand, you are ready to add display specifications for your new tag to <code>shinstrap</code>.  Let's say you wanted to add an <code>@notes</code> tag, similar to <code>@desc</code>, but listed separately at the end of each documented object's details listing.  Assuming you had your plugin written to generate your tag information, you could define its display simply by adding to your jsdoc config file...</p>
+<pre class="prettyprint source"><code> &quot;customizeOutput&quot; {
+   &quot;details&quot;: {
+     &quot;order&quot;: [ &quot;*&quot;, &quot;notes&quot; ],
+     &quot;tags&quot;: {
+       &quot;notes&quot; : {
+         &quot;title&quot;: &quot;h5&quot;,
+         &quot;wrapper&quot;: &quot;div&quot;
+       }
+     }
+   }
+ }</code></pre><p>There are three pieces to this specification.</p>
+<pre class="prettyprint source"><code> &quot;notes&quot; : {
+   &quot;title&quot;: &quot;h5&quot;,
+   &quot;wrapper&quot;: &quot;div&quot;
+ }</code></pre><p>Defines the new tag.  There are several possible options, and in fact, these are the defaults for <code>details.tmpl</code>, but specified here for demonstration purposes.  The <code>title</code> field indicates what the title of the listing should be wrapped in (you can set what the title should be or suppress its display, but by default it will use the name of the tag as the title, in this case &quot;notes&quot;).  The <code>wrapper</code> field tells <code>shinstrap</code> in what element to wrap the value of <code>doclet.notes</code>.  This will generate a listing like</p>
+<pre class="prettyprint source lang-html"><code>&lt;h5>notes&lt;/h5>
+&lt;div>Whatever the contents (&quot;value&quot;) of the notes were.  Technically `shinstrap` will look for `doclet.notes` here by default.&lt;/div></code></pre><p>The second piece comes from this line.</p>
+<pre class="prettyprint source"><code> &quot;all&quot;: [ &quot;*&quot;, &quot;notes&quot; ],</code></pre><p>This tells <code>shinstrap</code> to display the all the usual (default) listings first (<code>&quot;*&quot;</code>) and then display the <code>&quot;notes&quot;</code> tag.</p>
+<p>The final piece is simply where we added the above pieces.  Specifically in </p>
+<pre class="prettyprint source"><code> &quot;customizeOutput&quot; {
+   &quot;details&quot;: {
+     ...
+   }
+ }</code></pre><p>Which indicates to <code>shinstrap</code> that these rules apply to the <code>details.tmpl</code>.  </p>
+<p>In a practical example you'd probably want to at least specify some attributes as well, which would also go in the <code>tags</code> specification.  These are covered in more detail in the <a href="#addtags">Adding Tags</a> section.</p>
+</li>
+<li><p>The ability to add tutorial files under arbitrary menu names following standard access rules.</p>
+<p><code>jsdoc</code> allows a developer to include arbitrary <code>html</code> or <code>markdown</code> files into their generated documentation as &quot;tutorial&quot; files.  These normally are all listed under a &quot;tutorials&quot; menu or listing (depends on the template), with an optional hierarchy specified in the &quot;tutorials&quot; directory.  (See <a href="">tutorials documentation</a> in jsdoc).  <code>shinstrap</code> allows you to alter this behavior to split these documents up into one or more menus which whatever name(s) you desire.  Further, you can tie the display of a menu (and thus the documentation underneath) to an access level, similar to other documentation pieces (i.e. similar to <code>@private</code> in jsdoc).</p>
+<pre class="prettyprint source"><code> &quot;customizeOutput&quot;: {
+   &quot;menus&quot; : {
+     &quot;APIs&quot; : {
+       &quot;title&quot;: &quot;APIs&quot;,
+       &quot;members&quot;: [ &quot;DESIGN&quot; ],
+       &quot;access&quot;: &quot;private&quot;
+     },
+   }
+ }</code></pre><p>The above example instructs <code>shinstrap</code> to build a menu called &quot;APIs&quot; and put the tutorial &quot;DESIGN&quot; in it (and thus remove it from the default &quot;tutorials&quot; group).  Finally, it sets the access level for this menu to &quot;private&quot;.  If jsdoc is invoked with an access setting that would normally prevent generation of &quot;private&quot; tagged documentation, this menu will not be created, and the &quot;DESIGN&quot; document would (still) not be included in the default tutorials group.</p>
+</li>
+<li><p>The ability to override this template's provided <code>tmpl</code> files (as well as provide your own).</p>
+<pre class="prettyprint source"><code> &quot;templateOverrideDir&quot;: &quot;localTmpl&quot;,</code></pre><p>tmpl files in this directory will be used before any in <code>shinstrap</code>'s default <code>tmpl/</code> directory.  This allows you to either override an existing template, if you find yourself in need there of, as well as to provide new templates should you find you need complex handling for a new tag you add.</p>
+</li>
+<li><p>The ability to add an extra <code>css</code> file.</p>
+<pre class="prettyprint source"><code> &quot;supplementalCSS&quot;: &quot;local.css&quot;,</code></pre><p>While <code>docstrap</code> already allows you to theme and modify via its grunt-less-bootstrap build system, sometimes it is convenient to be able to add simple bits of css patchwork.  Some people may feel that allowing such a &quot;back door&quot; opens the way to abuse and bad practices, bad structure and violation of the spirit and purpose of <code>less</code>, <code>bootstrap</code> or <code>docstrap</code>.  So don't do that.  Practically speaking, however, I find it is often convenient to be able to quickly add in small bits of finalizing css.</p>
+</li>
+</ol>
+<h2>Adding Tags <a name="addtags"></a></h2><p>| Skip to the <a href="#newtag.quickstart">Add a New Tag Quickstart</a> |</p>
+<p>This is the primary use case of this template, and thus is getting a called out walk through here.  On a macro level there are two principal steps to added a custom jsdoc tag into the <code>jsdoc</code> ecosystem.  First, you need to create a plugin to teach the <code>jsdoc</code> parser how to recognize and parse your new tag.  Second, (which is what <code>shinstrap</code> adds to the equation), you need to specify to your template (<code>shinstrap</code>) how your new document tag should be rendered.</p>
+<h3>Adding a jsdoc tag plugin</h3><p>This is not actually a part of <code>shinstrap</code> at all, but standard mechanism in <code>jsdoc</code> to add a custom tag.  The jsdoc documentation for this is located <a href="http://usejsdoc.org/about-plugins.html#tag-definitions">here</a>.  Basically, you create a plugin which exports a <code>defineTags</code> function.  This function takes one parameter, a &quot;dictionary&quot; object which provides a <code>defineTag</code> function which your plugin calls to define its tags.  The <code>defineTag</code> function takes a tag name and a descriptor object.  The tag name is the tag literal without the <code>@</code> sign that you are defining.  So if your tag is <code>@notes</code>, this is <code>&quot;notes&quot;</code>.  The descriptor object describes the tags behavior and how it should be parsed.</p>
+<p>The most important part of the descriptor object is the <code>onTagged</code> field, which sets the function to call when a tag of your new type is discovered.  This is where you then have the chance to do any handling you want to decide how to package up the information around your tag and decorate the associated <code>doclet</code>.</p>
+<p>Again, the documentation is <a href="http://usejsdoc.org/about-plugins.html#tag-definitions">here</a>.  Here are some examples.</p>
+<pre class="prettyprint source"><code>dictionary.defineTag(&quot;design&quot;, {
+  mustHaveValue: true,
+  canHaveType: false,
+  canHaveName: false,
+  onTagged: function (doclet, tag) {
+    doclet.design = tag.value;
+  }
+});</code></pre><p>This is a basic custom tag.  It defines an <code>@design</code> tag, which must have a value <code>mustHaveValue: true</code>.  The value specified in any comment tag found will be recorded on the <code>doclet</code> in <code>doclet.design</code> (this is what <code>onTagged</code> is doing).</p>
+<pre class="prettyprint source"><code>dictionary.defineTag(&quot;honors&quot;, {
+  mustHaveValue: false,
+  canHaveType: true,
+  canHaveName: true,
+  onTagged: function (doclet, tag) {
+    if(doclet.honors === undefined) {
+      doclet.honors = [];
+    }
+    doclet.honors.push({
+      name: tag.value.name,
+      type: tag.value.type,
+      description: tag.value.description,
+      defaultvalue: tag.value.defaultvalue
+    });
+  }
+});</code></pre><p>This defines an <code>honors</code> tag (@honors).  The values <code>canHaveType</code> and <code>canHaveName</code> will cause <code>jsdoc</code> to parse <code>@honors {object} usePartial description</code> with <code>&quot;honors&quot;</code> as the <code>tag.value.name</code>, <code>&quot;object&quot;</code> as the <code>tag.value.type</code>, and <code>&quot;description&quot;</code> as <code>tag.value.description</code>.  This is the same pattern as the standard <code>@params</code> document comment.  </p>
+<p>The <code>onTagged</code> function takes the parsed tag information from <code>jsdoc</code> and pushes it onto the associated <code>doclet</code> onto an array called <code>honors</code>.  <code>shinstrap</code> uses this tag to document what settings a given <code>template</code> will make use of in a presentation practically identical to how <code>@params</code> works.</p>
+<pre class="prettyprint source"><code>dictionary.defineTag(&quot;template&quot;, {
+  mustHaveValue: true,
+  canHaveType: false,
+  canHaveName: true,
+  onTagged: function (doclet, tag) {
+    doclet.kind = &quot;template&quot;;
+
+    // Name specified?
+    var m = tag.text.match(/^(\w+)\s+(\w+(?:\.(?!tmpl)\w*)*\.tmpl)/);
+    if(m) {
+      doclet.name = m[1];
+      doclet.template = m[2];
+    } else {
+      // Match detail.tmpl or detail.blah.tmpl, etc...
+      var m = tag.text.match(/^(\w+)(?:\.(?!tmpl)\w*)*\.tmpl/);
+      if(m && m.length > 0) {
+        doclet.name = m[1];
+      } else {
+        doclet.name = tag.text;
+      }
+      doclet.template = tag.text;
+    }
+    doclet.scope = &quot;static&quot;;
+  }
+});</code></pre><p>This is the definition for the <code>@template</code> document comment.  This jsdoc comment tag allows one to create an entry describing a template (which can not be directly commented as <code>jsdoc</code> can not parse them).   When found this tag's <code>onTagged</code> does a few things.  Internally, <code>doclet</code>s are created with custom ids using <code>jsdoc</code>'s <a href="http://usejsdoc.org/about-namepaths.html">&quot;namepath&quot;</a> specification.  These ids are built based on a tag's <code>name</code>.  This tag is creating a <code>doclet</code> and giving it a name, which will then be used to derive its custom it.  Namepaths in <code>jsdoc</code> give <code>&quot;.&quot;</code>s a special meaning, which causes <code>jsdoc</code> to get confused when building the id for the associated <code>doclet</code> if the name contains <code>&quot;.&quot;</code>s (like, for instance, if it were the name of a template file, which all have the extention <code>.tmpl</code>--e.g. <code>container.tmpl</code>).  To get around this, <code>onTagged</code> does some simple regex parsing.  If the <code>@template</code> tag has a name, it uses that value for the name of the resulting <code>doclet</code>.  If it does not, it will generate a name by parsing the value of the <code>@template</code> tag.  It then records the actual file name of the template in <code>doclet.template</code>.  Finally, by usage convention, all templates are considered to be &quot;static&quot; members of the module which uses them (<code>doclet.scope=&quot;static&quot;</code>).</p>
+<p>You can verify if your tags are being parsed as you would like them by a number of methods.  Most easily, you can directly debug <code>jsdoc</code>.  You can output information on the console from your <code>onTagged</code> function.  You can also ask <code>jsdoc</code> to print out all of the doclets it has generated for your source code by specifying <code>-X</code> on the commandline.  This can be very verbose, so you might want to redirect it into a file you can peruse.</p>
+<h3>Specifying Tag Display in <code>shinstrap</code></h3><p>Once you have <code>jsdoc</code> parsing and decorating its AST with your tag information, you will most likely want to get it rendered in your documentation.  This is where <code>shinstrap</code> comes in.  Rendering specifications are enumerated in the <code>templates</code> setting of your jsdoc configuration file.  For the most part, the bulk of the settings will live in <code>templates.customizeOptions</code>.  You can read the detailed specifications <a href="#details">here</a>.</p>
+<p>The basic idea for tag display is <em>if a doclet/data chunk has data for your tag</em> then we want to render some HTML tag structure with that data in it.  This first part is typically quite simple.  All tag rules intrinsically associate their tag name with the presence of a field with the same name on the doclet.  So a <code>notes</code> tag will expect to find <code>doclet.notes</code> to be present.  If it is not present, then it assume that <code>doclet</code> has no notes.  So from the tag examples above, the <code>design</code> tag would be defined in the <code>&quot;tags&quot;</code> section under <code>&quot;design&quot;</code>, because it records the value of the tag in <code>doclet.design</code>.  If for some quixotic reason you decided to make a take called <code>@foo</code> and its <code>onTagged()</code> stored its value in <code>doclet.bar</code>, your tag rule for your <code>@foo</code> tag would want to live in <code>tags.bar</code>.  There only exception to this rule are tags which make use of the special <code>find</code> keyword.  Those are described in more detail in the <a href="#customizeOutput.templates.tags">tags specificaton</a> section.</p>
+<p>There are two parts to a render specification for a tag.  There is the html structure in which its information should be rendered, and there is the question of where and in what order that html structure should be put out.  <code>shinstrap</code> separates these specifications into two separate &quot;sections&quot; called <a href="#customizeOutput.templates.order">&quot;order&quot;</a> and <a href="#customizeOutput.templates.tags">&quot;tags&quot;</a>.  These are effectively namespaced by the template to which they apply (the template in which you want your tag data to be rendered).  In <code>shinstrap</code> the standard templates which one cares about in this regard are <code>container.tmpl</code>, <code>method.tmpl</code> and <code>details.tmpl</code>.  These are described in more detail in the <a href="#customizeOutput.templates">templates section</a>.  This gives the configuartion file's <code>&quot;templates&quot;</code> section the following structure for specifying rendering information for custom tags:</p>
+<pre class="prettyprint source"><code>{
+  &quot;customizeOutput: {
+    &quot;container&quot; : {
+      ...
+    },
+    &quot;method&quot;: {
+      ...
+    },
+    &quot;details&quot;: {
+      ...
+    }
+  }
+}</code></pre><p>With each section containing the specifications for its associated template.  The internals of these sections then specify the <code>&quot;order&quot;</code> and the <code>&quot;tags&quot;</code> structure information.</p>
+<pre class="prettyprint source"><code>&quot;method&quot;: {
+  &quot;all&quot;: [ &quot;description&quot;, &quot;design&quot;, &quot;*&quot; ],
+  &quot;tags&quot;: {
+    &quot;design&quot;: {
+      &quot;title&quot;: &quot;h5&quot;,
+      &quot;titleAttributes&quot;: &quot;class='jsdoc-design-title subsection-title'&quot;,
+      &quot;wrapper&quot;: &quot;div&quot;,
+      &quot;wrapperAttributes&quot; : &quot;class=jsdoc-design-body&quot;
+    }
+  }
+}</code></pre><p>The <code>&quot;all&quot;</code> entry is an <code>&quot;order&quot;</code> specifier.  The <code>&quot;tags&quot;</code> entry describes the structure to emit when rendering your tag.  In the above example, the <code>&quot;order&quot;</code> of <code>[ &quot;description&quot;, &quot;design&quot;, &quot;*&quot; ]</code> indicates to <code>shinstrap</code> that it should first render any <code>description</code> for the doclet, then any <code>design</code>, and then any remaining listings for the <code>doclet</code> which <code>method.tmpl</code> considers to be default (those tags which <code>docstrap</code> would have rendered in its <code>method.tmpl</code>).</p>
+<p>The <code>&quot;tags&quot;</code> section tells <code>shinstrap</code> how to render the data in the event that it is present (i.e. in the event there is a <code>doclet.design</code>).  In this case it will render a title (based on the default <code>&quot;design&quot;</code>) in an <code>&lt;h5&gt;</code> element with the attribute <code>class='jsdoc-design-title subsection-title'</code>.  The value will be rendered after that in a <code>&lt;div&gt;</code> element with the attribute <code>class=jsdoc-design-body</code>.  These are all <code>class</code> attributes here, but this is arbitrary, they could as easily have been <code>foo=true, bar=false, baz=left</code>.</p>
+<p>The <code>&quot;tags&quot;</code> section can take a number of values to specify a variety of rendering options.  These are described more fully in the <a href="#customizeOutput.templates.tags">tags section</a>.</p>
+<p>As for the other example tags.  <code>@honors</code></p>
+<pre class="prettyprint source"><code>&quot;method&quot;: {
+  &quot;all&quot;: [ &quot;template&quot;, &quot;honors&quot;, &quot;description&quot;, &quot;remarks&quot;, &quot;*&quot;, &quot;futures&quot; ],
+  &quot;honors&quot; : {
+    &quot;title&quot;: &quot;h5&quot;,
+    &quot;titleAttributes&quot;: &quot;class=jsdoc-honors&quot;,
+    &quot;titleCaption&quot;: &quot;&lt;em>Honors&lt;/em> the following configuration settings:&quot;,
+    &quot;usePartial&quot;: &quot;params.tmpl&quot;
+  }</code></pre><p>Again, this specification effects the <code>methods.tmpl</code> template.  Tag specifications for <code>container.tmpl</code> are a bit more complicated because there are multiple valid template namespaces.  First because <code>container.tmpl</code> has two sections--an overview section and a body section, and second because there are three rendering paths for the overview section--the default, the &quot;class&quot; case and the &quot;module-with-modules&quot; case.  None of that is relevant to this example.</p>
+<p>Here, we define <code>honors</code> information to be rendered after the <code>template</code> information but before the <code>description</code>.  This might seem confusing if you are thinking about it, because we're doing something a bit confusing with our naming patterns here vis a vis <code>template</code> which will become more clear in the next example.  For now, focus on the <code>honors</code> part.  </p>
+<p>If there is any <code>honors</code> data in <code>doclet.honors</code> in the <code>doclet</code> being examined by <code>method.tmpl</code> it will render a title in an <code>&lt;h5&gt;</code> element with the attribute <code>class=jsdoc-honors</code>.  The title's innerHTML value will be <code>&lt;em&gt;Honors&lt;/em&gt; the following configuration settings:</code>, so in other words it will render...</p>
+<pre class="prettyprint source lang-html"><code>&lt;h5 class=jsdoc-honors>&lt;em>Honors&lt;/em> the following configuration settings:&lt;/h5></code></pre><p>To render the value for <code>doclet.honors</code> <code>shinstrap</code> will delegate that rendering to the <code>params.tmpl</code> template, which is the template used to render <code>@params</code> for methods (recall that in our tag creation example above, we had <code>jsdoc</code> parse <code>@honors</code> in the same fashion as <code>@params</code> only keeping a subset of the possible things <code>@params</code> can specify).  <code>doclet.honors</code> just like <code>doclet.params</code> is an array of values, and thus we get the familiar output we expect.  We could, instead have provided our own template here by specifying <code>&quot;usePartial&quot;: &quot;honors.tmpl&quot;</code> for example, setting a <a href="#templateOverrideDir"><code>templateOverrideDir</code></a> and creating our own <code>honors.tmpl</code> file there.</p>
+<h4><code>@template</code></h4><p><code>@template</code> is our big example in this walk through, because it shows a couple of techniques at once.  First, recall our tag parsing and doclet generation process above--We recorded the <code>name</code> of the template as the <code>doclet.name</code>, its <code>kind</code> as <code>template</code> and the actual file name of the template as <code>doclet.template</code></p>
+<pre class="prettyprint source"><code>&quot;container&quot;: {
+  &quot;body&quot;: {
+    &quot;all&quot; : [ &quot;augments&quot;, &quot;requires&quot;, &quot;classes&quot;, &quot;mixins&quot;, &quot;namespaces&quot;, &quot;templates&quot;, &quot;*&quot; ],
+    &quot;tags&quot; : {
+      &quot;templates&quot;: {
+        &quot;find&quot;: {     
+            &quot;kind&quot;: &quot;template&quot;, 
+            &quot;memberof&quot;: &quot;_doclet.longname&quot;
+        },
+        &quot;validate&quot;: &quot;_doclet.kind !== 'globalobj'&quot;,
+        &quot;title&quot;: &quot;h3&quot;,
+        &quot;titleAttributes&quot;: &quot;class=subsection-title&quot;,
+        &quot;outerWrapper&quot;: &quot;dl&quot;,
+        &quot;usePerItemPartial&quot;: &quot;method.tmpl&quot;
+      }
+    }
+  }
+},
+&quot;method&quot;: {
+  &quot;all&quot;: [ &quot;template&quot;, &quot;honors&quot;, &quot;description&quot;, &quot;remarks&quot;, &quot;*&quot;, &quot;futures&quot; ],
+  &quot;tags&quot;: {
+    &quot;template&quot;: {
+      &quot;title&quot;: &quot;h5&quot;,
+      &quot;titleCaption&quot;: &quot;Template File:&quot;,
+      &quot;alternateHandler&quot;: &quot;listing.scaffolded.kv.tmpl&quot;,
+      &quot;wrapper&quot;: &quot;span&quot;,
+      &quot;wrapperAttributes&quot;: &quot;class=jsdoc-template-filename&quot;
+    }
+  }
+}</code></pre><p>Here we're specifying two separate entries.  The first in <code>container.body</code> is the &quot;root&quot; entry for a template as specified by <code>@template</code>.  <code>container.tmpl</code> renders a variety of &quot;first order&quot; <code>doclet</code>s like <code>module</code>s, <code>class</code>es and <code>namespace</code>s.  By convention, we use our <code>@template</code> document comment as members of a <code>module</code> for documentation purposes.  This association is actually done explicitly using <code>@memberof module:...</code>.  When <code>container.tmpl</code> reaches the <code>template</code> entry it checks to see if it has a value for that entry on its current <code>doclet</code> in order to decide if it should render it.  Unlike the usual pattern for simple entries, the <code>template</code> tag description for <code>container.body</code> has a <code>find</code> specification.  This tells <code>container.tmpl</code> that this entry is valid and should be rendered if it can find any <code>doclet</code>s of <code>kind</code> <code>&quot;template&quot;</code> which are <code>memberof</code> <code>_doclet.longname</code> (the <code>doclet</code> <code>container.tmpl</code> is looking at).  This is how <code>jsdoc</code> associates <code>doclet</code>s with each other.  The same mechanics are used to find classes, mixins, etc. which are members of a given module, methods in classes, etc.</p>
+<p>If <code>container.tmpl</code> finds any such <code>doclet</code>s it will then attempt to validate (superfluously in this case) them according to the conditions in <code>validate</code>.  All <code>doclet</code>s which pass this validation step are then rendered.  The next settings should seem familiar.  <code>title</code> and <code>titleAttributes</code> cause an html <code>&lt;h3&gt;</code> element to be rendered with the attribute <code>class=subsection-title</code> and the caption/innerHTML of <code>templates</code>.  <code>outerWrapper</code> then renders a <code>&lt;dl&gt;</code> element the contents of which are whatever is rendered by <code>method.tmpl</code>.  <code>usePerItemPartial</code> specifies that <code>method.tmpl</code> should be called <em>for each</em> <code>doclet</code> that came back from the find and passed validation.  Note that <code>outerWrapper</code> is specified here because <code>wrapper</code> and <code>usePerItemPartial</code> both address the same &quot;level&quot; of nested output (<code>usePerItemPartial</code> also has higher precedence, but either way would be broken for what we want to achieve).</p>
+<p>This is where our second tag specification comes in.  So far, we've rendered a title and are rendering a <code>method.tmpl</code> for each of our template <code>doclets</code> created by our <code>@template</code> tag definition we defined above.  <code>method.tmpl</code> will take care of rendering most anything else we have defined on our template doclet, like <code>@desc</code>, <code>@author</code> or <code>@see</code> tags, etc. as well as our custom <code>@honors</code> tag.  But in our <code>@template</code> definition we did one other thing, we decorated our template <code>doclet</code> with another value--<code>template</code> containing the file name of the template.  (We might have considered naming it something else, like <code>filename</code>).</p>
+<p><code>method.tags.template</code> describes how to render that data when <code>method.tmpl</code> encounters a <code>doclet</code> with a <code>template</code> field.  The settings for <code>template</code> should be largely familiar by now.  <code>title</code> and <code>titleAttributes</code> specify the title (with the default caption of <code>template</code>).  <code>wrapper</code> and <code>wrapperAttributes</code> indicate that we want <code>shinstrap</code> to render a <code>&lt;span class=jsdoc-template-filename&gt;</code> for each entry.  The <code>alternateHandler</code> entry is new.  The vast majority of custom listings are handled in <code>shinstrap</code> by <code>listing.scaffolded.general.tmpl</code>.  This entry says rather than use that template, which renders a title followed by a value in separate wrappers, that <code>shinstrap</code> should use <code>listing.scaffolded.kv.tmpl</code>.  <code>kv</code> in this case stands for &quot;key-value&quot;.  Which is to say we want to see <code>&lt;title-wrapper&gt;...&lt;value-wrapper&gt;...&lt;/value-wrapper&gt;&lt;/title-wrapper&gt;</code>.  There are a few key-value rendered listings in <code>docstrap</code> by default, and these have been reproduced in <code>shinstrap</code>.  The available templates are described in more detail in the <a href="#customizeOutput.templates.tags">tags section</a>.</p>
+<p><a name="newtag.quickstart"></a></p>
+<h3>Adding a Tag Quickstart</h3><p>To quickly add a new tag and see it working, follow these steps.</p>
+<ol>
+<li><p>First, make sure you have everything you need installed.</p>
+<pre class="prettyprint source"><code> npm install --save-dev jsdoc
+ npm install --save-dev shinstrap</code></pre></li>
+<li><p>Second, you need to create a simple <code>jsdoc</code> plugin to teach jsdoc how it should annotate the information conveyed by your tag.  This requires creating a javascript file.  If you intend to use the same set of tags in multiple projects you will likely want to make these tags into a module and use your favorite package management system to deploy them.  For this example, however, we'll just put them into a file at the root of your project.</p>
+<p> <code>jsdoc-tags.js</code>:</p>
+<pre class="prettyprint source"><code> exports.defineTags = function (dictionary) {
+   dictionary.defineTag(&quot;notes&quot;, {
+       mustHaveValue: true,
+       canHaveType: false,
+       canHaveName: false,
+       onTagged: function (doclet, tag) {
+         doclet.notes = tag.value;
+       }
+   });
+ }; </code></pre><p> Note that the above is standard <code>jsdoc</code> plugin format and is valid outside the context of <code>shinstrap</code>.</p>
+</li>
+<li><p>Setup your <code>.jsdoc.json</code> file.  There are many settings you might want to set in your configuration file, but for the moment, create this file at the root of your project with the following content.</p>
+<pre class="prettyprint source"><code> {
+   &quot;tags&quot;: {
+     &quot;allowUnknownTags&quot;: true
+   },
+   &quot;plugins&quot;: [ &quot;jsdoc-tags.js&quot; ],  
+   &quot;excludePattern&quot;: &quot;(^|\\/|\\\\)&quot;,
+   &quot;recurseDepth&quot;: 5,
+   &quot;source&quot;: {
+     &quot;exclude&quot;: [ &quot;node_modules&quot; ]
+   },
+   &quot;opts&quot;: {
+     &quot;template&quot;: &quot;node_modules/shinstrap/template&quot;
+   },
+   &quot;templates&quot;: {
+     &quot;customizeOutput&quot;: {
+       &quot;container&quot; : {
+         &quot;article&quot; : {
+           &quot;overview&quot;: {
+             &quot;all&quot; : [ &quot;description&quot;, &quot;notes&quot;, &quot;*&quot; ],
+             &quot;tags&quot; : {
+               &quot;notes&quot;: {
+                 &quot;title&quot;: &quot;h5&quot;,
+                 &quot;titleAttributes&quot;: &quot;class='jsdoc-notes-title subsection-title'&quot;,
+                 &quot;wrapper&quot;: &quot;div&quot;,
+                 &quot;wrapperAttributes&quot; : &quot;class=jsdoc-notes-body&quot;
+               }
+             }
+           }
+         }
+       }
+     }
+   }
+ }</code></pre><p> This specifies a couple of things to <code>jsdoc</code>, many of which are &quot;standard&quot; (like anything I don't specifically call out here).  <code>&quot;tags&quot;: { &quot;allowUnknownTags&quot;: true }</code> tells <code>jsdoc</code> to accept without error comment tags which it does not recognize.  This isn't strictly speaking necessary if all your comment tag types are covered by your plugin.  <code>&quot;opts&quot;: { &quot;template&quot;: &quot;node_modules/shinstrap/template&quot; }</code> indicates which template you want to use to render your documentation.  <code>&quot;templates&quot;: {...}</code> are the settings specific to that template.  For <code>shinstrap</code> the custom rendering information for your new comment tag is in <code>templates.customizeOutput.container.article.overview</code>.  That path indicates when the new tag will be rendered.  The fields inside <code>templates.customizeOutput.container.article.overview.tags.notes</code> dictate the specific html structure to be rendered.  <code>templates.customizeOutput.container.article.overview.all</code> specifies where amongst the various doclet's listings the new tag's listing should go.</p>
+</li>
+<li><p>Make sure you have a source file with your new comment tag in it ;)</p>
+<pre class="prettyprint source"><code> /**
+ * @module test
+ * @desc
+ * This is a gratuitous description put in as part of my test.
+ * @notes
+ * This is an example of using my new document tag.
+ */</code></pre></li>
+<li><p>Generate the documentation.  From the root of your project, enter into the command line...</p>
+<pre class="prettyprint source lang-bash"><code> ./node_modules/.bin/jsdoc -c ./.jsdoc.json -d docs/ -r .</code></pre><p> This will create your documentation into the <code>docs/</code> directory (change the value of the <code>-d</code> parameter if you want to put it elsewhere).  <code>-r</code> specifies to build the documentation by looking at all valid source files in this directory descending recursively down (to up to 5 levels deep, from our setting in <code>.jsdoc.json</code> -- <code>&quot;recurseDepth&quot;: 5</code>).  The <code>-c</code> option tells jsdoc where to find your configuration file.  If you decide to name your config file something other than <code>.jsdoc.json</code> you can change it here.  There are other CLI options for jsdoc, you can find them <a href="http://usejsdoc.org/about-commandline.html">here</a>.</p>
+<p> At this point you should have some nicely generated documentation (well, at least to the extent that you have jsdoc comments in your source code).  The &quot;root&quot; of your documentation should be located in <code>docs/index.html</code>.</p>
+</li>
+</ol>
+<p><a name="details"></a></p>
+<h2>Specifications in Detail</h2><ul>
+<li><a href="#supplementalCSS">supplementalCSS</a></li>
+<li><a href="#templateOverrideDir">templateOverrideDir</a></li>
+<li><a href="#customizeOutput">customizeOutput</a><ul>
+<li><a href="#customizeOutput.menu">menu section</a></li>
+<li><a href="#customizeOutput.doclets">doclets section</a></li>
+<li><a href="#customizeOutput.templates">template sections</a><ul>
+<li><a href="#customizeOutput.templates.order">order field</a></li>
+<li><a href="#customizeOutput.templates.tags">tags field</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a name="supplementalCSS"></a></p>
+<h3><code>supplementalCSS</code></h3><p>This is a simple configuration setting to specify an additional css file to include with all generated documentation.  It follows the same discovery rules as all other <code>jsdoc</code> resource files.  It is added after other css files for overriding porpoises.</p>
+<pre class="prettyprint source"><code>&quot;supplementalCSS&quot;: &quot;local.css&quot;</code></pre><p><a name="templateOverrideDir"></a></p>
+<h3><code>templateOverrideDir</code></h3><p>This is a project relative directory path to a directory which should be added to the template discovery path at the highest precedence.  When <code>shinstrap</code> looks for a template, either internally or via a tag specification (e.g. <code>usePartial</code>), it will look for that template in the directory specified by this value before looking anywhere else.</p>
+<pre class="prettyprint source"><code>&quot;templateOverrideDir&quot;: &quot;localTmpl&quot;</code></pre><p><a name="customizeOutput"></a></p>
+<h3><code>customizeOutput</code></h3><p>| <a href="#customizeOutput.menu">menu</a> | <a href="#customizeOutput.doclets">doclets</a> | <a href="#customizeOutput.templates">template</a> | <a href="#customizeOutput.templates.order">order</a> | <a href="#customizeOutput.templates.tags">tags</a> |</p>
+<p>This is the section where the bulk of the <code>shinstrap</code> specific specifications live.  <code>customizeOutput</code> has three general &quot;types&quot; of keys--The <a href="#customizeOutput.menu"><code>menu</code></a> key, the <a href="#customizeOutput.doclets"><code>doclets</code></a> key (probably best ignored), and the <a href="#customizeOutput.templates">&quot;template&quot;</a> keys.  Currently there are four &quot;valid&quot; template keys, <code>method</code>, <code>container</code>, <code>details</code>, and <code>members</code>.</p>
+<p><a name="customizeOutput.menu"></a></p>
+<h4>Menu Section</h4><pre class="prettyprint source"><code>&quot;customizeOutput&quot;: {
+  &quot;menus&quot; : {
+    &quot;APIs&quot; : {
+      &quot;title&quot;: &quot;APIs&quot;,
+      &quot;order&quot;: 1,       // Ignored atm
+      &quot;members&quot;: [ &quot;DESIGN&quot; ],
+      &quot;access&quot;: &quot;private&quot;
+    },
+    &quot;Usage&quot; : {
+      &quot;title&quot;: &quot;Usage&quot;,
+      &quot;members&quot;: [&quot;Usage&quot;]
+    }
+  }
+}</code></pre><p><a name="customizeOutput.doclets"></a></p>
+<h4>Doclets Section</h4><p>This is a bit of a dangerous curves section and best ignored by most users. It is also of limited use at this moment.  This section allows the specification of additional processing on doclets by <code>kind</code>, similar to what <code>docstrap</code> performs for certain built-in doclet <code>kind</code>s.  By and large this has to do with generating attribute lists and call signatures for display.  In <code>shinstrap</code>, attribs rendering has been moved to <code>partial.scaffolded.attribs.tmpl</code>.  This section indicates that the specified doclet kind (<code>&quot;template&quot;</code> in this case) should be preprocessed by calling <code>addAttribs(doclet)</code>, <code>shinHelpers.addScopeToAttribs(doclet)</code> and <code>addSignatureTypes(doclet)</code> in that order before the doclets are rendered.  Effective use of this specification requires internal understanding of <code>docstrap</code>/<code>shinstrap</code> and is thus probably not useful (at this junction).</p>
+<pre class="prettyprint source"><code>&quot;customizeOutput&quot;: {
+  &quot;doclets&quot; : { // This is where I could add rules to allow generation of separate pages
+    &quot;template&quot;: {
+      &quot;processing&quot; : [ &quot;addAttribs&quot;, &quot;shinHelpers.addScopeToAttribs&quot;, &quot;addSignatureTypes&quot; ]
+    }
+  }
+}</code></pre><p><a name="customizeOutput.templates"></a></p>
+<h4>Template Sections</h4><p>Currently, only three templates are wired to &quot;honor&quot; template customization specifications--<code>container.tmpl</code>, <code>method.tmpl</code>, and <code>details.tmpl</code>.  Each of these takes an &quot;order&quot; specification and a &quot;tags&quot; specification.  The &quot;tags&quot; specification is always under the field <code>tags</code> as an object with the name of each tag specification as a key (each tag specification is, itself, an object).  The tag specification format is describe <a href="#customizeOutput.templates.tags">here</a>.  The &quot;order&quot; specification is listed under a field name based on the circumstances to which it applies (<code>&quot;all&quot;</code> being the default case).  For <code>method.tmpl</code> (&quot;customizeOutput.method&quot;) and <code>details.tmpl</code> (&quot;customizeOutput.details&quot;) <code>&quot;all&quot;</code> is the only valid case.  <code>container.tmpl</code> is more complicated however.  </p>
+<p>The container template has two sections--an &quot;overview&quot; section and a &quot;body&quot;.  Further, the &quot;overview&quot; section has three separate rendering paths, depending on the doclet being rendered--It might be a module containing other modules, it might be a class, or it could be something (anything) else.  The specifications for these cases are delineated by the keys used to contain those specifications.  The <code>templates.customizeOutput.container.body</code> covers the specifications for the &quot;body&quot; section of the container.  The <code>templates.customizeOutput.container.overview</code> section covers specifications for the &quot;overview&quot; section.  This section is further potentially divided by its three render cases--<code>templates.customizeOutput.container.overview.class</code>, <code>templates.customizeOutput.container.overview.module-with-modules</code>, and <code>templates.customizeOutput.container.overview.default</code>.  For this section the <code>templates.customizeOutput.container.overview.all</code> will be used as a fallback for any of the above which are not specified.  All these branches use the same &quot;tags&quot; section, it is the &quot;order&quot; section which varies.  The &quot;order&quot; specification is described <a href="#customizeOutput.templates.order">here</a>.</p>
+<pre class="prettyprint source"><code>&quot;customizeOutput&quot;: {
+  &quot;container&quot; : {
+    &quot;article&quot; : {
+      &quot;overview&quot;: {        
+        &quot;all&quot; : [ &quot;description&quot;, &quot;notes&quot;, &quot;design&quot;, &quot;*&quot; ],
+        &quot;tags&quot; : {
+          &quot;notes&quot;: {
+            &quot;title&quot;: &quot;h5&quot;,
+            &quot;titleAttributes&quot;: &quot;class='jsdoc-notes-title subsection-title'&quot;,
+            &quot;wrapper&quot;: &quot;div&quot;,
+            &quot;wrapperAttributes&quot; : &quot;class=jsdoc-notes-body&quot;
+          },
+          &quot;design&quot;: {
+            &quot;title&quot;: &quot;h5&quot;,
+            &quot;titleAttributes&quot;: &quot;class='jsdoc-design-title subsection-title'&quot;,
+            &quot;wrapper&quot;: &quot;div&quot;,
+            &quot;wrapperAttributes&quot; : &quot;class=jsdoc-design-body&quot;
+          }
+        }
+      },
+      &quot;body&quot;: {
+        &quot;all&quot; : [ &quot;augments&quot;, &quot;requires&quot;, &quot;classes&quot;, &quot;mixins&quot;, &quot;namespaces&quot;, &quot;templates&quot;, &quot;*&quot; ],
+        &quot;tags&quot; : {
+          &quot;tasks&quot;: {
+            &quot;find&quot;: {     
+                &quot;kind&quot;: &quot;task&quot;, 
+                &quot;memberof&quot;: &quot;_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname&quot; 
+            },
+            &quot;title&quot;: &quot;h3&quot;,
+            &quot;titleAttributes&quot;: &quot;class=subsection-title&quot;,
+            &quot;usePerItemPartial&quot;: &quot;method.tmpl&quot;
+          }, 
+          &quot;templates&quot;: {
+            &quot;find&quot;: {     
+                &quot;kind&quot;: &quot;template&quot;, 
+                &quot;memberof&quot;: &quot;_doclet.longname&quot; 
+            },
+            &quot;validate&quot;: &quot;_doclet.kind !== 'globalobj'&quot;,
+            &quot;title&quot;: &quot;h3&quot;,
+            &quot;titleAttributes&quot;: &quot;class=subsection-title&quot;,
+            &quot;outerWrapper&quot;: &quot;dl&quot;,
+            &quot;usePerItemPartial&quot;: &quot;method.tmpl&quot;
+          }
+        }
+      }
+    }
+  },
+  &quot;method&quot;: {
+    &quot;all&quot;: [ &quot;template&quot;, &quot;honors&quot;, &quot;description&quot;, &quot;remarks&quot;, &quot;*&quot;, &quot;futures&quot; ],
+    &quot;tags&quot;: {
+      &quot;template&quot;: {
+        &quot;title&quot;: &quot;h5&quot;,
+        &quot;titleCaption&quot;: &quot;Template File:&quot;,
+        &quot;alternateHandler&quot;: &quot;listing.scaffolded.kv.tmpl&quot;,
+        &quot;wrapper&quot;: &quot;span&quot;,
+        &quot;wrapperAttributes&quot;: &quot;class=jsdoc-template-filename&quot;
+      },
+      &quot;honors&quot; : {
+        &quot;title&quot;: &quot;h5&quot;,
+        &quot;titleAttributes&quot;: &quot;class=jsdoc-honors&quot;,
+        &quot;titleCaption&quot;: &quot;&lt;em>Honors&lt;/em> the following configuration settings:&quot;,
+        &quot;usePartial&quot;: &quot;params.tmpl&quot;
+      },
+      &quot;remarks&quot;: {
+        &quot;title&quot;: &quot;h5&quot;,
+        &quot;titleAttributes&quot;: &quot;class='jsdoc-remarks-title capitalize-title'&quot;,
+        &quot;wrapper&quot;: &quot;div&quot;,
+        &quot;wrapperAttributes&quot; : &quot;class=jsdoc-remarks-body&quot;
+      },
+      &quot;futures&quot;: {
+        &quot;title&quot;: &quot;dt&quot;,
+        &quot;titleCaption&quot;: &quot;Futures:&quot;,
+        &quot;titleAttributes&quot;: &quot;class='tag-futures capitalize-title method-doc-label method-doc-details-label'&quot;,
+        &quot;outermostWrapper&quot;: &quot;dd&quot;,
+        &quot;outermostWrapperAttributes&quot;: &quot;class=tag-futures&quot;,
+        &quot;outerWrapper&quot;: &quot;ul&quot;,
+        &quot;wrapper&quot;: &quot;li&quot;
+      },
+      &quot;attribs&quot;: {
+        &quot;alternateHandler&quot;: &quot;partial.scaffolded.attribs.tmpl&quot;,
+        &quot;template&quot;: {
+          &quot;displayStyle&quot;: &quot;badges&quot; 
+        }
+      }
+    }
+  },
+  &quot;details&quot;: {
+    &quot;all&quot;: [ &quot;todo&quot;, &quot;*&quot; ]
+  },
+  &quot;members&quot;: {
+    &quot;tags&quot;: {
+      &quot;attribs&quot;: {
+        &quot;alternateHandler&quot;: &quot;partial.scaffolded.attribs.tmpl&quot;,
+        &quot;template&quot;: {
+          &quot;displayStyle&quot;: &quot;csl&quot;
+        }
+      }
+    }
+  }
+}</code></pre><p>  Note that the <code>members</code> section does not actually honor &quot;order&quot; or &quot;tags&quot; per se, but like <code>method</code> it does make use of <code>partial.scaffolded.attribs.tmpl</code> which, as a scaffolded template <em>does</em> honor tag specifications which, when referenced from <code>members.tmpl</code> will look for a tag specification in <code>templates.customizeOutput.members.tags</code>.  </p>
+<p><a name="customizeOutput.templates.order"></a></p>
+<h5>The &quot;Order&quot; field</h5><p>An &quot;order&quot; field specifies the order in which listings should be rendered for a given doclet.  This field takes an <code>array</code> of <code>string</code>s which specifies the order by tag name in which the listings should be rendered.  The special identifier <code>&quot;*&quot;</code> is a catch all, meaning <em>&quot;all the default listings which I have not explictly placed elsewhere&quot;</em>.  So, for instance, <code>shinstrap</code> normally displays the following tags in <code>method.tmpl</code>:</p>
+<pre class="prettyprint source"><code>[ &quot;description&quot;, &quot;augments&quot;, &quot;type&quot;, &quot;this&quot;, &quot;params&quot;, &quot;details&quot;, &quot;requires&quot;, &quot;fires&quot;, &quot;listens&quot;, &quot;listeners&quot;, &quot;exceptions&quot;, &quot;returns&quot;, &quot;examples&quot; ]</code></pre><p>So an &quot;order&quot; entry in <code>templates.customizeOutputs.method.all</code> of <code>[&quot;*&quot;]</code> will result in the listings above being rendered in that order.</p>
+<pre class="prettyprint source"><code>[ &quot;notes&quot;, &quot;*&quot;, &quot;futures&quot; ]</code></pre><p>Would result in first the <code>&quot;notes&quot;</code> tag being rendered, then all the defaults, and finally the <code>&quot;futures&quot;</code> tag.  You can also specify ordering for default tags, and as indicated above, the <code>&quot;*&quot;</code> will only include default listings which are not already specified.</p>
+<pre class="prettyprint source"><code>[ &quot;description&quot;, &quot;notes&quot;, &quot;*&quot;, &quot;futures&quot;, &quot;examples&quot; ]</code></pre><p>Would result in the following ordering</p>
+<pre class="prettyprint source"><code>[ &quot;description&quot;, &quot;notes&quot;, &quot;augments&quot;, &quot;type&quot;, &quot;this&quot;, &quot;params&quot;, &quot;details&quot;, &quot;requires&quot;, &quot;fires&quot;, &quot;listens&quot;, &quot;listeners&quot;, &quot;exceptions&quot;, &quot;returns&quot;, &quot;futures&quot;, &quot;examples&quot; ]</code></pre><p><a name="customizeOutput.templates.tags"></a></p>
+<h5>The <code>&quot;tags&quot;</code> section</h5><p>The <code>tags</code> section of <code>customizeOutput</code> allows you to specify how you want a given set of data to be displayed for a given doclet (by template, see <a href="#customizeOutput.templates">template sections</a> above for more detail).  Within each template namespace the <code>tags</code> sub section contains an entry for each tag whose rendering you wish to control (or override).  The <code>tags</code> specification for the default tags are all located in <code>defaults.json</code>.  These can be useful as examples.</p>
+<p>(At this time), there are two templates which control the rendering of data (or a <code>listing</code> in <code>shinstrap</code> terminology)--<code>listing.scaffolded.general.tmpl</code>(<a href="module-template_publish.html#.General">module:template/publish.General</a>) and <code>listing.scaffolded.kv.tmpl</code>(<a href="module-template_publish.html#.KeyValue">module:template/publish.KeyValue</a>).  (If this were shinmark-based, I'd pull the honors data directly out of the relevant files).  </p>
+<p>The primary difference between these two templates is how they structure their output.  The general pattern is to emit a fully formed and closed title element followed by a fully formed and closed value element (with some possible degree of structure nesting).  The &quot;KV&quot; template allows for a key-value pattern where the &quot;title&quot; element contains the &quot;value&quot; element.  The list of which customization settings each template honors is listed in the associated template documentation in the publish module (<a href="module-template_publish.html">module:template/publish</a>).  <code>listing.scaffolded.general.tmpl</code> is the default handler for all listings (unless the <code>tags</code> setting <code>alternateHandler</code> is used).</p>
+<pre class="prettyprint source"><code>&quot;templates&quot;: {
+  &quot;customizeOutput&quot;: {
+    &quot;container&quot; : {
+      &quot;article&quot; : {
+        &quot;overview&quot;: {
+          &quot;all&quot; : [ &quot;description&quot;, &quot;notes&quot;, &quot;*&quot; ],
+          &quot;tags&quot; : {
+            &quot;notes&quot;: {
+              &quot;title&quot;: &quot;h5&quot;,
+              &quot;titleAttributes&quot;: &quot;class='jsdoc-notes-title subsection-title'&quot;,
+              &quot;wrapper&quot;: &quot;div&quot;,
+              &quot;wrapperAttributes&quot; : &quot;class=jsdoc-notes-body&quot;
+            }
+          }
+        }
+      }
+    }
+  }
+}</code></pre><p>In the example above, the <code>tags</code> section is in the <code>container.article.overview</code> &quot;namespace&quot;.  Which is to say that the settings in the excerpted <code>tags</code> section apply to the &quot;overview&quot; section of the &quot;article&quot; in <code>container.tmpl</code>.  The <code>tags</code> section has only one listing in this example (but it could have many)--the <code>&quot;notes&quot;</code> entry.  This setting instructs <code>shinstrap</code> when rendering the overview section of the article element in <code>container.tmpl</code> to watch for <code>doclet</code>s with a <code>doclet.notes</code> defined.  If such is encountered, <code>shinstrap</code> will use <code>listing.scaffolded.general.tmpl</code> to render the <code>doclet.notes</code> information.  The general listing template in turn will look at the settings inside of <code>container.article.overview.tags.notes</code> to decide how to render the listing.  In the example above, it emits a title in an <code>&lt;h5&gt;</code> element with the attribute <code>class='jsdoc-notes-title subsection-title'</code> followed by a <code>&lt;div&gt;</code> element with the attribute <code>class=jsdoc-notes-body</code> containing the actual data in <code>doclet.notes</code>.  </p>
+<h6>Identifying the data</h6><p>By default, in most cases, the presence of data needing to be rendered is inferred implicitly from the name of the tag.  <code>&quot;notes&quot;</code> above implies the presence of a <code>doclet.notes</code> value.  If that value is not present it means that there are no notes to render for this entity.  In the unlikely case that additional validation is required, it can be specified in a <code>validate</code> setting.  The value of this setting is a string which must evaluate to true in order for the perspective listing to be considered &quot;valid&quot; or necessary for rendering. See <a href="#customizeOutput.templates.tags.evals">writing eval expression</a> for more information.</p>
+<p>For certain types of data, particularly associating disparate <code>doclet</code>s with each other, it is necessary to instead specify a <code>find</code>.  When a <code>find</code> is indicated, a value on <code>doclet</code> is not looked for.  Instead, <code>shinstrap</code> performs a <code>find</code> (taffyDB) with the parameters specified.  As written, <code>find</code> currently only will accept a <code>kind</code> and a <code>memberof</code> field.  <code>kind</code> is taken literally, but for legacy purposes, <code>memberof</code> is evaluated, in the event that the <code>memberof</code> needs to reference another object (like the doclet itself--e.g doclet.longname).  See <a href="#customizeOutput.templates.tags.evals">writing eval expression</a> below for more information.  For specifics on how <code>find</code> works, see module:template/publish.handleScaffolding.</p>
+<h6>Handling &quot;Complex&quot; Entries</h6><p>There are a number of prebuild template handlers for a variety of documentable entites like params, members, sources, properties, etc.  At this time not all of these templates are documented, however (<a href="module-template_publish.html">module:template/publish</a>).  New templates can also be created and added to the <a href="#templateOverrideDir"><code>templateOverrideDir</code></a>.  To leverage one of these templates (new or old) with a tag (again, new or old) you can use one of a few different handler specifiers.</p>
+<p><code>alternateHandler</code>
+:   Allows you to specify a scaffolded handler to use instead of <code>listing.scaffolded.general.tmpl</code>.  At this time the only other scaffolded handler is <code>listing.scaffolded.kv.tmpl</code>.</p>
+<p><code>defer</code>
+:   The counterpart to <code>alternateHandler</code>, <code>defer</code> will defer rendering of a listing to the template specified <em>without</em> any scaffolding.  Use this to have old school <code>docstrap</code> templates render your entity.</p>
+<p><code>usePartial</code>
+:   This setting instructs <code>shinstrap</code> to utilize the specified template (without scaffolding) to generate the &quot;wrapper&quot; portion of an entity.  Title rendering (and any outerWrappers) are still controlled by the primary listing template.  New templates conducive for use with this setting are named <code>partial.*.tmpl</code>.  The behavior of this setting can be further customized with <code>usePartialOnField</code> which instructs <code>shinstrap</code> to pass into the template the field on the data entity specified.  (e.g. if working on data.notes and <code>usePartialOnField</code> was set to <code>&quot;special&quot;</code>, <code>shinstrap</code> would call the <code>usePartial</code> specified template on <code>data.notes.special</code>).</p>
+<p><code>usePerItemPartial</code>
+:   This setting is similar to <code>usePartial</code> except that it is only valid with data entries which are arrays (technically <code>forEach</code>able).  Rather than being called once for the entire entry, the template is called <code>forEach</code> element in the data entry.  </p>
+<p><code>perItemMapPartial</code> 
+:   This setting takes an object.  The keys in that object represent cases in which the associated value template should be used.</p>
+<pre class="prettyprint source"><code>{
+    &quot;i.signature&quot; : &quot;method.tmpl&quot;,
+    &quot;default&quot;: &quot;members.tmpl&quot;
+}</code></pre><p>For purposes of <code>perItemMapPartial</code>, <code>i</code> is the item in question for reflection purposes.  <code>&quot;default&quot;</code> is the default template to use should none of the other cases be valid. </p>
+<h6>Item Marshalling</h6><p>The <code>itemMarshalling</code> setting allows you to specify, finally, to <code>shinstrap</code> that you would like one or more marshalling functions called on the value before it is rendered.  The same functionality can be achieved in many other ways, of course, but this feature allows for easy use of legacy marshalling functions from <code>docstrap</code> such as the various link creators.  </p>
+<pre class="prettyprint source"><code>&quot;itemMarshalling&quot;: [ [ &quot;linkto&quot;, &quot;&quot;, &quot;&quot; ] ]</code></pre><p>Marshallers are executed in order.  The first parameter is the name of the marshaller followed by any parameters it takes.  Each parameter is expected to be in reference to the data entity in question, so <code>&quot;&quot;</code> is the entity itself, whereas &quot;<code>longname&quot;</code> would amount to <code>data.longname</code>.</p>
+<p><a name="customizeOutput.templates.tags.evals"></a></p>
+<h6>Evals in Tags block (Writing eval expressions)</h6><p>Expressions evaluated in the context of a <code>tags</code> definition are handled inside module:template/publish.handleScaffolding.  The main thing to note here is that the current doclet/data object is available in <code>_doclet</code>.  You can check in <code>defaults.json</code> for examples of various eval expressions.</p>
+<p>For <code>perItemMapPartial</code> its haxtastic key-cases provide the variable <code>i</code> to reference the current &quot;item&quot; being considered.</p>
+<h6>Templates</h6><p>This is a bit of estoerica, really.  Templates with &quot;.&quot;-pathed names are wholy new as of <code>shinstrap</code> and did not exist in <code>docstrap</code>.  Otherwise template names remain the same (albeit their contents may be quite different).  A template with <code>scaffolded</code> in its name expects to be called from <code>scaffoldPartial()</code> one way or another.  If you are writing your own templates and want to call one of these, this means you need to call <code>self.scaffoldPartial('template.tmpl', doclet, listing)</code> or <code>self.scaffoldPartialBySpec('template.tmpl', doclet, &quot;template:specifier&quot;)</code>.  If you are doing this sort of thing, you should look at the larger documentation for the template (as generated by <code>jsdoc</code>! 8D)--<a href="module-template_publish.html">module:template/publish</a></p>
+</article>
+
+</section>
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	`shinstrap` (forked from `ink-docstrap`) by <a href='emailto:shin@shinworks.co'>Shin</a>
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on Wed Oct 17th 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/shinstrap.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

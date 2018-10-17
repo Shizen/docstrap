@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>shinstrap Tutorial: DEVLOG</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
+	<link type="text/css" rel="stylesheet" href="styles/supplemental.css">
+	
+		<link type="text/css" rel="stylesheet" href="styles/local.css">
+	
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">shinstrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-template_publish-view.html">template/publish~view</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-base.html">base</a></li><li><a href="module-base_chains.html">base/chains</a></li><li><a href="module-documents_binder.html">documents/binder</a></li><li><a href="module-documents_model.html">documents/model</a></li><li><a href="module-documents_probe.html">documents/probe</a></li><li><a href="module-documents_schema.html">documents/schema</a></li><li><a href="module-Gruntfile.html">Gruntfile</a></li><li><a href="module-ink_collector.html">ink/collector</a></li><li><a href="module-mixins_bussable.html">mixins/bussable</a></li><li><a href="module-mixins_signalable.html">mixins/signalable</a></li><li><a href="module-strings_format.html">strings/format</a></li><li><a href="module-template_publish.html">template/publish</a></li><li><a href="module-utils_logger.html">utils/logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="base.html">base</a></li><li><a href="base_chains.html">base/chains</a></li><li><a href="documents_model.html">documents/model</a></li><li><a href="module-documents_probe.queryOperators.html">documents/probe.queryOperators</a></li><li><a href="module-documents_probe.updateOperators.html">documents/probe.updateOperators</a></li><li><a href="module-ink_collector-ACollector.html">ink/collector~ACollector</a></li><li><a href="module-ink_collector-CollectorBase.html">ink/collector~CollectorBase</a></li><li><a href="module-ink_collector-OCollector.html">ink/collector~OCollector</a></li><li><a href="module-mixins_signalable-Signal.html">mixins/signalable~Signal</a></li><li><a href="utils_logger.Logger.html">utils/logger.Logger</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="mixins.list.html" class="dropdown-toggle" data-toggle="dropdown">Mixins<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="documents_schema.html">documents/schema</a></li><li><a href="mixins_bussable.html">mixins/bussable</a></li><li><a href="mixins_signalable.html">mixins/signalable</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="Usage.list.html" class="dropdown-toggle" data-toggle="dropdown">Usage<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="tutorial-Usage.html">Usage</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			<section class="tutorial-section">
+
+<header>
+    
+
+    <h2>DEVLOG</h2>
+</header>
+
+<article>
+    <h1>Dev-log</h1><p>Developer log, scratch pad and todo list for <code>shinstrap</code>.</p>
+<h2>ToDo</h2><ul>
+<li>Proof Usage.md:<ul>
+<li>Fix documentation for &quot;container&quot; paths.</li>
+<li>I should probably clean up my language between &quot;display [item]&quot;, &quot;listing&quot; and &quot;entry&quot;.</li>
+<li>? add new lines to <code>&lt;code&gt;</code> samples to lessen need for scrollbars?</li>
+</ul>
+</li>
+<li><p>Fix or rollback notes as <code>&lt;details&gt;</code></p>
+</li>
+<li><p>internal fork to <code>shinstrap</code></p>
+</li>
+<li>fork from <code>docstrap</code></li>
+<li>fix <code>package.json</code> for github repos</li>
+<li>I need a license doc</li>
+<li>I need to wire up the wiki..</li>
+</ul>
+<h2>Issues/Futures, the Dev Edition</h2><ul>
+<li>template-helpers.  Never bothered to finish implementing them.  Would be useful for documenting <code>itemMarshalling</code> in <code>Usage.md</code>.  (Now Removed)
+I removed <code>@templateHelper</code> a while ago, but effectively this is a group aggregator tag.  Easy enough to implement at its core.</li>
+<li>Add some gists for popular tag scenarios like grunt tasks, express routes/web api/REST routes...</li>
+<li>extend <code>@honors</code> to have a &quot;valid if&quot; or &quot;requires&quot; column.  E.g. <code>titleWrapperAttributes</code> are only valid (well, only used) if <code>titleWrapper</code> exists and <code>suppressTitle</code> is not <code>true</code>.  Could also define a precedence column of sorts.</li>
+<li><p>[shinzen]: I didn't do this for <code>shinstrap</code> but possibly for <code>shinzen</code> I think I will simplify the tag descriptors by using an interpolated wrapper, rather than <code>wrapper</code>, <code>wrapperAttributes</code>, <code>outerWrapper</code>, <code>outermostWrapper</code>, <code>wrapperBusterBusterBuster</code>... etc.</p>
+<pre class="prettyprint source"><code>  `&lt;h5 class=&quot;jsdoc-notes-title&quot;>Notes&lt;/h5>&lt;div class=&quot;jsdoc-notes&quot;>${data}&lt;/div>`</code></pre><p>  So I'll end up with <code>find</code>, <code>validate</code>, <code>render</code>, <code>defer</code>, <code>usePartial</code>, <code>usePerItemPartial</code>, <code>perItemMapPartial</code>... Might want to separate the data out to allow for specific marshalling I guess.  Could still have <code>alternateHandler</code> just wouldn't need it for KV.  The marshaller would be able to handle <code>usePartialOnField</code> cases.  'course it would only work on ES2015+.  Item Marshaller will have to be some sort of eval mess too.  if <code>usePartial</code>/<code>usePerItemPartial</code> could be evalled, I could dump <code>perItemMapPartial</code>.  Sounds nice.</p>
+</li>
+<li>Transitions for collapsible.  Just a throw out example, anyway, but it ought to have a transition.  Something like..<pre class="prettyprint source"><code>  fieldset.jsdoc-redirect {
+      transition: 5s height ease-in-out;
+      overflow: hidden;
+  }
+  fieldset.jsdoc-redirect[data-hide=&quot;true&quot;] {
+      height: 0;
+  }
+  fieldset.jsdoc-redirect[data-hide=&quot;false&quot;] {
+      height: 100%;
+  }</code></pre>Alternatively, I could follow bootstrap's pattern for collaspible, which is probably the correct answer for <code>shinstrap</code> being.. uh.. bootstrap based... right?</li>
+<li>the default template coloring that I'm using is a bit fubar.<ul>
+<li>related, I should probably look at fixing <code>docstrap</code>'s themer</li>
+</ul>
+</li>
+<li><code>types</code> handling kinda sucks.  Specifically I mean the shoe horned testing of <code>data.types.names</code>.  If this wasn't literally the only place I'd seen this, I'd be more certain that it should be resolved in a more generalized fashion.  It is not <em>quite</em> appropriate for a recursive resolution.
+This is indicative of a larger issue of the shoe-horned, overly specific nature of just about every aspect of this template, built as it was to conform/allow the options present, rather than architected to allow the widest variety of options possible.  This is probably a <code>shinzen</code> target issue.</li>
+</ul>
+<h2>Notes</h2><h3>Access</h3><p>In <code>publish()</code> they set <code>opts.private = true</code> for <code>-p</code>.  Otherwise it's <code>opts.access = &quot;protected&quot;</code> for <code>-a protected</code> (for instance).</p>
+<p>The access rules as written are a bit strange to me.  I ought to verify them, but I'm a bit busy.  As written the rule is...</p>
+<p><code>-a public</code>
+:   Only display doclets tagged as &quot;public&quot; (but not protected, private or undefined)</p>
+<p><code>-a protected</code>
+:   Only display doclets tagged as &quot;protected&quot; (but not private, public or undefined... weird, right?)</p>
+<p><code>-a private</code>
+:   Only display doclets tagged as &quot;private&quot; (but not public, protected or undefined)</p>
+<p><code>-a undefined</code>
+:   Only display doclets which are not tagged.</p>
+<p><code>-p</code> or <code>-a all</code>
+:   Render everything.</p>
+<h2>Log</h2><p>When setting up I tried to simply set <code>template</code> to <code>&quot;./template&quot;</code>, but ran into an odd require bug with not being able to get <code>jsdoc/fs</code>.  I didn't work out exactly why, but rather circumvented the issue by symlinking <code>node_modules/@shizen/shinzen</code> to the project root and setting <code>opts.template</code> to <code>&quot;node_modules/@shizen/shinzen/template&quot;</code>.</p>
+<h3>Format</h3><pre class="prettyprint source"><code>&quot;customizeOutput&quot;: {
+  &quot;container&quot; : {
+    &quot;article&quot; : {
+      &quot;overview&quot;: {        // Module with modules, Class or every other case...
+        &quot;all&quot; : [ &quot;description&quot;, &quot;notes&quot;, &quot;design&quot;, &quot;*&quot; ],
+        &quot;tags&quot; : {
+          &quot;notes&quot;: {
+            &quot;titleWrapper&quot;: &quot;h5&quot;,
+            &quot;titleWrapperAttributes&quot;: &quot;class='jsdoc-notes-title subsection-title'&quot;,
+            &quot;wrapper&quot;: &quot;div&quot;,
+            &quot;wrapperAttributes&quot; : &quot;class=jsdoc-notes-body&quot;
+          },
+          &quot;design&quot;: {
+            &quot;titleWrapper&quot;: &quot;h5&quot;,
+            &quot;titleWrapperAttributes&quot;: &quot;class='jsdoc-design-title subsection-title'&quot;,
+            &quot;wrapper&quot;: &quot;div&quot;,
+            &quot;wrapperAttributes&quot; : &quot;class=jsdoc-design-body&quot;
+          }
+        }
+      }
+    }
+  },
+  &quot;method&quot;: {
+    &quot;all&quot;: [ &quot;description&quot;, &quot;remarks&quot;, &quot;*&quot;, &quot;futures&quot; ],
+    &quot;tags&quot;: {
+      &quot;remarks&quot;: {
+        &quot;titleWrapper&quot;: &quot;h5&quot;,
+        &quot;titleWrapperAttributes&quot;: &quot;class='jsdoc-remarks-title capitalize-title'&quot;,
+        &quot;wrapper&quot;: &quot;div&quot;,
+        &quot;wrapperAttributes&quot; : &quot;class=jsdoc-remarks-body&quot;
+      },
+      &quot;futures&quot;: {
+        &quot;titleWrapper&quot;: &quot;dt&quot;,
+        &quot;titleCaption&quot;: &quot;Futures:&quot;,
+        &quot;titleWrapperAttributes&quot;: &quot;class='jsdoc-futures-title capitalize-title'&quot;,
+        &quot;alternateHandler&quot;: &quot;asDefinition.tmpl&quot;
+      }
+    }
+  },
+  &quot;details&quot;: {
+    &quot;all&quot;: [ &quot;*&quot; ]
+  }
+}</code></pre><hr>
+<h2>Old static code</h2><p>Mostly stripped, but can be seen in <code>v0.0.1-alpha.7</code>.</p>
+<pre class="prettyprint source"><code>&lt;?js if (data && data.changelog) { ?>
+&lt;h5>Change Log&lt;/h5>
+&lt;div class=&quot;changelog&quot;>
+    &lt;?js= data.changelog ?>
+&lt;/div>
+&lt;?js } ?></code></pre><hr>
+<p>scratch pad for sanity &amp; time saving vis a vis git ;)</p>
+<h2>tutorials.json</h2><p>{
+    &quot;test1&quot;: {
+        &quot;title&quot;: &quot;Tutorial One&quot;,
+        &quot;children&quot;: [ &quot;child1&quot;, &quot;child2&quot; ]
+    },
+    &quot;test2&quot;: {
+        &quot;title&quot;: &quot;Tutorial Two&quot;
+    }
+}</p>
+<h2>container.tmpl</h2><h3>container-overview</h3><p>(?:[\w.]+)\s<em>=\s</em>arrangement.tags.(\w+)\s*|| 
+(\s)(?![&quot;])(\w+)(?![&quot;'\w\s.=-])
+'(\w+)'</p>
+<h4>Class</h4><pre class="prettyprint source"><code>                &lt;?js } else if (doc.kind === 'class') { ?>
+                    &lt;?js // This is basically a root level defer. I *could* put in something for this at the &quot;renderDoclet&quot; level, but it feels unnecessary. ?>
+                    &lt;?js= self.partial('method.tmpl', doc) ?></code></pre><h4>module-with-modules</h4><pre class="prettyprint source"><code>                    &lt;?js if (doc.description) { ?>
+                        &lt;div class=&quot;description&quot;>&lt;?js= doc.description ?>&lt;/div>
+                    &lt;?js } ?>
+
+                    &lt;?js doc.modules.forEach(function(module) { ?>
+                        &lt;?js= self.partial('method.tmpl', module) ?>
+                    &lt;?js }) ?></code></pre><h4>default</h4><pre class="prettyprint source"><code>                        // Add in `tmpl` specific defaults 
+                        arrangement.tags.description = arrangement.tags.description || {
+                            suppressTitle: true,
+                            wrapper: &quot;div&quot;,
+                            wrapperAttributes: &quot;class=description&quot;
+                        };
+
+                        arrangement.tags.details = arrangement.tags.details || {
+                            defer: &quot;details.tmpl&quot;,
+                        };
+
+                        arrangement.tags.examples = arrangement.tags.examples || {
+                            titleWrapper: &quot;h3&quot;,
+                            titleContextPluralize: { singular: &quot;Example&quot;, plural: &quot;Examples&quot; },
+                            usePartial: &quot;examples.tmpl&quot;
+                        };</code></pre><h3>container-body</h3><pre class="prettyprint source"><code>                    // Add in `tmpl` specific defaults
+                    arrangement.tags.augments = arrangement.tags.augments || {
+                        titleWrapper: &quot;h3&quot;,
+                        titleCaption: &quot;Extends&quot;,
+                        titleWrapperAttributes: &quot;class=subsection-title&quot;,
+                        outerWrapper: &quot;ul&quot;,
+                        wrapper: &quot;li&quot;,
+                        itemMarshalling: [ [ &quot;linkto&quot;, &quot;&quot;, &quot;&quot; ] ]
+                    };
+                    arrangement.tags.requires = arrangement.tags.requires || {
+                        titleWrapper: &quot;h3&quot;,
+                        titleWrapperAttributes: &quot;class=subsection-title&quot;,
+                        outerWrapper: &quot;ul&quot;,
+                        wrapper: &quot;li&quot;,
+                        itemMarshalling: [ [ &quot;linkto&quot;, &quot;&quot;, &quot;&quot; ] ]
+                    };
+                    arrangement.tags.classes = arrangement.tags.classes || {
+                        find: { 
+                            kind: 'class', 
+                            memberof: &quot;_doclet.longname&quot;                                
+                        },
+                        validate: &quot;_doclet.kind !== 'globalobj'&quot;,
+                        titleWrapper: &quot;h3&quot;,
+                        titleWrapperAttributes: &quot;class=subsection-title&quot;,
+                        usePartial: &quot;partial.linkedSummary.tmpl&quot;
+                    };
+                    arrangement.tags.mixins = arrangement.tags.mixins || {
+                        find: {     
+                            kind: 'mixin', 
+                            memberof: &quot;_doclet.longname&quot;    
+
+                        },
+                        validate: &quot;_doclet.kind !== 'globalobj'&quot;,
+                        titleWrapper: &quot;h3&quot;,
+                        titleWrapperAttributes: &quot;class=subsection-title&quot;,
+                        usePartial: &quot;partial.linkedSummary.tmpl&quot;
+                    };
+                    arrangement.tags.namespaces = arrangement.tags.namespaces || {
+                        find: {     
+                            kind: 'namespace', 
+                            memberof: &quot;_doclet.longname&quot;    
+                        },
+                        validate: &quot;_doclet.kind !== 'globalobj'&quot;,
+                        titleWrapper: &quot;h3&quot;,
+                        titleWrapperAttributes: &quot;class=subsection-title&quot;,
+                        usePartial: &quot;partial.namespaceLinkedSummary.tmpl&quot;,
+                    };
+                    arrangement.tags.members = arrangement.tags.members || {
+                        find: {     
+                            kind: 'member', 
+                            memberof: &quot;_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname&quot;    
+                        },
+                        titleWrapper: &quot;h3&quot;,
+                        titleWrapperAttributes: &quot;class=subsection-title&quot;,
+                        usePerItemPartial: &quot;members.tmpl&quot;,
+                    };
+                    arrangement.tags.methods = arrangement.tags.methods || {
+                        find: {  
+                            kind: 'function', 
+                            memberof: &quot;_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname&quot;    
+
+                        },
+                        titleWrapper: &quot;h3&quot;,
+                        titleWrapperAttributes: &quot;class=subsection-title&quot;,
+                        usePerItemPartial: &quot;method.tmpl&quot;
+                    };
+                    arrangement.tags.typedefs = arrangement.tags.typedefs || {
+                        find: {     
+                            kind: 'typedef', 
+                            memberof: &quot;_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname&quot;    
+                        },
+                        titleWrapper: &quot;h3&quot;,
+                        titleCaption: &quot;Type Definitions&quot;,
+                        titleWrapperAttributes: &quot;class=subsection-title&quot;,
+                        perItemMapPartial: {
+                            &quot;i.signature&quot; : &quot;method.tmpl&quot;,        // This is a bit ugly
+                            &quot;default&quot;: &quot;members.tmpl&quot;
+                        }
+                    };
+                    arrangement.tags.events = arrangement.tags.events || {
+                        find: {     
+                            kind: 'event', 
+                            memberof: &quot;_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname&quot;    
+                        },
+                        titleWrapper: &quot;h3&quot;,
+                        titleWrapperAttributes: &quot;class=subsection-title&quot;,
+                        usePerItemPartial: &quot;method.tmpl&quot;,
+                    };
+
+                &lt;?js= helpers.handleScaffolding(self, doc, arrangement, &quot;augments&quot;, title) ?>
+                &lt;?js= helpers.handleScaffolding(self, doc, arrangement, &quot;requires&quot;, title) ?>
+                &lt;?js= helpers.handleScaffolding(self, doc, arrangement, &quot;classes&quot;, title) ?>
+                &lt;?js= helpers.handleScaffolding(self, doc, arrangement, &quot;mixins&quot;, title) ?>
+                &lt;?js= helpers.handleScaffolding(self, doc, arrangement, &quot;namespaces&quot;, title) ?>
+                &lt;?js= helpers.handleScaffolding(self, doc, arrangement, &quot;tasks&quot;, title) ?>
+                &lt;?js= helpers.handleScaffolding(self, doc, arrangement, &quot;members&quot;, title) ?>
+                &lt;?js= helpers.handleScaffolding(self, doc, arrangement, &quot;methods&quot;, title) ?>
+                &lt;?js= helpers.handleScaffolding(self, doc, arrangement, &quot;typedefs&quot;, title) ?>
+                &lt;?js= helpers.handleScaffolding(self, doc, arrangement, &quot;events&quot;, title) ?></code></pre><h4>Classes</h4><pre class="prettyprint source"><code>                &lt;?js
+                    var classes = self.find({kind: 'class', memberof: doc.longname});
+                    if (doc.kind !== 'globalobj' && classes && classes.length) {
+                ?>
+                    &lt;?js if(doc.longname) {
+                        console.log(&quot;classes! &quot; + doc.longname); // Kind, contents (title, link, members) 
+                    } ?>
+                &lt;?js } ?></code></pre><h4>Mixins</h4><pre class="prettyprint source"><code>                &lt;?js
+                    var mixins = self.find({kind: 'mixin', memberof: doc.longname});
+                    if (doc.kind !== 'globalobj' && mixins && mixins.length) {
+                ?>
+                    &lt;h3 class=&quot;subsection-title&quot;>Mixins&lt;/h3>
+
+                    &lt;dl>&lt;?js mixins.forEach(function(m) { ?>
+                        &lt;dt>&lt;?js= self.linkto(m.longname, m.name) ?>&lt;/dt>
+                        &lt;dd>&lt;?js if (m.summary) { ?>&lt;?js= m.summary ?>&lt;?js } ?>&lt;/dd>
+                    &lt;?js }); ?>&lt;/dl>
+
+                    &lt;?js if(doc.longname) {
+                        console.log(&quot;mixins! &quot; + doc.longname);
+                    } ?>
+
+                &lt;?js } ?></code></pre><h4>Namespaces</h4><pre class="prettyprint source"><code>                &lt;?js
+                    var namespaces = self.find({kind: 'namespace', memberof: doc.longname});
+                    if (doc.kind !== 'globalobj' && namespaces && namespaces.length) {
+                ?>
+                    &lt;h3 class=&quot;subsection-title&quot;>Namespaces&lt;/h3>
+
+                    &lt;dl>&lt;?js namespaces.forEach(function(n) { ?>
+                        &lt;dt>&lt;a href=&quot;namespaces.html#&lt;?js= n.longname ?>&quot;>&lt;?js= self.linkto(n.longname, n.name) ?>&lt;/a>&lt;/dt>
+                        &lt;dd>&lt;?js if (n.summary) { ?>&lt;?js= n.summary ?>&lt;?js } ?>&lt;/dd>
+                    &lt;?js }); ?>&lt;/dl>
+
+                    &lt;?js if(doc.longname) {
+                        console.log(&quot;namespaces! &quot; + doc.longname);
+                    } ?>
+                &lt;?js } ?></code></pre><h4>Tasks</h4><pre class="prettyprint source"><code>                &lt;?js
+                    var tasks = self.find({kind: 'task', memberof: title === 'Global' ? {isUndefined: true} : doc.longname});
+                    if(tasks & tasks.length && doc.longname) {
+                        console.log(&quot;tasks! &quot; + doc.longname);
+                    }
+
+                    if (tasks && tasks.length && tasks.forEach) {
+                ?>
+                    &lt;h3 class=&quot;subsection-title&quot;>Tasks&lt;/h3>
+
+                    &lt;dl>&lt;?js tasks.forEach(function(t) { ?>
+                        &lt;?js= self.partial('method.tmpl', t) ?>
+                    &lt;?js }); ?>&lt;/dl>
+
+                    &lt;?js if(doc.longname) {
+                        console.log(&quot;tasks! &quot; + doc.longname);
+                    } ?>
+                &lt;?js } ?></code></pre><h4>Members</h4><pre class="prettyprint source"><code>                &lt;?js
+                    var members = self.find({kind: 'member', memberof: title === 'Global' ? {isUndefined: true} : doc.longname});
+                    if (members && members.length && members.forEach) {
+                ?>
+                    &lt;h3 class=&quot;subsection-title&quot;>Members&lt;/h3>
+
+                    &lt;dl>&lt;?js members.forEach(function(p) { ?>
+                        &lt;?js= self.partial('members.tmpl', p) ?>
+                    &lt;?js }); ?>&lt;/dl>
+
+                    &lt;?js if(doc.longname) {
+                        console.log(&quot;members! &quot; + doc.longname);
+                    } ?>
+                &lt;?js } ?></code></pre><h4>Typedefs</h4><pre class="prettyprint source"><code>                &lt;?js
+                    var typedefs = self.find({kind: 'typedef', memberof: title === 'Global' ? {isUndefined: true} : doc.longname});
+                    if (typedefs && typedefs.length && typedefs.forEach) {
+                ?>
+                    &lt;h3 class=&quot;subsection-title&quot;>Type Definitions&lt;/h3>
+
+                    &lt;dl>&lt;?js typedefs.forEach(function(e) {
+                            if (e.signature) {
+                        ?>
+                        &lt;p>shin says nowhere!!&lt;/p>
+                            &lt;?js= self.partial('method.tmpl', e) ?>
+                            &lt;?js if(doc.longname) {
+                                console.log(&quot;method/typedef! &quot; + doc.longname);
+                            } ?>
+                        &lt;?js
+                            }
+                            else {
+                        ?>
+                        &lt;p>shin says here!&lt;/p>
+                            &lt;?js= self.partial('members.tmpl', e) ?>
+                            &lt;?js if(doc.longname) {
+                                console.log(&quot;members/typedef! &quot; + doc.longname);
+                            } ?>
+                        &lt;?js
+                            }
+                        }); ?>&lt;/dl>
+                &lt;?js } ?></code></pre><h4>Events</h4><pre class="prettyprint source"><code>                &lt;?js
+                    var events = self.find({kind: 'event', memberof: title === 'Global' ? {isUndefined: true} : doc.longname});
+                    if (events && events.length && events.forEach) {
+                ?>
+                    &lt;h3 class=&quot;subsection-title&quot;>Events&lt;/h3>
+
+                    &lt;dl>&lt;?js events.forEach(function(e) { ?>
+                        &lt;?js= self.partial('method.tmpl', e) ?>
+                    &lt;?js }); ?>&lt;/dl>
+                    &lt;?js if(doc.longname) {
+                        console.log(&quot;events! &quot; + doc.longname);
+                    } ?>
+                &lt;?js } ?></code></pre><h2>method.tmpl</h2><pre class="prettyprint source"><code>&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;description&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;augments&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;type&quot;, undefined, kind) ?>    
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;this&quot;) ?>    
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;params&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;details&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;requires&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;fires&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;listens&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;listeners&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;exceptions&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;returns&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;examples&quot;) ?>    </code></pre><h3>Definition</h3><h4>Description</h4><pre class="prettyprint source"><code>&lt;?js if (data && data.description) { ?>
+    &lt;div class=&quot;description&quot;>
+        &lt;?js= data.description ?>
+    &lt;/div>
+
+    &lt;?js console.log(&quot;Description in &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h4>Extends (Untested)</h4><p>I don't know when this case is ever tripped :(.  I'm not sure what data.alias is used for, and I don't know when <code>data.alias.indexOf(&quot;module:&quot;)</code> will be 0 (i.e when an alias will start with &quot;module:&quot;).  Mmm...  yeah.</p>
+<pre class="prettyprint source"><code>&lt;?js if(data.augments) { console.log(&quot;augments in &quot; + data.longname); } ?>
+&lt;?js if(data.alias) { console.log(&quot;aliases in &quot; + data.longname + &quot; = &quot; + data.alias); } ?>
+
+&lt;?js if (data.augments && data.alias && data.alias.indexOf('module:') === 0) { ?>
+    &lt;h5>Extends:&lt;/h5>
+    &lt;?js= self.partial('linksList.tmpl', data.augments) ?>
+
+    &lt;?js console.log(&quot;extends in &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h4>Types</h4><pre class="prettyprint source"><code>&lt;?js if (kind === 'event' && data && data.type && data.type.names) {?>
+&lt;p>Here is the type!!&lt;/p>
+    &lt;h5>Type: &lt;?js= self.partial('type.tmpl', data.type.names) ?>&lt;/h5>
+
+    &lt;?js console.log(&quot;type in &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h4>This</h4><pre class="prettyprint source"><code>&lt;?js if (data['this']) { ?>
+    &lt;h5>This:&lt;/h5>
+    &lt;ul>&lt;li>&lt;?js= this.linkto(data['this'], data['this']) ?>&lt;/li>&lt;/ul>
+
+    &lt;?js console.log(&quot;this in &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h4>Params (oops)</h4><h4>Details</h4><pre class="prettyprint source"><code>&lt;?js= this.partial('details.tmpl', data) ?></code></pre><h4>Requires</h4><pre class="prettyprint source"><code>&lt;?js if (data.kind !== 'module' && data.requires && data.requires.length) { ?>
+    &lt;h5>Requires:&lt;/h5>
+    &lt;ul>&lt;?js data.requires.forEach(function(r) { ?>
+        &lt;li>&lt;?js= self.linkto(r) ?>&lt;/li>
+    &lt;?js }); ?>&lt;/ul>
+    &lt;?js console.log(&quot;requires! in &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h4>Fires</h4><pre class="prettyprint source"><code>&lt;?js if (data.fires && fires.length) { ?>
+    &lt;h5>Fires:&lt;/h5>
+    &lt;ul>&lt;?js fires.forEach(function(f) { ?>
+        &lt;li>&lt;?js= self.linkto(f) ?>&lt;/li>
+    &lt;?js }); ?>&lt;/ul>
+
+    &lt;?js console.log(&quot;fires in &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h4>Listens</h4><pre class="prettyprint source"><code>&lt;?js if (data.listens && listens.length) { ?>
+&lt;h5>Listens to Events:&lt;/h5>
+&lt;ul>&lt;?js listens.forEach(function(f) { ?>
+    &lt;li>&lt;?js= self.linkto(f) ?>&lt;/li>
+&lt;?js }); ?>&lt;/ul>
+    &lt;?js console.log(&quot;listens in &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h4>Listeners</h4><pre class="prettyprint source"><code>&lt;?js if (data.listeners && listeners.length) { ?>
+    &lt;h5>Listeners of This Event:&lt;/h5>
+    &lt;ul>&lt;?js listeners.forEach(function(f) { ?>
+        &lt;li>&lt;?js= self.linkto(f) ?>&lt;/li>
+    &lt;?js }); ?>&lt;/ul>
+    &lt;?js console.log(&quot;listeners in &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h4>Exceptions</h4><p>Note the redundent <code>if</code> :/</p>
+<pre class="prettyprint source"><code>&lt;?js if (data.exceptions && exceptions.length) { ?>
+    &lt;h5>Throws:&lt;/h5>
+    &lt;?js if (exceptions.length > 1) { ?>&lt;ul>&lt;?js
+        exceptions.forEach(function(r) { ?>
+            &lt;li>&lt;?js= self.partial('exceptions.tmpl', r) ?>&lt;/li>
+        &lt;?js });
+    ?>&lt;/ul>&lt;?js } else {
+        exceptions.forEach(function(r) { ?>
+            &lt;?js= self.partial('exceptions.tmpl', r) ?>
+        &lt;?js });
+    } ?>
+    &lt;?js console.log(&quot;exceptions in &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h4>Returns</h4><pre class="prettyprint source"><code>&lt;?js if (data.returns && returns.length) { ?>
+    &lt;h5>Returns:&lt;/h5>
+    &lt;?js if (returns.length > 1) { ?>&lt;ul>&lt;?js
+        returns.forEach(function(r) { ?>
+            &lt;li>&lt;?js= self.partial('returns.tmpl', r) ?>&lt;/li>
+        &lt;?js });
+    ?>&lt;/ul>&lt;?js } else {
+        returns.forEach(function(r) { ?>
+            &lt;?js= self.partial('returns.tmpl', r) ?>
+        &lt;?js });
+    } ?>
+    &lt;?js console.log(&quot;returns in &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h4>Examples</h4><pre class="prettyprint source"><code>&lt;?js if (data.examples && examples.length) { ?>
+    &lt;h5>Example&lt;?js= examples.length > 1? 's':'' ?>&lt;/h5>
+    &lt;?js= this.partial('examples.tmpl', examples) ?>
+    &lt;?js console.log(&quot;method:examples! &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h2>Details</h2><pre class="prettyprint source"><code>&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;properties&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;version&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;since&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;inherits&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;overrides&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;implementations&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;implements&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;mixes&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;deprecated&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;author&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;copyright&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;license&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;defaultvalue&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;meta&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;tutorials&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;see&quot;) ?>
+&lt;?js= self.handleScaffolding(self, data, arrangement, &quot;todo&quot;) ?></code></pre><h3>Properties</h3><pre class="prettyprint source"><code>&lt;?js
+        var properties = data.properties;
+        if (properties && properties.length && properties.forEach) {
+?>
+
+    &lt;h5 class=&quot;subsection-title&quot;>Properties:&lt;/h5>
+
+    &lt;dl>&lt;?js= this.partial('properties.tmpl', properties) ?>&lt;/dl>
+    &lt;?js console.log(&quot;Properties! &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h3>Version</h3><pre class="prettyprint source"><code>&lt;?js if (data.version) { ?>
+    &lt;dt class=&quot;tag-version method-doc-label method-doc-details-label&quot;>Version:&lt;/dt>
+    &lt;dd class=&quot;tag-version&quot;>
+        &lt;ul class=&quot;dummy&quot;>
+            &lt;li>&lt;?js= version ?>&lt;/li>
+        &lt;/ul>
+    &lt;/dd>
+&lt;?js } ?></code></pre><h3>Since</h3><pre class="prettyprint source"><code>&lt;?js if (data.since) {?>
+    &lt;dt class=&quot;tag-since method-doc-label method-doc-details-label&quot;>Since:&lt;/dt>
+    &lt;dd class=&quot;tag-since&quot;>
+        &lt;ul class=&quot;dummy&quot;>
+            &lt;li>&lt;?js= since ?>&lt;/li>
+        &lt;/ul>
+    &lt;/dd>
+&lt;?js } ?></code></pre><h3>Inherits</h3><pre class="prettyprint source"><code>&lt;?js if (data.inherited && data.inherits) { ?>
+    &lt;dt class=&quot;inherited-from method-doc-label method-doc-details-label&quot;>Inherited From:&lt;/dt>
+    &lt;dd class=&quot;inherited-from&quot;>
+        &lt;ul class=&quot;dummy&quot;>
+            &lt;li>
+                &lt;?js= this.linkto(data.inherits, this.htmlsafe(data.inherits)) ?>
+            &lt;/li>
+        &lt;/ul>
+    &lt;/dd>    
+
+    &lt;?js console.log(&quot;Inherits! &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h3>Overrides</h3><pre class="prettyprint source"><code>&lt;?js if (data.overrides) { ?>
+    &lt;dt class=&quot;tag-overrides&quot;>Overrides':&lt;/dt>
+    &lt;dd class=&quot;tag-overrides&quot;>&lt;ul class=&quot;dummy&quot;>&lt;li>
+        &lt;?js= this.linkto(data.overrides, this.htmlsafe(data.overrides)) ?>
+    &lt;/li>&lt;/ul>&lt;/dd>
+    &lt;?js console.log(&quot;Overrides! &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h3>Implementations (Not tested because link not being generated properly)</h3><pre class="prettyprint source"><code>&lt;?js if (data.implementations && data.implementations.length) { ?>
+    &lt;dt class=&quot;implementations&quot;>Implementations:&lt;/dt>
+    &lt;dd class=&quot;implementations&quot;>&lt;ul>
+        &lt;?js data.implementations.forEach(function(impl) { ?>
+            &lt;li>&lt;?js= self.linkto(impl, self.htmlsafe(impl)) ?>&lt;/li>
+        &lt;?js }); ?>
+    &lt;/ul>&lt;/dd>
+    &lt;?js console.log(&quot;Implementations! &quot; + data.longname); // Broken in this template for reasons unclear--link up is failing. ?>
+&lt;?js } ?></code></pre><h3>Implements</h3><pre class="prettyprint source"><code>&lt;?js if (data.implements && data.implements.length) { ?>
+    &lt;dt class=&quot;implements&quot;>Implements:&lt;/dt>
+    &lt;dd class=&quot;implements&quot;>&lt;ul>
+        &lt;?js data.implements.forEach(function(impl) { ?>
+            &lt;li>&lt;?js= self.linkto(impl, self.htmlsafe(impl)) ?>&lt;/li>
+        &lt;?js }); ?>
+    &lt;/ul>&lt;/dd>
+&lt;?js } ?></code></pre><h3>Mixins</h3><pre class="prettyprint source"><code>&lt;?js if (data.mixes && data.mixes.length) { ?>
+        &lt;dt class=&quot;mixes&quot;>Mixes In:&lt;/dt>
+
+        &lt;dd class=&quot;mixes&quot;>&lt;ul>
+        &lt;?js data.mixes.forEach(function(a) { ?>
+                &lt;li>&lt;?js= self.linkto(a, a) ?>&lt;/li>
+        &lt;?js }); ?>
+        &lt;/ul>&lt;/dd>
+        &lt;?js console.log(&quot;Mixes! &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h3>Deprecated</h3><pre class="prettyprint source"><code>&lt;?js if (data.deprecated) { ?>
+    &lt;dt class=&quot;important tag-deprecated method-doc-label method-doc-details-label&quot;>Deprecated:&lt;/dt>
+    &lt;?js if (data.deprecated === true) { ?>
+        &lt;dd class=&quot;yes-def tag-deprecated&quot;>
+            &lt;ul class=&quot;dummy&quot;>
+                &lt;li>Yes&lt;/li>
+            &lt;/ul>
+        &lt;/dd>
+    &lt;?js } else { ?>
+        &lt;dd>
+                &lt;ul class=&quot;dummy&quot;>
+                        &lt;li>&lt;?js= data.deprecated ?>&lt;/li>
+                &lt;/ul>
+        &lt;/dd>
+    &lt;?js } ?>
+    &lt;?js console.log(&quot;Deprecated! &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h3>Author</h3><pre class="prettyprint source"><code>&lt;?js if (data.author && author.length) {?>
+    &lt;dt class=&quot;tag-author method-doc-label method-doc-details-label&quot;>Author:&lt;/dt>
+    &lt;dd class=&quot;tag-author&quot;>
+        &lt;ul>&lt;?js author.forEach(function(a) { ?>
+            &lt;li>&lt;?js= self.resolveAuthorLinks(a) ?>&lt;/li>
+            &lt;?js }); ?>&lt;/ul>
+    &lt;/dd>
+    &lt;?js console.log(&quot;Author! &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h3>Copyright</h3><pre class="prettyprint source"><code>&lt;?js if (data.copyright) {?>
+    &lt;dt class=&quot;tag-copyright method-doc-label method-doc-details-label&quot;>Copyright:&lt;/dt>
+    &lt;dd class=&quot;tag-copyright&quot;>
+        &lt;ul class=&quot;dummy&quot;>
+            &lt;li>&lt;?js= copyright ?>&lt;/li>
+        &lt;/ul>
+    &lt;/dd>
+    &lt;?js console.log(&quot;copyright! &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h3>License</h3><pre class="prettyprint source"><code>&lt;?js if (data.license) {?>
+    &lt;dt class=&quot;tag-license method-doc-label method-doc-details-label&quot;>License:&lt;/dt>
+    &lt;dd class=&quot;tag-license&quot;>
+        &lt;ul class=&quot;dummy&quot;>
+            &lt;li>&lt;?js= license ?>&lt;/li>
+        &lt;/ul>
+    &lt;/dd>
+    &lt;?js console.log(&quot;License! &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h3>Defaults</h3><pre class="prettyprint source"><code>&lt;?js if (data.defaultvalue) {?>
+    &lt;dt class=&quot;tag-default method-doc-label method-doc-details-label&quot;>Default Value:&lt;/dt>
+    &lt;dd class=&quot;tag-default&quot;>
+        &lt;ul class=&quot;dummy&quot;>
+            &lt;li>&lt;?js= data.defaultvalue ?>&lt;/li>
+        &lt;/ul>
+    &lt;/dd>
+&lt;?js } ?></code></pre><h3>Source</h3><pre class="prettyprint source"><code>&lt;?js if (data.meta && this.navOptions.outputSourceFiles) {?>
+    &lt;dt class=&quot;tag-source method-doc-label method-doc-details-label&quot;>Source:&lt;/dt>
+    &lt;dd class=&quot;tag-source&quot;>
+        &lt;ul class=&quot;dummy&quot;>
+            &lt;li>
+                &lt;?js= self.linkto(meta.shortpath) ?>&lt;?js if (this.navOptions.linenums) {?>,
+                &lt;?js= self.linkto(meta.shortpath, 'line ' + meta.lineno, null, 'sunlight-1-line-' + meta.lineno) ?>&lt;?js } ?>
+            &lt;/li>
+        &lt;/ul>
+    &lt;/dd>
+&lt;?js } else if (data.meta && this.navOptions.outputSourcePath) { ?>
+    &lt;dt class=&quot;tag-source method-doc-label method-doc-details-label&quot;>Source:&lt;/dt>
+    &lt;dd class=&quot;tag-source&quot;>
+        &lt;?js= meta.shortpath ?>
+    &lt;/dd>
+&lt;?js } ?></code></pre><h3>Tutorials</h3><pre class="prettyprint source"><code>&lt;?js if (data.tutorials && tutorials.length) {?>
+    &lt;dt class=&quot;tag-tutorial method-doc-label method-doc-details-label&quot;>Tutorials:&lt;/dt>
+    &lt;dd class=&quot;tag-tutorial&quot;>
+        &lt;ul>&lt;?js tutorials.forEach(function(t) { ?>
+            &lt;li>&lt;?js= self.tutoriallink(t) ?>&lt;/li>
+            &lt;?js }); ?>&lt;/ul>
+    &lt;/dd>
+    &lt;?js console.log(&quot;Tutorials! &quot; + data.longname); ?>
+&lt;?js } ?></code></pre><h3>See</h3><pre class="prettyprint source"><code>&lt;?js if (data.see && see.length) {?>
+    &lt;dt class=&quot;tag-see method-doc-label method-doc-details-label&quot;>See:&lt;/dt>
+    &lt;dd class=&quot;tag-see&quot;>
+        &lt;ul>&lt;?js see.forEach(function(s) { ?>
+            &lt;li>&lt;?js= self.linkto(s) ?>&lt;/li>
+            &lt;?js }); ?>&lt;/ul>
+    &lt;/dd>
+    &lt;?js console.log(&quot;data.see: %s&quot;, data.see); ?>
+    &lt;?js console.log(&quot;see: %s&quot;, see); ?>
+&lt;?js } ?></code></pre><h3>ToDo</h3><pre class="prettyprint source"><code>&lt;?js if (data.todo && todo.length) {?>
+    &lt;dt class=&quot;tag-todo method-doc-label method-doc-details-label&quot;>To Do:&lt;/dt>
+    &lt;dd class=&quot;tag-todo&quot;>
+        &lt;ul>&lt;?js todo.forEach(function(t) { ?>
+            &lt;li>&lt;?js= t ?>&lt;/li>
+            &lt;?js }); ?>&lt;/ul>
+    &lt;/dd>
+&lt;?js } ?></code></pre>
+</article>
+
+</section>
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	`shinstrap` (forked from `ink-docstrap`) by <a href='emailto:shin@shinworks.co'>Shin</a>
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on Wed Oct 17th 2018
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/shinstrap.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
