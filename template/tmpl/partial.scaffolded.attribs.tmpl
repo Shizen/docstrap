@@ -1,0 +1,70 @@
+<?js
+var data = obj;
+var self = this;
+?>
+
+<?js // I think this is the incorrect class, but for legacy with docstrap... ?>
+<span class="type-signature">
+  <?js if(data.scaffolding.template.displayStyle === "badges") { ?>
+    <?js if(data.contents.indexOf("abstract") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/abstract.svg" alt="abstract" title="abstract"/>
+    <?js } ?>
+
+    <?js if(data.contents.indexOf("async") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/async.svg" alt="async" title="async"/>
+    <?js } ?>
+
+    <?js //- access badges first (many "better" ways to do this)
+      /* I could define an array of scope names.  I could even allow badge mapping in the conf.
+      * For the moment, though I'm going to brute force it. 
+      */
+      if(data.contents.indexOf("private") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/private.svg" alt="Private" title="Access private"/>
+    <?js } else if(data.contents.indexOf("protected") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/protected.svg" alt="Protected" title="Access protected"/>
+    <?js } else if(data.contents.indexOf("public") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/public.svg" alt="Public" title="Access public"/>
+    <?js } 
+      //- Now scope badges (incomplete atm)
+    ?>
+    <?js if(data.contents.indexOf("static") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/static.svg" alt="static" title="Scope static"/>
+    <?js } else if(data.contents.indexOf("inner") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/inner.svg" alt="inner" title="Scope inner"/>
+    <?js } else if(data.contents.indexOf("global") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/global.svg" alt="global" title="Scope global"/>
+    <?js } else if(data.contents.indexOf("instance") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/instance.svg" alt="instance" title="Scope instance"/>
+    <?js } ?>
+
+    <?js if(data.contents.indexOf("generator") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/generator.svg" alt="generator" title="generator"/>
+    <?js } ?>
+
+    <?js if(data.contents.indexOf("readonly") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/readonly.svg" alt="readonly" title="readonly"/>
+    <?js } ?>
+
+    <?js if(data.contents.indexOf("constant") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/constant.svg" alt="constant" title="constant"/>
+    <?js } ?>
+
+    <?js if(data.contents.indexOf("nullable") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/nullable.svg" alt="nullable" title="nullable"/>
+    <?js } else if (data.contents.indexOf("non-null") !== -1) { ?>
+      <img class="jsdoc-badge" src="img/non-null.svg" alt="non-null" title="non-null"/>
+    <?js } ?>
+
+  <?js } else if (data.scaffolding.template.displayStyle === "buttons") { ?>
+    <?js for(var idx = 0; idx < data.contents.length; idx++) { ?>
+      <span class="jsdoc-attrib-button jsdoc-attrib-<?js= data.contents[idx] ?>" alt="<?js= data.contents[idx] ?>" title="<?js= data.contents[idx] ?>">
+      <?js= data.contents[idx][0].toUpperCase() ?>
+      </span>
+    <?js } ?>
+  <?js } else { ?>
+    <?js // Assuming here "csl" ?>
+      <span class="jsdoc-attrib-csl">
+        <?js= self.htmlsafe(data.contents.length ? '<' + data.contents.join(', ') + '> ' : '') ?>
+      </span>
+  <?js } ?>
+</span>

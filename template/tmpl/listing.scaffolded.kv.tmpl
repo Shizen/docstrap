@@ -1,0 +1,37 @@
+<?js
+  //#unpack
+  var data = obj;
+  var self = this;
+  //-setup defaults to lessen tests
+  data.scaffolding = data.scaffolding || {};
+  data.scaffolding.titleWrapper = data.scaffolding.titleWrapper || "h5";
+  data.scaffolding.titleAttributesWrapper = data.scaffolding.titleAttributesWrapper || "";
+  data.scaffolding.wrapper = data.scaffolding.wrapper || "span";
+  data.scaffolding.wrapperAttributes = data.scaffolding.wrapperAttributes || "";
+?>
+
+<?js //#validate <-- going to do validation in handleScaffolding so we can setup the enviroment more easily. ?>
+
+<?js //#title (Key) ?>
+<?js // data.scaffolding.suppressTitle is invalid for KVHeading ?>
+<<?js= data.scaffolding.titleWrapper ?> <?js= data.scaffolding.titleAttributesWrapper || "" ?>> 
+  <?js= title ?>
+  <?js //- Value ?>
+  <?js if(data.scaffolding.usePartial) { ?>
+    <?js //-if use partial ?>
+    <?js if(data.scaffolding.usePartialOnField) { ?>
+      <?js //- usePartialOnField ?>
+      <?js if(data.contents[data.scaffolding.usePartialOnField]) { ?>
+        <?js //- "valid" onField value ?>
+        <?js= self.partial(data.scaffolding.usePartial, data.contents[data.scaffolding.usePartialOnField]) ?>
+      <?js } ?>
+    <?js } else { ?>
+      <?js= self.partial(data.scaffolding.usePartial, data.contents) ?>
+    <?js } ?>
+  <?js } else { ?>
+    <?js //-do wrapper (no items) ?>
+    <<?js= data.scaffolding.wrapper ?> <?js= data.scaffolding.wrapperAttributes ?>> 
+      <?js= data.contents ?>
+    </<?js= data.scaffolding.wrapper ?>>
+  <?js } ?>
+</<?js= data.scaffolding.titleWrapper ?>>

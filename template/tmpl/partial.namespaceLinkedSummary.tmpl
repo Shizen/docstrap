@@ -1,0 +1,11 @@
+<?js
+  var data = obj;
+  var self = this;
+  // Added
+?>
+
+<dl><?js data.forEach(function(n) { ?>
+  <!-- This namespaces.html# link doesn't do anything :/ -->
+  <dt><a href="namespaces.html#<?js= n.longname ?>"><?js= self.linkto(n.longname, n.name) ?></a></dt>
+  <dd><?js if (n.summary) { ?><?js= n.summary ?><?js } ?></dd>
+<?js }); ?></dl>

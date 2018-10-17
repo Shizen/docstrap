@@ -2,9 +2,12 @@
 var data = obj;
 var self = this;
 ?>
+
+<?js //console.log("members %s", data.longname) ?>
+
 <hr>
 <dt class="name" id="<?js= id ?>">
-    <h4 id="<?js= id ?>"><?js= data.attribs + name + (data.signature ? data.signature : '') ?></h4>
+    <h4 id="<?js= id ?>"><?js= self.scaffoldPartialBySpec(self, data, "members:default:attribs")  + name + (data.signature ? data.signature : '') ?></h4>
 
     <?js if (data.summary) { ?>
     <p class="summary"><?js= summary ?></p>

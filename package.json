@@ -1,7 +1,15 @@
 {
-  "name": "ink-docstrap",
-  "version": "1.3.2",
-  "decription": "A template for JSDoc3 based on Bootstrap and Bootswatch",
+  "name": "@shizen/shinstrap",
+  "version": "0.0.1-alpha.10",
+  "decription": "A customizable template for JSDoc3 based on Bootstrap and Bootswatch;  Forked from docstrap",
+  "scripts": {
+    "build-docs": "./node_modules/.bin/jsdoc -c ./.jsdoc.json -d docs/ -R README.md -r .",
+    "internal-docs": "./node_modules/.bin/jsdoc -p -c ./.jsdoc.json -d internaldocs/ -R README.md -r .",
+    "reference-docs": "./node_modules/.bin/jsdoc -p -c ./.jsdoc.json -t node_modules/jsdoc/templates/default -d refdocs/ -R README.md -r .",
+    "test-docs": "./node_modules/.bin/jsdoc -T -c ./.jsdoc.json -d docs/ -R README.md -r .",
+    "log-docs": "./node_modules/.bin/jsdoc -X -c ./.jsdoc.json -d docs/ -R README.md -r . > gen.log",
+    "debug-docs": "node --inspect-brk ./node_modules/jsdoc/jsdoc.js -c ./.jsdoc.json -d docs/ -R README.md -r ."
+  },
   "devDependencies": {
     "async": "~2.0.1",
     "grunt": "~1.0.1",
@@ -9,11 +17,11 @@
     "grunt-contrib-less": "~1.4.0",
     "grunt-contrib-uglify": "~2.0.0",
     "grunt-shell": "~1.3.1",
-    "jsdoc": "~3.4.0",
+    "jsdoc": "^3.5.5",
     "lodash": "~4.15.0",
     "request": "^2.74.0"
   },
-  "license": "MIT",
+  "license": "UNLICENSED",
   "keywords": [
     "bootstrap",
     "bootswatch",
@@ -24,15 +32,12 @@
     "theme"
   ],
   "author": {
-    "email": "me@terryweiss.net",
-    "name": "Terry Weiss"
-  },
-  "bugs": {
-    "url": "https://github.com/docstrap/docstrap/issues"
+    "email": "shin@shinworks.co",
+    "name": "Shin"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/docstrap/docstrap.git"
+    "url": "https://github.com/Shizen/shinstrap"
   },
   "main": "./template/publish.js",
   "dependencies": {

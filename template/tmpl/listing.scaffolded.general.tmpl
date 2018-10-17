@@ -1,0 +1,117 @@
+
+<?js
+//#unpack
+var data = obj;
+var self = this;
+//-setup defaults to lessen tests
+data.scaffolding = data.scaffolding || {};
+data.scaffolding.titleWrapper = data.scaffolding.titleWrapper || "h5";
+data.scaffolding.titleAttributesWrapper = data.scaffolding.titleAttributesWrapper || "";
+data.scaffolding.wrapper = data.scaffolding.wrapper || "div";
+data.scaffolding.wrapperAttributes = data.scaffolding.wrapperAttributes || "";
+?>
+
+<?js //#validate <-- going to do validation in handleScaffolding so we can setup the enviroment more easily. ?>
+
+<?js //-if defer <-- Also dealt with in handleScaffolding... ?>
+
+<?js //#entry wrapper ?>
+<?js if (data.scaffolding.entryWrapper) { ?>
+  <<?js= data.scaffolding.entryWrapper ?> <?js= data.scaffolding.entryWrapperAttributes ?>> 
+<?js } ?>
+
+<?js //# Title ?>
+<?js if (!data.scaffolding.suppressTitle) { ?>
+  <?js //- Open outerTitleWrapper if present ?>
+  <?js if(data.scaffolding.outerTitleWrapper) { ?>
+    <<?js= data.scaffolding.outerTitleWrapper ?> <?js= data.scaffolding.outerTitleWrapperAttributes ?>> 
+  <?js } ?>
+
+  <?js //-if !suppressTitle ?>
+  <<?js= data.scaffolding.titleWrapper ?> <?js= data.scaffolding.titleAttributesWrapper || "" ?>> 
+    <?js= title ?>
+  </<?js= data.scaffolding.titleWrapper ?>>
+
+  <?js if(data.scaffolding.outerTitleWrapper) { ?>
+    <?js //- Close outerTitleWrapper if present ?>
+    </<?js= data.scaffolding.outerTitleWrapper ?>> 
+  <?js } ?>
+<?js } ?>
+
+<?js //#body (value) ?>
+<?js if(!data.scaffolding.suppressValue) { ?>
+
+  <?js if(data.scaffolding.outermostWrapper) { ?>
+    <?js //- Open outermostWrapper if present ?>
+    <<?js= data.scaffolding.outermostWrapper ?> <?js= data.scaffolding.outermostWrapperAttributes ?>> 
+  <?js } ?>
+
+  <?js if(data.scaffolding.outerWrapper) { ?>
+    <?js //- Open outerWrapper if present ?>
+    <<?js= data.scaffolding.outerWrapper ?> <?js= data.scaffolding.outerWrapperAttributes ?>> 
+  <?js } ?>
+
+  <?js if(data.scaffolding.usePartial) { ?>
+    <?js //-if use partial ?>
+    <?js if(data.scaffolding.usePartialOnField) { ?>
+      <?js //- usePartialOnField ?>
+      <?js if(data.contents[data.scaffolding.usePartialOnField]) { ?>
+        <?js //- "valid" onField value ?>
+        <?js= self.partial(data.scaffolding.usePartial, data.contents[data.scaffolding.usePartialOnField]) ?>
+      <?js } ?>
+    <?js } else { ?>
+      <?js= self.partial(data.scaffolding.usePartial, data.contents) ?>
+    <?js } ?>
+  <?js } else if(data.contents.length && data.contents.forEach) { ?>
+    <?js //-if contents is an array (why I don't use Array.isArray?) ?>
+    <?js if (data.scaffolding.usePerItemPartial) { ?>
+      <?js //-if usePerItemPartial  ?>
+      <?js data.contents.forEach(function(i) { ?>
+        <?js= self.partial(data.scaffolding.usePerItemPartial, i) ?>
+      <?js }) ?>
+    <?js } else if (data.scaffolding.perItemMapPartial) { ?>
+      <?js //-if perItemMapPartial ?>
+      <?js var map = data.scaffolding.perItemMapPartial; ?>
+      <?js data.contents.forEach(function(i) { ?>
+        <?js var found = false; ?>
+        <?js Object.getOwnPropertyNames(map).forEach(function(_c) { ?>
+          <?js if(!found && _c !== "default" && eval(_c)) { // Only allow one partial, even if cases are ambiguous ?>
+            <?js= self.partial(map[_c], i) ?>
+            <?js found = true; ?>
+          <?js } ?>
+        <?js }) ?>
+        <?js if(!found) { ?>
+          <?js= self.partial(map.default, i) ?>
+        <?js } ?>
+      <?js }) ?>
+    <?js } else { ?>
+      <?js //=contents is array + no usePerItemPartial = use wrapper per item ?>
+      <?js data.contents.forEach(function(i) { ?>
+        <<?js= data.scaffolding.wrapper ?> <?js= data.scaffolding.wrapperAttributes ?>> 
+          <?js= self.marshalItemDisplay(i, data.scaffolding.itemMarshalling, self) ?>
+        </<?js= data.scaffolding.wrapper ?>>
+      <?js }) ?>
+    <?js } ?>
+  <?js } else { ?>
+    <?js //-do wrapper (no items) ?>
+    <<?js= data.scaffolding.wrapper ?> <?js= data.scaffolding.wrapperAttributes ?>> 
+      <?js= self.marshalItemDisplay(data.contents, data.scaffolding.itemMarshalling, self) ?>
+    </<?js= data.scaffolding.wrapper ?>>
+  <?js } ?>
+
+  <?js if(data.scaffolding.outerWrapper) { ?>
+    <?js //- Close outerWrapper if present ?>
+    </<?js= data.scaffolding.outerWrapper ?>> 
+  <?js } ?>
+
+  <?js if(data.scaffolding.outermostWrapper) { ?>
+    <?js //- Close outermostWrapper if present ?>
+    </<?js= data.scaffolding.outermostWrapper ?>> 
+  <?js } ?>
+
+<?js } ?>
+
+<?js if (data.scaffolding.entryWrapper) { ?>
+<?js //-close entry wrapper if present ?>
+  </<?js= data.scaffolding.entryWrapper ?>> 
+<?js } ?>

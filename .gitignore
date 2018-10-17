@@ -10,3 +10,9 @@ themes*
 npm-debug.log
 .DS_Store
 ._*
+gen.log
+.vscode/*
+docs/*
+internaldocs/*
+refdocs/*
+LOCAL.md

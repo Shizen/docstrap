@@ -1,10 +1,165 @@
 "use strict";
 
+/*
+ *   (																									
+ *   )\ )    )                                 )      	
+ * (()/( ( /( (          (  (         (    ( /(      	
+ *   /(_)))\()))\   (     )\))(    (   )(   )\()) (   	
+ * (_)) ((_)\((_)  )\ ) ((_)()\   )\ (()\ ((_) )\  	
+ * / __|| |(_)(_) _(_/( _(()((_) ((_) ((_)| |(_)((_) 	
+ * \__ \| ' \ | || ' \))\ V  V // _ \| '_|| / / (_-< 	
+ * |___/|_||_||_||_||_|  \_/\_/ \___/|_|  |_\_\ /__/	
+ */
+
 /**
  * @module template/publish
  * @type {*}
+ * @desc
+ * 
+ * This is the primary export module for `shinstrap`.  `jsdoc` looks for this file in the referenced
+ * `template/` directory when specified as a template in jsdoc's config file.
+ * 
+ * `shinstrap` is a fork of [`ink-docstrap`](https://github.com/docstrap/docstrap), and the bulk of 
+ * *this* file remains untouched.  `shinstrap`, like `docstrap` before it follows the patterns set down 
+ * in `jsdoc`'s default template.  See `jsdoc/templates/default/publish.js` (no link because, ironically,
+ * jsdoc didn't comment their templates :) ).  
+ * 
+ * In addition to `docstrap`'s baseline of features, `shinstrap` primarily adds customization.  The order
+ * and organization of default tags can be changed (from configuration settings), as well as new rules to 
+ * allow for the rendering of custom tags.  The menus for tutorials can likewise be customized.  
+ * `shinstrap` adds a few simple features to override the built-in templates even for complex reworks 
+ * with a minimum amount of futzing.  Full details should be available in the `Usage.md` document in this
+ * module's documentation (or in `design/Usage.md`) [{@tutorial Usage}].
  */
+
 /*global env: true */
+
+//#region Template Documentation
+
+/**
+ * @template container.tmpl
+ * @memberof module:template/publish
+ * @desc
+ * The "root" level display template for `jsdoc`.  `container.tmpl` marhalls and displays most of the doclets which have their own landing page.
+ * This includes modules, interfaces, classes, namespace, events, mixins, etc. displayed as `<article>`s.  This template is broken into two 
+ * sections in `docstrap`, an "overview" section and what I am calling the body. 
+ * 
+ * Display of contents of the "overview" area are controlled in the `customizeOutput` area of the template's configuration by the specifier path:  
+ * `"container:article:overview:..."`  
+ * This specifier has three branches -- "class", "module-with-modules" and the default (every other case).  This is a legacy of `docstrap`
+ *
+ * The "body" portion of this template's display is controlled by the specifier path:  
+ * `"container:article:body:default"`
+ * 
+ */
+
+/**
+ * @template method.tmpl
+ * @memberof module:template/publish
+ * @desc
+ * One of the three workhorse templates for `jsdoc` display.  `method.tmpl` marshals and displays the common features of javascript entites
+ * and is used for methods, classes (when not on their own landing page), typedefs, and events.  This is a common template to leverage for
+ * complex custom tags as well.  By default it displays...    
+ * `[ "description", "augments", "type", "this", "params", "details", "requires", "fires", "listens", "listeners", "exceptions", "returns", "examples" ]`
+ * 
+ */
+
+/**
+ * @template details.tmpl
+ * @memberof module:template/publish
+ * @desc
+ * One of the three workhorse templates for `jsdoc` display.  `details.tmpl` marshals and displays the details of a doclet.  Specifically...  
+ * `[ "properties", "version", "since", "inherits", "overrides", "implementations", "implements",
+ *    "mixes", "deprecated", "author", "copyright", "license", "defaultvalue", "meta", "tutorials", "see", "todo" ]`
+ * 
+ */
+
+ /**
+ * @template tutorial.tmpl
+ * @memberof module:template/publish
+ * @desc
+ * This template controls the presentation of tutorials by `jsdoc`.
+ */
+
+ /**
+ * @template source.tmpl
+ * @memberof module:template/publish
+ * @desc
+ * This template controls the presentation of source files by `jsdoc` (when `"outputSourceFiles": true`).
+ */
+
+ /**
+  * @template attribs partial.scaffolded.attribs.tmpl
+  * @memberof module:template/publish
+  * @honors template.displayStyle {string} One of `buttons`, `badges` or `csl` describing how the doclet's attribs should be displayed.
+  * @desc
+  * The "first" scaffolded partial template, this template controls the display of attributes.  This partial is designed to fit in
+  * with the display layout of docstrap, attempting to provide a "terse" easy rendering of the attributes for an entity.
+  * 
+  * By default, this template is called from `method.tmpl` and `members.tmpl`.
+  */
+
+ /**
+  * @template KeyValue listing.scaffolded.kv.tmpl
+  * @memberof module:template/publish
+  * @honors {string} titleWrapper The tag to wrap the title in.
+  * @honors {string} titleCaption A string with which to replace the normally auto-generated title text.  (See module:template/publish.handleScaffolding)
+  * @honors {string} titleWrapperAttributes The attributes to associate with the title tag.
+  * @honors {string} usePartial The template to display the tag's value with.
+  * @honors {string} usePartialOnField When `usePartial` is set, allows the specification of which field on the doclet to supply to the 
+  * partial as its `data`.
+  * @honors {string} wrapper If `usePartial` is *not set*, `wrapper` indicates the tag in which to wrap the value of this listing.
+  * @honors {string} wrapperAttributes The attributes to associate with the wrapping tag.
+  * @desc
+  * This template handles the display of key-value pairs.  For instance,  
+  *     Type: {Object}
+  * 
+  */
+
+/**
+  * @template General listing.scaffolded.general.tmpl
+  * @memberof module:template/publish
+  * @honors {string} entryWrapper The tag which the entire entry should be wrapped in.  For situations where you want to wrap both the title and
+  * the contents.  For example, when making a `<details>` entry or a `<fieldset>` entry.
+  * @honors {string} entryWrapperAttributes The attributes which should be rendered for the entityWrapper.  Only valid if entityWrapper has a 
+  * value.
+  * @honors {boolean} suppressTitle If true, no title will be generated.  This causes `title`, `titleCaption` and `titleAttributes` to be ignored.
+  * @honors {string} outerTitleWrapper The "outer" wrapper for the title (title only supports two "tiers" of wrappers).
+  * @honors {string} outerTitleAttributes The attributes to associate with the outer title tag.
+  * @honors {string} titleWrapper The tag to wrap the title in.
+  * @honors {string} titleCaption A string with which to replace the normally auto-generated title text.  (See module:template/publish.handleScaffolding)
+  * @honors {object} titleContextPluralize Causes the title to be pluralized if the doclet is an array with more than one member.  This object
+  * has two fields--`singular` and `plural`, the value for each is used as the title in their respective cases.
+  * @honors {string} titleWrapperAttributes The attributes to associate with the title tag.
+  * @honors {boolean} [suppressValue=false] If true, no value will be display for this entry.  This causes the various wrapper and use* 
+  * descriptors to be ignored.
+  * @honors {string} outermostWrapper `listing.scaffolded.general.tmpl` allows for up to three tiers of embedded html wrappers.  
+  * This is the outermost wrapper.
+  * @honors {string} outermostWrapperAttributes The attributes to assign to the outermostWrapper.
+  * @honors {string} outerWrapper The "second tier" or outer html wrapper for an entry value.
+  * @honors {string} outerWrapperAttributes The attributes to assign to the outerWrapper.
+  * @honors {string} wrapper If `usePartial` is *not set*, `wrapper` indicates the tag in which to wrap the value of this listing.
+  * @honors {string} wrapperAttributes The attributes to associate with the wrapping tag.
+  * @honors {string} usePartial The template to display the tag's value with.
+  * @honors {string} usePartialOnField When `usePartial` is set, allows the specification of which field on the doclet to supply to the 
+  * partial as its `data`.
+  * @honors {string} usePerItemPartial In the event that the entry's value is an array, `usePerItemPartial` allows the specification
+  * of a partial template to be used *on each value* in this entry's value array.  This setting is overridden by `usePartial`.
+  * @honors {object} perItemMapPartial If set, this setting allows the specification of an object, where each field name in the object is an
+  * expression, which if it evaluates to true will cause this template to use as a partial the value of that field.  Conditions are tested in 
+  * order and used on a first found basis.  If a "default" field is specified, it will be used in the event none of the other conditions 
+  * evaluate to true.  `usePartial` and `usePerItemPartial` both override this setting.
+  * @honors {string} alternateHandler 
+  * @honors {array} itemMarshalling :advanced: This is an array of view helpers and parameters to execute on each entry's value before 
+  * rendering it.  The format for each call is `["functionName", "param1", "param2", ...]`.  An arbitrary number of marshal calls may be
+  * made, and they will be executed in order (e.g. `itemMarshalling: [ [ "linkto", "", "" ] ]`).  Param specifications are relative to the 
+  * entry value itself (for brevity), so `""` references the entry value itself, and "kind" would reference `data.kind` (for instance).
+  * @honors {object} find :advanced:
+  * @honors {object} validate :advanced:
+  * @desc
+  * This is the general case listing handler for `shinstrap`.
+  */
+//#endregion
 
 var template = require('jsdoc/template'),
   doop = require('jsdoc/util/doop'),
@@ -23,6 +178,7 @@ var template = require('jsdoc/template'),
   scopeToPunc = helper.scopeToPunc,
   hasOwnProp = Object.prototype.hasOwnProperty,
   conf = env.conf.templates || {},
+  shinHelpers = require("./shin-utils")(conf),
   data,
   view,
   outdir = env.opts.destination,
@@ -110,6 +266,9 @@ var navigationMaster = {
   }
 };
 
+//----------------------------------------------------
+// Helper function wrappers used by `docstrap` for `view`
+//#region view helper (wrapper declations)
 function find(spec) {
   return helper.find(data, spec);
 }
@@ -137,6 +296,14 @@ function hashToLink(doclet, hash) {
   return '<a href="' + url + '">' + hash + '</a>';
 }
 
+//#endregion
+// End view helper wrapping
+//----------------------------------------------------
+
+
+//----------------------------------------------------
+// Task utilities for `docstrap`
+//#region task utilities
 function needsSignature(doclet) {
   var needsSig = false;
 
@@ -199,8 +366,8 @@ function addSignatureTypes(f) {
 
 function addAttribs(f) {
   var attribs = helper.getAttribs(f);
-
-  f.attribs = '<span class="type-signature">' + htmlsafe(attribs.length ? '<' + attribs.join(', ') + '> ' : '') + '</span>';
+  f.attribs = attribs;
+  //Shin: Moved to `partial.scaffolded.attribs.tmpl`
 }
 
 function shortenPaths(files, commonPrefix) {
@@ -254,6 +421,10 @@ function searchData(html) {
   stripped = stripped.replace(/\s+/g, ' ');
   return stripped;
 }
+//#endregion
+// "End" task utilities declarations...
+// In that the generate* functions are more core functionality ;)
+//----------------------------------------------------
 
 function generate(docType, title, docs, filename, resolveLinks) {
   resolveLinks = resolveLinks === false ? false : true;
@@ -281,6 +452,7 @@ function generate(docType, title, docs, filename, resolveLinks) {
 
   fs.writeFileSync(outpath, html, 'utf8');
 }
+
 
 function generateSourceFiles(sourceFiles) {
   Object.keys(sourceFiles).forEach(function(file) {
@@ -453,6 +625,22 @@ function buildNav(members) {
 
   }
 
+  if (members.menu) {
+    nav.menu = {};
+    for(var menuName in members.menu) {
+      nav.menu[menuName] = {
+        title: conf.customizeOutput.menus[menuName].title,
+        link: helper.getUniqueFilename(menuName + ".list") // fallback page
+      };
+      nav.menu[menuName].members = [];
+      if(members.menu[menuName].length) {
+        members.menu[menuName].forEach(function (t) {
+          nav.menu[menuName].members.push(tutoriallink(t.name));
+        });
+      }
+    }
+  }
+
   if (members.globals.length) {
     members.globals.forEach(function(g) {
       if (g.kind !== 'typedef' && !hasOwnProp.call(seen, g.longname)) {
@@ -470,18 +658,30 @@ function buildNav(members) {
 
   var topLevelNav = [];
   _.each(nav, function(entry, name) {
-    if (entry.members.length > 0 && name !== "index") {
+    if (name !== "menu" && entry.members.length > 0 && name !== "index") {
       topLevelNav.push({
         title: entry.title,
         link: entry.link,
         members: entry.members
       });
+    } else if (name === "menu") {
+      for(var menuName in entry) {
+        if(entry[menuName].members.length > 0) {
+          topLevelNav.push({
+            title: entry[menuName].title,
+            link: entry[menuName].link,
+            members: entry[menuName].members
+          });
+        }
+      }
     }
   });
   nav.topLevelNav = topLevelNav;
 }
 
 /**
+ * @desc
+ * This is the primary entry point into `docstrap` (and `shinstrap`).  
  @param {TAFFY} taffyData See <http://taffydb.com/>.
  @param {object} opts
  @param {Tutorial} tutorials
@@ -490,8 +690,17 @@ exports.publish = function(taffyData, opts, tutorials) {
   data = taffyData;
 
   conf['default'] = conf['default'] || {};
+  var def = require("./defaults.json");
+  shinHelpers.leafMerge(conf.customizeOutput, def);
 
   var templatePath = opts.template;
+  /**
+   * @inner
+   * @namespace view
+   * @desc
+   * This is the `jsdoc` template handler.  It deals with and acts as the namespace for all templates executed
+   * by `shinstrap` in pursuit of rendering documentation for the doclets generated by jsdoc.
+   */
   view = new template.Template(templatePath + '/tmpl');
 
   // claim some special filenames in advance, so the All-Powerful Overseer of Filename Uniqueness
@@ -503,10 +712,61 @@ exports.publish = function(taffyData, opts, tutorials) {
   helper.registerLink('global', globalUrl);
 
   // set up templating
-  // set up templating
+  /**
+   * @desc
+   * The layout to use for all templates rendered via `shinstrap`.
+   */
   view.layout = conf['default'].layoutFile ?
     path.getResourcePath(path.dirname(conf['default'].layoutFile),
     path.basename(conf['default'].layoutFile) ) : 'layout.tmpl';
+
+  //! ShinExt: Patch `partial()` to allow for overrides & custom `tmpl` files.
+  /**
+   * @desc
+   * This is an instance "patch" override of `jsdoc`'s core `Template` class's `partial()` function.  This patch
+   * implements the `templateOverrideDir` functionality.  `partial()` in turn handles the caching and invocation of 
+   * a template in `jsdoc`. {@see jsdoc/template.Template#partial}
+   * @algorithm
+   * Implemented as an instance patch to avoid conflict with other parts of the `jsdoc` system.
+   * @param {string} _file Name of the template file to render.
+   * @param {object} _data If the template is *not* scaffolded this is the doclet or doclet-shard (typically called
+   * `data` in this framework) which is to be rendered.  A "scaffolded" template expects an object with, minimally
+   * the doclet/data in a field called `contents` and the rendering rules in a field called `scaffolding`. 
+   * @todo Originally I thought this made more sense and was less invasive as an instance override, but now I'm 
+   * coming around to the idea that it should probably be a direct patch on `Template`, given I really am the only
+   * client of that class in the framework.
+   */
+  view.partial = function overridePartial(_file, _data) {
+    // The issue here, primarily is that I haven't analyzed the code to know if I specialize Template if something will break
+    // So we're going to do a simple intercept 8)
+
+    // The reason for this intercept is to insert a new search directory for templates.
+    if(conf.templateOverrideDir) {
+      var file = path.resolve(this.path, _file);
+      // There is an override directory
+      if (!(file in this.cache)) {
+        // And this `_file` is not already in the cache...
+        
+        // We could use getResourcePath to do the search, but this is maybe overly broad.
+        var override = path.join(process.cwd(), conf.templateOverrideDir, _file);
+        if(fs.existsSync(override)) {
+          console.log("Overriding %s with %s", _file, override);
+          // Override detected, we'll cache our override under the default name
+          this.cache[file] = this.load(override);
+        }
+      }
+    }
+    // This will repeat the cache test, but it's *slightly* less intrusive then just replacing `partial()` entirely.
+    return template.Template.prototype.partial.call(this, _file, _data);
+  };
+  // view.rules = conf.customizeOutput.tags || {}; // Here I could do defaults
+
+  /**
+   * @desc
+   * The supplemental css resource file.  Yes, we only allow one.  Discovered via `jsdoc`'s standard resource discovery
+   * mechanism.
+   */
+  view.supplementalCSS = conf.supplementalCSS;  // Could do some path mongery, verify existance...
 
   // set up tutorials for helper
   helper.setTutorials(tutorials);
@@ -591,8 +851,25 @@ exports.publish = function(taffyData, opts, tutorials) {
 
 	// copy the template's static files to outdir
 	var fromDir = path.join( templatePath, 'static' );
-	var staticFiles = fs.ls( fromDir, 3 );
+  var staticFiles = fs.ls( fromDir, 3 );
+  //! Shin: Add in supplementalCSS if present
+  if(conf.supplementalCSS) {
+    // Probably should verify it exists
+    var scss = path.getResourcePath(path.dirname(conf.supplementalCSS),
+    path.basename(conf.supplementalCSS));
+    // This ought to be encapsulated, imo
+    var toFile = scss.replace(path.dirname(scss), path.join(outdir, "styles")); // This is a little cheaty
+		var toDir = fs.toDir( toFile );
+    fs.mkPath( toDir );
+    fs.copyFileSync( scss, '', toFile);
+    // staticFiles.push(scss);
+  }
 
+  //# Copy over static files used by the auto-genned documentation
+  // - images
+  // - scripts
+  // - fonts
+  // - etc.
 	staticFiles.forEach( function ( fileName ) {
 		var toFile = fileName.replace( fromDir, outdir );
 		var toDir = fs.toDir( toFile );
@@ -679,19 +956,138 @@ exports.publish = function(taffyData, opts, tutorials) {
       addAttribs(doclet);
       doclet.kind = 'member';
     }
+
+    if(conf.customizeOutput.doclets && conf.customizeOutput.doclets[doclet.kind] && conf.customizeOutput.doclets[doclet.kind].processing) {
+      conf.customizeOutput.doclets[doclet.kind].processing.map(function(_fnName) {
+        // weaksauce; also at the point where I'm doing this, maybe I should just have an array of processing fragments?  The temptation 
+        // for users to break the system by overloading this "feature" with excess code... idk
+        eval(_fnName+"(doclet)");
+      });
+    }
   });
 
+  // This is where docstrap generates the list of linked documents for the menus
   var members = helper.getMembers(data);
-  members.tutorials = tutorials.children;
 
-  // add template helpers
+  // menu members...
+  var used = [];
+  if(conf.customizeOutput.menus) {
+    // No error handling
+    members.menu = {};
+    for(var menuName in conf.customizeOutput.menus) {
+      members.menu[menuName] = [];
+      var menuSettings = conf.customizeOutput.menus[menuName];
+      for(var idx in conf.customizeOutput.menus[menuName].members) {
+        var tut = _.findWhere(tutorials.children, { longname: conf.customizeOutput.menus[menuName].members[idx] });
+        if(tut) {
+          used.push(tut); // Clear from "normal" tutorial list
+          // Filter by access specification
+          if(menuSettings.access) {
+            // public, private, protected, undefined or all
+            if(opts.access === "public" && menuSettings.access !== "public") {
+              continue;
+            } 
+            if(opts.access === "private" && menuSettings.access !== "private") {
+              continue;
+            } 
+            if(opts.access === "protected" && menuSettings.access !== "protected") {
+              continue;
+            }
+            if(opts.access === "undefined") {
+              continue;
+            }
+            if(menuSettings.access === "private" && opts.private !== true && opts.access !== "all" && opts.access !== "private") {
+              continue;
+            }
+          } 
+          members.menu[menuName].push(tut);
+        }
+      }
+    }
+    // This could be faster :)
+    members.tutorials = tutorials.children.filter(function(t) { return _.findWhere(used, { longname: t.longname }) === undefined; });
+  } else {
+    members.tutorials = tutorials.children;
+  }
+
+
+  //# Setup Template helpers
+  /**
+   * @func 
+   * @redirect jsdoc/util/templateHelper.find
+   * @see jsdoc/util/templateHelper.find
+   */
   view.find = find;
+  // var linktoProxy = function() {
+  //   console.log("Linkto! (%s)", arguments[0]);
+  //   return linkto(...arguments);
+  // };
+  /**
+   * @func 
+   * @redirect jsdoc/util/templateHelper.linkto
+   * @see jsdoc/util/templateHelper.linkto
+   */
   view.linkto = linkto;
+  // view.linkto = linktoProxy;
+  // view.contentOrLink = shinHelpers.buildLinktoProxy(linkto, htmlsafe);
+  /**
+   * @func 
+   * @redirect jsdoc/util/templateHelper.resolveAuthorLinks
+   * @see jsdoc/util/templateHelper.resolveAuthorLinks
+   */
   view.resolveAuthorLinks = resolveAuthorLinks;
+  /**
+   * @func 
+   * @redirect jsdoc/util/templateHelper.tutoriallink
+   * @see jsdoc/util/templateHelper.tutoriallink
+   */
   view.tutoriallink = tutoriallink;
+  /**
+   * @func 
+   * @see `sanitize-html`
+   */
   view.htmlsafe = htmlsafe;
+  /**
+   * @func 
+   * @see `moment`
+   */
   view.moment = moment;
+  
+  //## Shinstrap helpers
+  /**
+   * @func 
+   * @redirect module:template/publish.utils.handleScaffolding
+   * @see module:template/publish.utils.handleScaffolding
+   */
+  view.scaffoldPartial = shinHelpers.handleScaffolding;
+  /**
+   * @func 
+   * @redirect module:template/publish.utils.scaffoldFromSpecifier
+   * @see module:template/publish.utils.scaffoldFromSpecifier
+   */
+  view.scaffoldPartialBySpec = shinHelpers.scaffoldFromSpecifier;
+  /**
+   * @func 
+   * @redirect module:template/publish.utils.resolveArrangement
+   * @see module:template/publish.utils.resolveArrangement
+   */
+  view.resolveArrangement = shinHelpers.resolveArrangement;
+  /**
+   * @func 
+   * @redirect module:template/publish.utils.marshalItemDisplay
+   * @see module:template/publish.utils.marshalItemDisplay
+   */
+  view.marshalItemDisplay = shinHelpers.marshalItemDisplay;
+  /**
+   * @func 
+   * @redirect module:template/publish.utils.renderDoclet
+   * @see module:template/publish.utils.renderDoclet
+   */
+  view.renderDoclet = shinHelpers.renderDoclet;
+  // view.namespacelink = shinHelpers.buildNamespaceLink;
+  // view.resolveCSL = shinHelpers.buildCSL;
 
+  //# Buildout members arrays for the nav menus
   // once for all
   buildNav(members);
   view.nav = navigationMaster;
@@ -704,6 +1100,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     }),
     members.modules);
 
+  //# Generate source files
   // only output pretty-printed source files if requested; do this before generating any other
   // pages, so the other pages can link to the source files
   if (navOptions.outputSourceFiles) {
@@ -716,6 +1113,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     }], globalUrl);
   }
 
+  //# Setup menu fallback shims
   // some browsers can't make the dropdown work
   if (view.nav.module && view.nav.module.members.length) {
     generate('module', view.nav.module.title, [{
@@ -764,6 +1162,19 @@ exports.publish = function(taffyData, opts, tutorials) {
       kind: 'sectionIndex',
       contents: view.nav.tutorial
     }], navigationMaster.tutorial.link);
+  }
+
+  // Build fallback menu pages for custom menus
+  if (view.nav.menu) {
+    for(var menuName in view.nav.menu) {
+      var menu = view.nav.menu[menuName];
+      if(menu.members.length) {
+        generate('tutorial', menu.title, [{
+          kind: 'sectionIndex',
+          contents: menu
+        }], navigationMaster.menu[menuName].link);
+      }
+    }
   }
 
   // index page displays information from package.json and lists files
@@ -822,11 +1233,13 @@ exports.publish = function(taffyData, opts, tutorials) {
         generate('mixin', 'Mixin: ' + myMixins[0].name, myMixins, helper.longnameToUrl[longname]);
       }
 
+      // This always fails.
       var myInterfaces = helper.find(interfaces, {
         longname: longname
       });
       if (myInterfaces.length) {
-        generate('interface', 'Interface: ' + myInterfaces[0].name, myInterfaces, helper.longnameToUrl[longname]);
+        generate('interface', 'Interface: ' +
+         myInterfaces[0].name, myInterfaces, helper.longnameToUrl[longname]);
       }
 
       var myExternals = helper.find(externals, {
@@ -839,6 +1252,15 @@ exports.publish = function(taffyData, opts, tutorials) {
   }
 
   // TODO: move the tutorial functions to templateHelper.js
+  /**
+   * @desc 
+   * Render the html page for a tutorial
+   * @private
+   * @param {string} title The title for the tutorial.  This is either auto-generated by jsdoc from the file name
+   * or pulled from a json config file.
+   * @param {*} tutorial 
+   * @param {*} filename 
+   */
   function generateTutorial(title, tutorial, filename) {
     var tutorialData = {
       title: title,

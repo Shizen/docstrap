@@ -1,0 +1,375 @@
+{
+  "container": {
+    "article": {
+      "overview": {
+        "tags": {
+          "examples" : {
+            "titleWrapper": "h3",
+            "titleContextPluralize": { "singular": "Example", "plural": "Examples" },
+            "usePartial": "examples.tmpl"
+          },
+          "details" : {
+            "defer": "details.tmpl"
+          },
+          "description" : {
+            "suppressTitle": true,
+            "wrapper": "div",
+            "wrapperAttributes": "class=description"
+          },
+          "modules": {
+            "suppressTitle": true,
+            "usePerItemPartial": "method.tmpl"
+          }
+        }
+      },
+      "body": {
+        "tags": {
+          "augments":{
+            "titleWrapper": "h3",
+            "titleCaption": "Extends",
+            "titleAttributesWrapper": "class=subsection-title",
+            "outerWrapper": "ul",
+            "wrapper": "li",
+            "itemMarshalling": [ [ "linkto", "", "" ] ]
+          },
+          "requires":{
+            "titleWrapper": "h3",
+            "titleAttributesWrapper": "class=subsection-title",
+            "outerWrapper": "ul",
+            "wrapper": "li",
+            "itemMarshalling": [ [ "linkto", "", "" ] ]
+          },
+          "classes":{
+            "find": { 
+                "kind": "class", 
+                "memberof": "_doclet.longname"                                
+            },
+            "validate": "_doclet.kind !== 'globalobj'",
+            "titleWrapper": "h3",
+            "titleAttributesWrapper": "class=subsection-title",
+            "usePartial": "partial.linkedSummary.tmpl"
+          },
+          "mixins":{
+            "find": {     
+                "kind": "mixin", 
+                "memberof": "_doclet.longname"                   
+            },
+            "validate": "_doclet.kind !== 'globalobj'",
+            "titleWrapper": "h3",
+            "titleAttributesWrapper": "class=subsection-title",
+            "usePartial": "partial.linkedSummary.tmpl"
+          },
+          "namespaces":{
+            "find": {     
+                "kind": "namespace", 
+                "memberof": "_doclet.longname"    
+            },
+            "validate": "_doclet.kind !== 'globalobj'",
+            "titleWrapper": "h3",
+            "titleAttributesWrapper": "class=subsection-title",
+            "usePartial": "partial.namespaceLinkedSummary.tmpl"
+          },
+          "members":{
+            "find": {     
+                "kind": "member", 
+                "memberof": "_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname"    
+            },
+            "titleWrapper": "h3",
+            "titleAttributesWrapper": "class=subsection-title",
+            "usePerItemPartial": "members.tmpl"
+          },
+          "methods":{
+            "find": {  
+                "kind": "function", 
+                "memberof": "_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname"    
+                
+            },
+            "titleWrapper": "h3",
+            "titleAttributesWrapper": "class=subsection-title",
+            "usePerItemPartial": "method.tmpl"
+          },
+          "typedefs":{
+            "find": {     
+                "kind": "typedef", 
+                "memberof": "_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname"    
+            },
+            "titleWrapper": "h3",
+            "titleCaption": "Type Definitions",
+            "titleAttributesWrapper": "class=subsection-title",
+            "perItemMapPartial": {
+                "i.signature" : "method.tmpl",
+                "default": "members.tmpl"
+            }
+          },
+          "events":{
+            "find": {     
+                "kind": "event", 
+                "memberof": "_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname"    
+            },
+            "titleWrapper": "h3",
+            "titleAttributesWrapper": "class=subsection-title",
+            "usePerItemPartial": "method.tmpl"
+          }          
+        }
+      }
+    }
+  },
+  "method": {
+    "tags": {
+      "description":{
+        "suppressTitle": true,
+        "wrapper": "div",
+        "wrapperAttributes": "class=description"
+      },
+      "augments":{
+        "titleWrapper": "h5",
+        "titleCaption": "Extends:",
+        "validate": "_doclet.alias && _doclet.alias.indexOf('module:') === 0",
+        "outerWrapper": "ul",
+        "wrapper": "li",
+        "itemMarshalling": [ [ "linkto", "", "" ] ]
+      },
+      "type":{
+        "titleWrapper": "h5",
+        "titleCaption": "Type:",
+        "alternateHandler": "listing.scaffolded.kv.tmpl",
+        "validate": "_doclet.kind === 'event' && _doclet.type.names",
+        "usePartial": "type.tmpl",
+        "usePartialOnField": "names"
+      },
+      "this":{
+        "titleWrapper": "h5",
+        "titleCaption": "This:",
+        "titleAttributesWrapper": "class=subsection-title",
+        "outerWrapper": "ul",
+        "wrapper": "li",
+        "itemMarshalling": [ [ "linkto", "", "" ] ]
+      },
+      "params":{
+        "titleWrapper": "h5",
+        "titleCaption": "Parameters:",
+        "usePartial": "params.tmpl"
+      },        
+      "details":{
+        "defer": "details.tmpl"
+      },
+      "requires":{
+        "validate": "_doclet.kind !== 'module'",
+        "titleWrapper": "h5",
+        "titleCaption": "Requires:",
+        "titleAttributesWrapper": "class=subsection-title",
+        "outerWrapper": "ul",
+        "wrapper": "li",
+        "itemMarshalling": [ [ "linkto", "", "" ] ]
+      },
+      "fires":{
+        "titleWrapper": "h5",
+        "titleCaption": "Fires:",
+        "titleAttributesWrapper": "class=subsection-title",
+        "outerWrapper": "ul",
+        "wrapper": "li",
+        "itemMarshalling": [ [ "linkto", "", "" ] ]
+      },
+      "listens":{
+        "titleWrapper": "h5",
+        "titleCaption": "Listens to Events:",
+        "titleAttributesWrapper": "class=subsection-title",
+        "outerWrapper": "ul",
+        "wrapper": "li",
+        "itemMarshalling": [ [ "linkto", "", "" ] ]
+      },
+      "listeners":{
+        "titleWrapper": "h5",
+        "titleCaption": "Listeners of This Event:",
+        "titleAttributesWrapper": "class=subsection-title",
+        "outerWrapper": "ul",
+        "wrapper": "li",
+        "itemMarshalling": [ [ "linkto", "", "" ] ]
+      },
+      "exceptions":{
+        "titleWrapper": "h5",
+        "titleCaption": "Throws:",
+        "usePerItemPartial": "exceptions.tmpl"
+      },
+      "returns":{
+        "titleWrapper": "h5",
+        "titleCaption": "Returns:",
+        "usePerItemPartial": "returns.tmpl"
+      },
+      "examples":{
+        "titleWrapper": "h5",
+        "titleAttributesWrapper": "class=subsection-title",
+        "titleContextPluralize": { "singular": "Example", "plural": "Examples" },
+        "usePartial": "examples.tmpl"
+      },
+      "attribs":{
+        "useCustom": "partial.custom.attribs.tmpl"
+      }
+    }
+  },
+  "details": {
+    "tags": {
+      "properties": {
+				"titleWrapper": "h5",
+				"titleAttributesWrapper": "class=subsection-title",
+				"outerWrapper": "dl",
+				"usePartial": "properties.tmpl"
+			},
+			"version": {
+				"titleWrapper": "dt",
+				"titleCaption": "Version:",
+				"titleAttributesWrapper": "class='tag-version method-doc-label method-doc-details-label'",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=tag-version",
+				"outerWrapper": "ul",
+				"outerWrapperAttributes": "class=dummy",
+				"wrapper": "li"
+			},
+			"since": {
+				"titleWrapper": "dt",
+				"titleCaption": "Since:",
+				"titleAttributesWrapper": "class='tag-since method-doc-label method-doc-details-label'",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=tag-since",
+				"outerWrapper": "ul",
+				"outerWrapperAttributes": "class=dummy",
+				"wrapper": "li"
+			},
+			"inherits": {
+				"titleWrapper": "dt",
+				"titleCaption": "Inherited From:",
+				"titleAttributesWrapper": "class='inherited-from method-doc-label method-doc-details-label'",
+				"validate": "_doclet.inherited",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=inherited-from",
+				"outerWrapper": "ul",
+				"outerWrapperAttributes": "class=dummy",
+				"wrapper": "li",
+				"itemMarshalling": [ [ "linkto", "", "" ] ]
+			},
+			"overrides": {
+				"titleWrapper": "dt",
+				"titleCaption": "Overrides:",
+				"titleAttributesWrapper": "class='tag-overrides'",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=tag-overrides",
+				"outerWrapper": "ul",
+				"outerWrapperAttributes": "class=dummy",
+				"wrapper": "li",
+				"itemMarshalling": [ [ "linkto", "", "" ] ]
+			},
+			"implementations": {
+				"titleWrapper": "dt",
+				"titleCaption": "Implementations:",
+				"titleAttributesWrapper": "class='implementations'",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=implementations",
+				"outerWrapper": "ul",
+				"wrapper": "li",
+				"itemMarshalling": [ [ "linkto", "", "" ] ]
+			},
+			"implements": {
+				"titleWrapper": "dt",
+				"titleCaption": "Implements:",
+				"titleAtributes": "class=implements",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=implements",
+				"outerWrapper": "ul",
+				"wrapper": "li",
+				"itemMarshalling": [ [ "linkto", "", "" ] ]
+			},
+			"mixes": {
+				"titleWrapper": "dt",
+				"titleCaption": "Mixes In:",
+				"titleAttributesWrapper": "class=mixes",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=mixes",
+				"outerWrapper": "ul",
+				"wrapper": "li",
+				"itemMarshalling": [ [ "linkto", "", "" ] ]
+			},
+			"deprecated": {
+				"titleWrapper": "dt",
+				"titleCaption": "Deprecated:",
+				"titleAttributesWrapper": "class='important tag-deprecated method-doc-label method-doc-details-label'",
+				"usePartial": "partial.deprecated.tmpl"
+			},
+			"author": {
+				"titleWrapper": "dt",
+				"titleCaption": "Author:",
+				"titleAttributesWrapper": "class='tag-author method-doc-label method-doc-details-label'",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=tag-author",
+				"outerWrapper": "ul",
+				"wrapper": "li",
+				"itemMarshalling": [ [ "resolveAuthorLinks", "" ] ]
+			},
+			"copyright": {
+				"titleWrapper": "dt",
+				"titleCaption": "Copyright:",
+				"titleAttributesWrapper": "class='tag-copyright method-doc-label method-doc-details-label'",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=tag-copyright",
+				"outerWrapper": "ul",
+				"outerWrapperAttributes": "class=dummy",
+				"wrapper": "li"
+			},
+			"license": {
+				"titleWrapper": "dt",
+				"titleCaption": "License:",
+				"titleAttributesWrapper": "class='tag-license method-doc-label method-doc-details-label'",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=tag-license",
+				"outerWrapper": "ul",
+				"outerWrapperAttributes": "class=dummy",
+				"wrapper": "li"
+			},
+			"defaultvalue": {
+				"titleWrapper": "dt",
+				"titleCaption": "Default Value:",
+				"titleAttributesWrapper": "class='tag-default method-doc-label method-doc-details-label'",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=tag-default",
+				"outerWrapper": "ul",
+				"outerWrapperAttributes": "class=dummy",
+				"wrapper": "li"
+			},
+			"meta": {
+				"defer": "listing.source.tmpl"
+			},
+			"tutorials": {
+				"titleWrapper": "dt",
+				"titleCaption": "Tutorials:",
+				"titleAttributesWrapper": "class='tag-tutorial method-doc-label method-doc-details-label'",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=tag-tutorial",
+				"outerWrapper": "ul",
+				"wrapper": "li",
+				"itemMarshalling": [ [ "tutoriallink", "" ] ]
+			},
+			"see": {
+				"titleWrapper": "dt",
+				"titleCaption": "See:",
+				"titleAttributesWrapper": "class='tag-see method-doc-label method-doc-details-label'",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=tag-see",
+				"outerWrapper": "ul",
+				"wrapper": "li",
+				"itemMarshalling": [ [ "linkto", "" ] ]
+			},
+			"todo": {
+				"titleWrapper": "dt",
+				"titleCaption": "ToDo:",
+				"titleAttributesWrapper": "class='tag-todo method-doc-label method-doc-details-label'",
+				"outermostWrapper": "dd",
+				"outermostWrapperAttributes": "class=tag-todo",
+				"outerWrapper": "ul",
+				"wrapper": "li"
+			}
+    }
+  },
+  "members": {
+    
+  }
+}
+

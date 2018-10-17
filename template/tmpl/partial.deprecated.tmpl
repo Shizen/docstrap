@@ -1,0 +1,21 @@
+<?js
+var data = obj;
+var self = this;
+// Included in this fashion for backward compatibility
+  // Added
+?>
+
+
+<?js if (data === true) { ?>
+  <dd class="yes-def tag-deprecated">
+    <ul class="dummy">
+      <li>Yes</li>
+    </ul>
+  </dd>
+<?js } else { ?>
+  <dd>
+      <ul class="dummy">
+          <li><?js= data ?></li>
+      </ul>
+  </dd>
+<?js } ?>

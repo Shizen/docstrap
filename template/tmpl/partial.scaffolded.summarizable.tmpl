@@ -1,0 +1,9 @@
+<?js
+    var data = obj;
+    var self = this;
+    // This really isn't very flexible...
+    // would require that `usePerItemPartial` (and presumably `usePartial`) now decorate `data.contents` with data.scaffolding
+?>
+
+  <dt><?js= self.marshalItemDisplay(i, data.scaffolding.itemMarshalling, self) ?></dt>
+  <dd><?js if (i.summary) { ?><?js= i.summary ?><?js } ?></dd>
