@@ -1,3 +1,5 @@
+** This needs to be updated, this is docstrap's License.
+
 Copyright (c) 2012-15 Terry Weiss & Contributors. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person
