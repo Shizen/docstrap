@@ -5,7 +5,7 @@
   //-setup defaults to lessen tests
   data.scaffolding = data.scaffolding || {};
   data.scaffolding.titleWrapper = data.scaffolding.titleWrapper || "h5";
-  data.scaffolding.titleAttributesWrapper = data.scaffolding.titleAttributesWrapper || "";
+  data.scaffolding.titleWrapperAttributes = data.scaffolding.titleWrapperAttributes || "";
   data.scaffolding.wrapper = data.scaffolding.wrapper || "span";
   data.scaffolding.wrapperAttributes = data.scaffolding.wrapperAttributes || "";
 ?>
@@ -14,7 +14,7 @@
 
 <?js //#title (Key) ?>
 <?js // data.scaffolding.suppressTitle is invalid for KVHeading ?>
-<<?js= data.scaffolding.titleWrapper ?> <?js= data.scaffolding.titleAttributesWrapper || "" ?>> 
+<<?js= data.scaffolding.titleWrapper ?> <?js= data.scaffolding.titleWrapperAttributes || "" ?>> 
   <?js= title ?>
   <?js //- Value ?>
   <?js if(data.scaffolding.usePartial) { ?>

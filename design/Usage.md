@@ -578,7 +578,7 @@ The container template has two sections--an "overview" section and a "body".  Fu
 
 ##### The "Order" field
 
-An "order" field specifies the order in which listings should be rendered for a given doclet.  This field takes an `array` of `string`s which specifies the order by tag name in which the listings should be rendered.  The special identifier `"*"` is a catch all, meaning *"all the default listings which I have not explictly placed elsewhere"*.  So, for instance, `shinstrap` normally displays the following tags in `method.tmpl`:
+An "order" field specifies the order in which listings should be rendered for a given doclet.  This field takes an `array` of `string`s which specifies the order by tag name in which the listings should be rendered.  The special identifier `"*"` is a catch all, meaning *"all the __default__ listings which I have not explictly placed elsewhere"*.  Note the *default* callout.  Each template (from `docstrap`) has a default, expected set of listing to output.  So, for instance, `shinstrap` normally displays the following tags in `method.tmpl`:
 
     [ "description", "augments", "type", "this", "params", "details", "requires", "fires", "listens", "listeners", "exceptions", "returns", "examples" ]
 
@@ -628,6 +628,52 @@ The primary difference between these two templates is how they structure their o
 
 In the example above, the `tags` section is in the `container.article.overview` "namespace".  Which is to say that the settings in the excerpted `tags` section apply to the "overview" section of the "article" in `container.tmpl`.  The `tags` section has only one listing in this example (but it could have many)--the `"notes"` entry.  This setting instructs `shinstrap` when rendering the overview section of the article element in `container.tmpl` to watch for `doclet`s with a `doclet.notes` defined.  If such is encountered, `shinstrap` will use `listing.scaffolded.general.tmpl` to render the `doclet.notes` information.  The general listing template in turn will look at the settings inside of `container.article.overview.tags.notes` to decide how to render the listing.  In the example above, it emits a title in an `<h5>` element with the attribute `class='jsdoc-notes-title subsection-title'` followed by a `<div>` element with the attribute `class=jsdoc-notes-body` containing the actual data in `doclet.notes`.  
 
+Most settings are "ignored" if not present for a given tag.  Each scaffolded template has its own defaults for the `wrapper` and `titleWrapper` settings if neither specified nor overridden.  The tag specifiers in the `tags` section leverage a number of general case settings:
+
+`wrapper` {string}
+:   The html element to generate for the list value.
+
+`wrapperAttributes` {string}
+:   The attributes for the `wrapper` tag.
+
+`outerWrapper` {string}
+:   An html element to wrap the `wrapper` in.
+
+`outerWrapperAttributes` {string}
+:   The attributes for the `outerWrapper` tag.
+
+`outermostWrapper` {string}
+:   The outer most (third) wrapping html element for the `wrapper` tag.  Since each level is ignored individually if not specified, an `outermostWrapper` for a tag without an `outerWrapper` will effectively behave like an `outerWrapper`.
+
+`outermostWrapperAttributes` {string}
+:   The attributes for the `outermostWrapper` tag.
+
+`suppressTitle` {boolean}
+:   If `true` will instruct `shinstrap` to suppress rendering of any title or title elements.  This invalidates all the title settings listed below.
+
+`titleWrapper` {string}
+:   The html element to wrap the listing's title in.
+
+`titleWrapperAttributes` {string}
+:   The attributes for the `titleWrapper` tag.
+
+`outerTitleWrapper` {string}
+:   An html element to wrap the `titleWrapper` element within.
+
+`outerTitleWrapperAttributes` {string}
+:   The attributes for the `outerTitleWrapper` tag.
+
+`titleCaption` {string}
+:   A replacement for the default title (which is based on the tag name).
+
+`titleContextPluralize` {object}
+:   An awkward setting 8D.  This is an object with two keys `singular` and `plural`.  If the associated `data` is has only one value (`length === 1`), the string value of the key `singular` will be used.  More than one, and the `plural` value will be used for the title.
+
+`titleInterpolation` {string}
+:   :es6: This setting instructs `shinstrap` to interpret the provide value as a template string and use it for the listing's title.
+
+There are also a few more advanced setting options.
+
 ###### Identifying the data
 
 By default, in most cases, the presence of data needing to be rendered is inferred implicitly from the name of the tag.  `"notes"` above implies the presence of a `doclet.notes` value.  If that value is not present it means that there are no notes to render for this entity.  In the unlikely case that additional validation is required, it can be specified in a `validate` setting.  The value of this setting is a string which must evaluate to true in order for the perspective listing to be considered "valid" or necessary for rendering. See [writing eval expression](#customizeOutput.templates.tags.evals) for more information.
@@ -636,7 +682,7 @@ For certain types of data, particularly associating disparate `doclet`s with eac
 
 ###### Handling "Complex" Entries
 
-There are a number of prebuild template handlers for a variety of documentable entites like params, members, sources, properties, etc.  At this time not all of these templates are documented, however ({@link module:template/publish}).  New templates can also be created and added to the [`templateOverrideDir`](#templateOverrideDir).  To leverage one of these templates (new or old) with a tag (again, new or old) you can use one of a few different handler specifiers.
+There are a number of prebuilt template handlers for a variety of documentable entities like params, members, sources, properties, etc.  At this time not all of these templates are documented, however ({@link module:template/publish}).  New templates can also be created and added to the [`templateOverrideDir`](#templateOverrideDir).  To leverage one of these templates (new or old) with a tag (again, new or old) you can use one of a few different handler specifiers.
 
 `alternateHandler`
 :   Allows you to specify a scaffolded handler to use instead of `listing.scaffolded.general.tmpl`.  At this time the only other scaffolded handler is `listing.scaffolded.kv.tmpl`.
@@ -660,7 +706,7 @@ There are a number of prebuild template handlers for a variety of documentable e
 }
 ```
 
-For purposes of `perItemMapPartial`, `i` is the item in question for reflection purposes.  `"default"` is the default template to use should none of the other cases be valid. 
+For purposes of `perItemMapPartial`, `i` is the item in question for reflection purposes.  `"default"` is the default template to use should none of the other cases be valid.  These keys are treated as [eval fields](#customizeOutput.templates.tags.evals).
 
 ###### Item Marshalling
 

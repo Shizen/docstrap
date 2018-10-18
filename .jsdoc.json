@@ -61,13 +61,13 @@
               "notes": {
                 "entryWrapper": "details",
                 "titleWrapper": "summary",
-                "titleAttributesWrapper": "class='jsdoc-notes-title subsection-title'",
+                "titleWrapperAttributes": "class='jsdoc-notes-title subsection-title'",
                 "wrapper": "div",
                 "wrapperAttributes" : "class=jsdoc-notes-body"
               },
               "design": {
                 "titleWrapper": "h5",
-                "titleAttributesWrapper": "class='jsdoc-design-title subsection-title'",
+                "titleWrapperAttributes": "class='jsdoc-design-title subsection-title'",
                 "wrapper": "div",
                 "wrapperAttributes" : "class=jsdoc-design-body"
               }
@@ -82,7 +82,7 @@
                     "memberof": "_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname"    // Right now this is convention that `memberof` is resolved while `kind` is static.  One could create an interpolation pattern instead, but overkill for the moment
                 },
                 "titleWrapper": "h3",
-                "titleAttributesWrapper": "class='jsdoc-task-title subsection-title'",
+                "titleWrapperAttributes": "class='jsdoc-task-title subsection-title'",
                 "usePerItemPartial": "method.tmpl"
               }, 
               "templates": {
@@ -92,7 +92,7 @@
                 },
                 "validate": "_doclet.kind !== 'globalobj'",
                 "titleWrapper": "h3",
-                "titleAttributesWrapper": "class='jsdoc-template-title subsection-title shinstrap-collapsible' data-hide='false' title='Documentation for the templates used by this module.'",
+                "titleWrapperAttributes": "class='jsdoc-template-title subsection-title shinstrap-collapsible' data-hide='false' title='Documentation for the templates used by this module.'",
                 "outerWrapper": "dl",
                 "usePerItemPartial": "method.tmpl"
               },
@@ -103,7 +103,7 @@
                     "memberof": "_doclet.contents && _doclet.contents.title === 'Global' ? {isUndefined: true} : _doclet.longname"    
                 },
                 "titleWrapper": "h3",
-                "titleAttributesWrapper": "class='subsection-title shinstrap-collapsible' data-hide='true'",
+                "titleWrapperAttributes": "class='subsection-title shinstrap-collapsible' data-hide='true'",
                 "usePerItemPartial": "members.tmpl",
                 "outerWrapper": "div"
               },
@@ -114,7 +114,7 @@
                     
                 },
                 "titleWrapper": "h3",
-                "titleAttributesWrapper": "class='subsection-title shinstrap-collapsible' data-hide='false'",
+                "titleWrapperAttributes": "class='subsection-title shinstrap-collapsible' data-hide='false'",
                 "usePerItemPartial": "method.tmpl",
                 "outerWrapper": "div"
               }
@@ -129,7 +129,7 @@
             "entryWrapper": "fieldset",
             "entryWrapperAttributes": "class='jsdoc-redirect shinstrap-collapsible' data-hide=true",
             "titleWrapper": "legend",
-            "titleAttributesWrapper": "class='jsdoc-redirect-title'",
+            "titleWrapperAttributes": "class='jsdoc-redirect-title'",
             "titleCaption": "(Redirect)",
             "titleInterpolation": "<span class='glyphicon glyphicon-time' aria-hidden='true'></span> Redirected: ${_doclet.redirect}",
             "find": {
@@ -139,7 +139,7 @@
           },
           "template": {
             "titleWrapper": "h5",
-            "titleAttributesWrapper": "class=jsdoc-template-filename-title",
+            "titleWrapperAttributes": "class=jsdoc-template-filename-title",
             "titleCaption": "Template File:",
             "alternateHandler": "listing.scaffolded.kv.tmpl",
             "wrapper": "span",
@@ -147,20 +147,20 @@
           },
           "honors" : {
             "titleWrapper": "h5",
-            "titleAttributesWrapper": "class=jsdoc-honors-title",
+            "titleWrapperAttributes": "class=jsdoc-honors-title",
             "titleCaption": "<em>Honors</em> the following configuration settings:",
             "usePartial": "params.tmpl"
           },
           "remarks": {
             "titleWrapper": "h5",
-            "titleAttributesWrapper": "class='jsdoc-remarks-title capitalize-title'",
+            "titleWrapperAttributes": "class='jsdoc-remarks-title capitalize-title'",
             "wrapper": "div",
             "wrapperAttributes" : "class=jsdoc-remarks-body"
           },
           "futures": {
             "titleWrapper": "dt",
             "titleCaption": "Futures:",
-            "titleAttributesWrapper": "class='jsdoc-futures-title capitalize-title method-doc-label method-doc-details-label'",
+            "titleWrapperAttributes": "class='jsdoc-futures-title capitalize-title method-doc-label method-doc-details-label'",
             "outermostWrapper": "dd",
             "outermostWrapperAttributes": "class=jsdoc-futures",
             "outerWrapper": "ul",

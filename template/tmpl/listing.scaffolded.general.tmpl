@@ -6,7 +6,7 @@ var self = this;
 //-setup defaults to lessen tests
 data.scaffolding = data.scaffolding || {};
 data.scaffolding.titleWrapper = data.scaffolding.titleWrapper || "h5";
-data.scaffolding.titleAttributesWrapper = data.scaffolding.titleAttributesWrapper || "";
+data.scaffolding.titleWrapperAttributes = data.scaffolding.titleWrapperAttributes || "";
 data.scaffolding.wrapper = data.scaffolding.wrapper || "div";
 data.scaffolding.wrapperAttributes = data.scaffolding.wrapperAttributes || "";
 ?>
@@ -28,7 +28,7 @@ data.scaffolding.wrapperAttributes = data.scaffolding.wrapperAttributes || "";
   <?js } ?>
 
   <?js //-if !suppressTitle ?>
-  <<?js= data.scaffolding.titleWrapper ?> <?js= data.scaffolding.titleAttributesWrapper || "" ?>> 
+  <<?js= data.scaffolding.titleWrapper ?> <?js= data.scaffolding.titleWrapperAttributes || "" ?>> 
     <?js= title ?>
   </<?js= data.scaffolding.titleWrapper ?>>
 
