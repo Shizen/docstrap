@@ -205,7 +205,7 @@
       "attribs":{
         "alternateHandler": "partial.scaffolded.attribs.tmpl",
         "template": {
-          "displayStyle": "csl"  // One of badges, buttons, csl
+          "displayStyle": "csl"
         }
       }
     }
@@ -372,7 +372,12 @@
     }
   },
   "members": {
-    
+    "attribs":{
+      "alternateHandler": "partial.scaffolded.attribs.tmpl",
+      "template": {
+        "displayStyle": "csl"
+      }
+    }    
   }
 }
 
