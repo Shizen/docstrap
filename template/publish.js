@@ -691,7 +691,11 @@ exports.publish = function(taffyData, opts, tutorials) {
 
   conf['default'] = conf['default'] || {};
   var def = require("./defaults.json");
-  shinHelpers.leafMerge(conf.customizeOutput, def);
+  if(conf.customizeOutput) {
+    shinHelpers.leafMerge(conf.customizeOutput, def);
+  } else {
+    conf.customizeOutput = def;
+  }
 
   var templatePath = opts.template;
   /**
