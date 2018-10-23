@@ -203,7 +203,10 @@
         "usePartial": "examples.tmpl"
       },
       "attribs":{
-        "useCustom": "partial.custom.attribs.tmpl"
+        "alternateHandler": "partial.scaffolded.attribs.tmpl",
+        "template": {
+          "displayStyle": "csl"  // One of badges, buttons, csl
+        }
       }
     }
   },

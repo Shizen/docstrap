@@ -1,4 +1,8 @@
 
+#{
+	- Fix the default color issue from docstrap
+}
+
 # Shinstrap
 
 [`shinstrap`](https://github.com/Shizen/shinstrap) is a WIP fork of the [`ink-docstrap`](https://github.com/docstrap/docstrap) [`jsdoc`](https://github.com/jsdoc3/jsdoc) template.  Fundamentally, this template allows you to control how you want to display [new] jsdoc comments without resorting to writing a new template.  The capabilities exposed by this template allow comments in code to document semantic relationships and meanings which go beyond the basic semantics of javascript.  You can comment tasks in Grunt, routes in Express, or as this template itself demonstrates, its own template files.  You can make new tags to document env variables and settings you honor or which impact your behavior, and these documentation fragments can even be aggregated in various ways.
