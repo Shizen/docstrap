@@ -372,12 +372,14 @@
     }
   },
   "members": {
-    "attribs":{
-      "alternateHandler": "partial.scaffolded.attribs.tmpl",
-      "template": {
-        "displayStyle": "csl"
-      }
-    }    
+    "tags": {
+      "attribs":{
+        "alternateHandler": "partial.scaffolded.attribs.tmpl",
+        "template": {
+          "displayStyle": "csl"
+        }
+      }    
+    }
   }
 }
 
