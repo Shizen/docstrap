@@ -17,9 +17,7 @@
 	<link type="text/css" rel="stylesheet" href="styles/site.lumen.css">
 	<link type="text/css" rel="stylesheet" href="styles/supplemental.css">
 	
-		
-			<link type="text/css" rel="stylesheet" href="styles/local.css">
-		
+		<link type="text/css" rel="stylesheet" href="styles/local.css">				
 	
 </head>
 
@@ -113,6 +111,7 @@
     <h1>Design Documentation</h1><p><code>shinzen</code> which I've now rebranded to <code>shinstrap</code> as I've decided to stick closer to its <code>docstrap</code> roots for this version (and to remove dependencies on things like <code>shinmark</code>) was originally designed to enable easy inclusion of flexible/powerful rendering rules for new, custom jsdoc tags.</p>
 <h2>Percolation/RFC Issues</h2><p>These are, theoretically, the issues I'm currently pondering on a &quot;design&quot; level.</p>
 <ul>
+<li>I want to add a warn/log level functions.  I know I said I wasn't going to change how docstrap worked for error handling/reporting, but it's driving me a bit loopy to continue in this state of &quot;wrongness&quot;.</li>
 <li>Some doclets get extra, special handling within <code>docstrap</code> before being rendered.  If we want to enable such things ourselves, we need to extend <code>publish</code> to patch in settings from the conf settings.  The trickiness here is that doclet are not tags, this is a separate level of reference :(.
   Currently I do this in <code>customizeOutput.doclets.*.processing</code> which probably should be called preprocessing, but also is an extremely limited solution. More exploration is needed to determine a &quot;better&quot; one, however.</li>
 <li><code>extends</code> from <code>method.tmpl</code> and <code>implementors</code> from <code>details.tmpl</code> have not been tested.</li>
@@ -512,7 +511,6 @@ $( function () {
             SearcherDisplay.init();
         });
     </script>
-
 
 
 

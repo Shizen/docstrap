@@ -765,14 +765,24 @@ exports.publish = function(taffyData, opts, tutorials) {
   };
   // view.rules = conf.customizeOutput.tags || {}; // Here I could do defaults
 
+  function justTheFilenames(_asPaths) {
+    var result = [];
+    if(Array.isArray(_asPaths)) {
+      _asPaths.forEach(function(_el) { result.push(path.basename(_el)); });
+    } else if(_asPaths) {
+      result.push(path.basename(_asPaths));
+    }
+    return result;
+  }
   /**
    * @desc
    * The supplemental css resource file.  Yes, we only allow one.  Discovered via `jsdoc`'s standard resource discovery
    * mechanism.
    */
-  view.supplementalCSS = conf.supplementalCSS;  // Could do some path mongery, verify existance...
+  view.supplementalCSS = justTheFilenames(conf.supplementalCSS);  // We don't verify existance here, although we do when we try to copy them
 
-  view.supplementalJS = conf.supplementalJS;
+  view.supplementalJS = justTheFilenames(conf.supplementalJS);
+
 
   if(conf.favicon) {
     var Datauri = require('datauri');

@@ -16,15 +16,9 @@
 
 	<link type="text/css" rel="stylesheet" href="styles/site.<?js= this.navOptions.theme ?>.css">
 	<link type="text/css" rel="stylesheet" href="styles/supplemental.css">
-	<?js if(this.supplementalCSS) { ?>
-		<?js if(this.supplementalCSS.forEach) { ?>
-			<?js this.supplementalCSS.forEach(function(sUrl) { ?>
-				<link type="text/css" rel="stylesheet" href="styles/<?js= sUrl ?>">				
-			<?js }); ?>
-		<?js } else { ?>
-			<link type="text/css" rel="stylesheet" href="styles/<?js= this.supplementalCSS ?>">
-		<?js } ?>
-	<?js } ?>
+	<?js this.supplementalCSS.forEach(function(sUrl) { ?>
+		<link type="text/css" rel="stylesheet" href="styles/<?js= sUrl ?>">				
+	<?js }); ?>
 </head>
 
 
@@ -266,16 +260,9 @@ $( function () {
     </script>
 <?js } ?>
 
-
-<?js if(this.supplementalJS) { ?>
-	<?js if(this.supplementalJS.forEach) { ?>
-		<?js this.supplementalJS.forEach(function(sUrl) { ?>
-			<script src="scripts/<?js= sUrl ?>"></script>			
-		<?js }); ?>
-	<?js } else { ?>
-		<script src="scripts/<?js= this.supplementalJS ?>"></script>			
-	<?js } ?>
-<?js } ?>
+<?js this.supplementalJS.forEach(function(sUrl) { ?>
+	<script src="scripts/<?js= sUrl ?>"></script>			
+<?js }); ?>
 
 </body>
 </html>
