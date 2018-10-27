@@ -778,11 +778,12 @@ exports.publish = function(taffyData, opts, tutorials) {
     var Datauri = require('datauri');
     // Search paths
     var p = path.getResourcePath(path.dirname(conf.favicon), path.basename(conf.favicon));
-    var datauri = new Datauri(p);
-    view.favicon = datauri;
-// console.log(datauri.content); //=> "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
-// console.log(datauri.mimetype); //=> "image/png"
-// console.log(datauri.base64); //=>
+    if(p) {
+      var datauri = new Datauri(p);
+      view.favicon = datauri;
+    } else {
+      // warn("Failed to find specified favicon `%s`", conf.favicon);
+    }
   }
 
   // set up tutorials for helper

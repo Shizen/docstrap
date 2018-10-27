@@ -7,6 +7,7 @@
 
 These are, theoretically, the issues I'm currently pondering on a "design" level.
 
+- I want to add a warn/log level functions.  I know I said I wasn't going to change how docstrap worked for error handling/reporting, but it's driving me a bit loopy to continue in this state of "wrongness".
 - Some doclets get extra, special handling within `docstrap` before being rendered.  If we want to enable such things ourselves, we need to extend `publish` to patch in settings from the conf settings.  The trickiness here is that doclet are not tags, this is a separate level of reference :(.
 	Currently I do this in `customizeOutput.doclets.*.processing` which probably should be called preprocessing, but also is an extremely limited solution. More exploration is needed to determine a "better" one, however.
 - `extends` from `method.tmpl` and `implementors` from `details.tmpl` have not been tested.
