@@ -1,6 +1,6 @@
 {
   "name": "@shizen/shinstrap",
-  "version": "0.0.1-alpha.19",
+  "version": "0.0.1-alpha.20",
   "decription": "A customizable template for JSDoc3 based on Bootstrap and Bootswatch;  Forked from docstrap",
   "scripts": {
     "build-docs": "./node_modules/.bin/jsdoc -c ./.jsdoc.json -d docs/ -R README.md -r .",
