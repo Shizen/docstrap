@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width">
 	<title><?js= this.navOptions.systemName ?> <?js= title ?></title>
 
+	<?js if(this.favicon) { ?>
+		<link type="<?js= this.favicon.mimetype ?>" rel="icon" href="<?js= this.favicon.content ?>">
+	<?js } ?>
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -14,17 +17,24 @@
 	<link type="text/css" rel="stylesheet" href="styles/site.<?js= this.navOptions.theme ?>.css">
 	<link type="text/css" rel="stylesheet" href="styles/supplemental.css">
 	<?js if(this.supplementalCSS) { ?>
-		<link type="text/css" rel="stylesheet" href="styles/<?js= this.supplementalCSS ?>">
+		<?js if(this.supplementalCSS.forEach) { ?>
+			<?js this.supplementalCSS.forEach(function(sUrl) { ?>
+				<link type="text/css" rel="stylesheet" href="styles/<?js= sUrl ?>">				
+			<?js }); ?>
+		<?js } else { ?>
+			<link type="text/css" rel="stylesheet" href="styles/<?js= this.supplementalCSS ?>">
+		<?js } ?>
 	<?js } ?>
 </head>
+
 
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top <?js= this.navOptions.inverseNav ? 'navbar-inverse' : '' ?>">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="<?js= this.nav.index.link ?>"><?js if(this.navOptions.logoFile) { ?><img class="branding-logo" src="<?js= this.navOptions.logoFile ?>"
-		alt="logo"/><?js } ?><?js= this.nav.index.title ?></a>
+		<a class="navbar-brand<?js if(this.navOptions.logoFile) { ?> navbar-brand-min<?js } ?>" href="<?js= this.nav.index.link ?>"><?js if(this.navOptions.logoFile) { ?><img class="branding-logo" src="<?js= this.navOptions.logoFile ?>"
+		alt="logo"/><?js } ?><span><?js= this.nav.index.title ?></span></a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -254,6 +264,17 @@ $( function () {
             SearcherDisplay.init();
         });
     </script>
+<?js } ?>
+
+
+<?js if(this.supplementalJS) { ?>
+	<?js if(this.supplementalJS.forEach) { ?>
+		<?js this.supplementalJS.forEach(function(sUrl) { ?>
+			<script src="scripts/<?js= sUrl ?>"></script>			
+		<?js }); ?>
+	<?js } else { ?>
+		<script src="scripts/<?js= this.supplementalJS ?>"></script>			
+	<?js } ?>
 <?js } ?>
 
 </body>

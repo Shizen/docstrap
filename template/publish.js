@@ -772,6 +772,19 @@ exports.publish = function(taffyData, opts, tutorials) {
    */
   view.supplementalCSS = conf.supplementalCSS;  // Could do some path mongery, verify existance...
 
+  view.supplementalJS = conf.supplementalJS;
+
+  if(conf.favicon) {
+    var Datauri = require('datauri');
+    // Search paths
+    var p = path.getResourcePath(path.dirname(conf.favicon), path.basename(conf.favicon));
+    var datauri = new Datauri(p);
+    view.favicon = datauri;
+// console.log(datauri.content); //=> "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+// console.log(datauri.mimetype); //=> "image/png"
+// console.log(datauri.base64); //=>
+  }
+
   // set up tutorials for helper
   helper.setTutorials(tutorials);
 
@@ -853,20 +866,43 @@ exports.publish = function(taffyData, opts, tutorials) {
   }
   fs.mkPath(outdir);
 
+  /**
+   * 
+   * @remarks
+   * Unnatural param ordering to allow for ease of `partial` binding.  `lodash` has `partialRight`.
+   * @param {string} _sStaticDirName The destination directory in the `docs/` into which this file should be copied.
+   * @param {string} _sName The resource path.
+   */
+  function grabResource(_sStaticDirName, _sName) {    
+    // Probably should verify it exists
+    var sResource = path.getResourcePath(path.dirname(_sName),
+    path.basename(_sName));
+    // This ought to be encapsulated, imo
+    var toFile = sResource.replace(path.dirname(sResource), path.join(outdir, _sStaticDirName)); // This is a little cheaty
+		var toDir = fs.toDir( toFile );
+    fs.mkPath( toDir );
+    fs.copyFileSync( sResource, '', toFile);
+  }
+
 	// copy the template's static files to outdir
 	var fromDir = path.join( templatePath, 'static' );
   var staticFiles = fs.ls( fromDir, 3 );
   //! Shin: Add in supplementalCSS if present
   if(conf.supplementalCSS) {
-    // Probably should verify it exists
-    var scss = path.getResourcePath(path.dirname(conf.supplementalCSS),
-    path.basename(conf.supplementalCSS));
-    // This ought to be encapsulated, imo
-    var toFile = scss.replace(path.dirname(scss), path.join(outdir, "styles")); // This is a little cheaty
-		var toDir = fs.toDir( toFile );
-    fs.mkPath( toDir );
-    fs.copyFileSync( scss, '', toFile);
-    // staticFiles.push(scss);
+    if(conf.supplementalCSS.forEach) {
+      conf.supplementalCSS.forEach(_.partial(grabResource, "styles"));
+    } else {
+      grabResource("styles", conf.supplementalCSS);
+    }
+  }
+  
+  //! Shin: Add in supplementalJS if present
+  if(conf.supplementalJS) {
+    if(conf.supplementalJS.forEach) {
+      conf.supplementalJS.forEach(_.partial(grabResource, "scripts"));
+    } else {
+      grabResource("scripts", conf.supplementalJS);
+    }
   }
 
   //# Copy over static files used by the auto-genned documentation

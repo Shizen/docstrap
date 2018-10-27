@@ -17,7 +17,8 @@
     "tutorials" : "design"    // Sadly, we can only specify one directory, so either links or a pre-gen hook is required.
   },
   "templates": {
-    "logoFile": "",
+    "logoFile": "img/shinworksBW.png",
+    "favicon": "template/static/img/shinworks.svg",
     "cleverLinks": false,
     "monospaceLinks": false,
     "dateFormat": "ddd MMM Do YYYY",
@@ -33,8 +34,9 @@
     "inverseNav": true,
     "protocol": "html://",
     "methodHeadingReturns": false,
-    "supplementalCSS": "local.css",
+    "syntaxTheme": "dark",
     "templateOverrideDir": "localTmpl",
+    "supplementalCSS": "local.css",
     "customizeOutput": {
       "menus" : {
         "APIs" : {

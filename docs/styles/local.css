@@ -84,3 +84,7 @@ fieldset.jsdoc-redirect[data-hide="true"] legend>span::before {
 fieldset.jsdoc-redirect hr {
   display: none;
 }
+
+.navbar-brand-min {
+  min-width: 140px;
+}
