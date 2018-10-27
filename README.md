@@ -1,6 +1,7 @@
 
 #{
 	- Fix the default color issue from docstrap
+	- Add a Changelog
 }
 
 # Shinstrap

@@ -874,15 +874,18 @@ exports.publish = function(taffyData, opts, tutorials) {
    * @param {string} _sStaticDirName The destination directory in the `docs/` into which this file should be copied.
    * @param {string} _sName The resource path.
    */
-  function grabResource(_sStaticDirName, _sName) {    
-    // Probably should verify it exists
+  function grabResource(_sStaticDirName, _sName) { 
     var sResource = path.getResourcePath(path.dirname(_sName),
     path.basename(_sName));
-    // This ought to be encapsulated, imo
-    var toFile = sResource.replace(path.dirname(sResource), path.join(outdir, _sStaticDirName)); // This is a little cheaty
-		var toDir = fs.toDir( toFile );
-    fs.mkPath( toDir );
-    fs.copyFileSync( sResource, '', toFile);
+    
+    if(sResource) { // If the resource exists...
+      var toFile = sResource.replace(path.dirname(sResource), path.join(outdir, _sStaticDirName));
+      var toDir = fs.toDir( toFile );
+      fs.mkPath( toDir );
+      fs.copyFileSync( sResource, '', toFile);
+    } else {
+      // warn("Could not find resource %s (%s)", _sName, _sStaticDirName);
+    }
   }
 
 	// copy the template's static files to outdir
