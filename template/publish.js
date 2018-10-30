@@ -919,6 +919,15 @@ exports.publish = function(taffyData, opts, tutorials) {
     }
   }
 
+  //! Shin: Add in supplementalFonts if present
+  if(conf.supplementalFonts) {
+    if(conf.supplementalFonts.forEach) {
+      conf.supplementalFonts.forEach(_.partial(grabResource, "fonts"));
+    } else {
+      grabResource("fonts", conf.supplementalFonts);
+    }
+  }
+
   //# Copy over static files used by the auto-genned documentation
   // - images
   // - scripts

@@ -16,6 +16,8 @@ Developer log, scratch pad and todo list for `shinstrap`.
 - I need a license doc
 - I need to wire up the wiki..
 
+- Review docstrap's toc building code
+
 ## Issues/Futures, the Dev Edition
 
 - template-helpers.  Never bothered to finish implementing them.  Would be useful for documenting `itemMarshalling` in `Usage.md`.  (Now Removed)
@@ -43,6 +45,10 @@ Developer log, scratch pad and todo list for `shinstrap`.
     - related, I should probably look at fixing `docstrap`'s themer
 - `types` handling kinda sucks.  Specifically I mean the shoe horned testing of `data.types.names`.  If this wasn't literally the only place I'd seen this, I'd be more certain that it should be resolved in a more generalized fashion.  It is not *quite* appropriate for a recursive resolution.
   This is indicative of a larger issue of the shoe-horned, overly specific nature of just about every aspect of this template, built as it was to conform/allow the options present, rather than architected to allow the widest variety of options possible.  This is probably a `shinzen` target issue.
+
+## Changelog
+
+- Added `supplementalFonts` support...  this is getting a bit rediculous.  Perhaps I should have a manifest section that lists all static files to bring over, rather than this ever growing colloection of piecemeal include lists...
 
 ## Notes
 
