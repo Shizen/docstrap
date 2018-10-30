@@ -383,6 +383,8 @@ To quickly add a new tag and see it working, follow these steps.
 ## Specifications in Detail 
 
 - [supplementalCSS](#supplementalCSS)
+- [supplementalJS](#supplementalJS)
+- [supplementalFonts](#supplementalFonts)
 - [templateOverrideDir](#templateOverrideDir)
 - [customizeOutput](#customizeOutput)
   - [menu section](#customizeOutput.menu)
@@ -398,6 +400,22 @@ To quickly add a new tag and see it working, follow these steps.
 This is a simple configuration setting to specify an additional css file to include with all generated documentation.  It follows the same discovery rules as all other `jsdoc` resource files.  It is added after other css files for overriding porpoises.
 
     "supplementalCSS": "local.css"
+
+<a name="supplementalJS"></a>
+
+### `supplementalJS` 
+
+This setting accepts either a string or an array of strings each specifying the path to a javascript source file (discovered as a resource) which should be included with the documentation's static files and loaded on every page of the documentation.  `shinstrap` does not currently have a mechanism to include a js file in the manifest but *not* have it referenced on every generated documentation page.
+
+    "supplementalJS": [ "local1.js", "node_modules/@someone/mymodule/lib/rearrangeViaCheerioBecauseImCrazy.js" ]
+
+<a name="supplementalFonts"></a>
+
+### `supplementalFonts` 
+
+`supplementalFonts` setting accepts a stringPath or an array of stringPaths to files which should be included into the generated documentation's static files.
+
+    "supplementalFonts": [ "node_modules/@someone/otfCreations/fonts/myCoolFont.woff" ]
 
 <a name="templateOverrideDir"></a>
 

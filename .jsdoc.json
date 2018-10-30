@@ -17,8 +17,8 @@
     "tutorials" : "design"    // Sadly, we can only specify one directory, so either links or a pre-gen hook is required.
   },
   "templates": {
-    "logoFile": "img/shinworksBW.png",
-    "favicon": "template/static/img/shinworks.svg",
+    "logoFile": "img/ShinworksBW.png",
+    "favicon": "template/static/img/Shinworks.svg",
     "cleverLinks": false,
     "monospaceLinks": false,
     "dateFormat": "ddd MMM Do YYYY",
