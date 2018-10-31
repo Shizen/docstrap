@@ -16,3 +16,6 @@ The "initial release"
 - support for custom menus in `customizeOutput.menus`
 - support for custom tag display in `customizeOutput.*` (`container`, `method`, `details`, and `members`)
 - support for custom doclet pre-processing in `customizeOutput.doclets`
+
+### Fixed
+- favicon support
