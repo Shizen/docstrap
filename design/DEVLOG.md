@@ -9,17 +9,14 @@ Developer log, scratch pad and todo list for `shinstrap`.
     - I should probably clean up my language between "display [item]", "listing" and "entry".
     - ? add new lines to `<code>` samples to lessen need for scrollbars?
 - Fix or rollback notes as `<details>`
-
-- internal fork to `shinstrap`
-- fork from `docstrap`
-- fix `package.json` for github repos
 - I need a license doc
-- I need to wire up the wiki..
+- Fix the default color issue from docstrap in the `lumen` theme
 
 - Review docstrap's toc building code
 
 ## Issues/Futures, the Dev Edition
 
+- [Meta]: The link to Usage.md in the README.md is broken because I haven't figured out how to reconcile its url with the url it will present when served via github pages on the `https://shizen.github.io/shinstrap` site.  I had hoped to use a `base` tag, but unfortunately, github inserts extra junk into relpaths on [github rendered markdown](https://blog.github.com/2013-01-31-relative-links-in-markup-files/).  Which is sad.
 - template-helpers.  Never bothered to finish implementing them.  Would be useful for documenting `itemMarshalling` in `Usage.md`.  (Now Removed)
   I removed `@templateHelper` a while ago, but effectively this is a group aggregator tag.  Easy enough to implement at its core.
 - Add some gists for popular tag scenarios like grunt tasks, express routes/web api/REST routes...
