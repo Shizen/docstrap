@@ -18,7 +18,7 @@
   },
   "templates": {
     "logoFile": "img/ShinworksBW.png",
-    "favicon": "template/static/img/Shinworks.svg",
+    "favicon": "assets/Shinworks.svg",
     "cleverLinks": false,
     "monospaceLinks": false,
     "dateFormat": "ddd MMM Do YYYY",
