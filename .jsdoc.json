@@ -35,8 +35,7 @@
     "protocol": "html://",
     "methodHeadingReturns": false,
     "syntaxTheme": "dark",
-    "templateOverrideDir": "localTmpl",
-    "supplementalCSS": "local.css",
+    "supplementalCSS": "assets/local.css",
     "customizeOutput": {
       "menus" : {
         "APIs" : {

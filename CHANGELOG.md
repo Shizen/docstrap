@@ -19,3 +19,7 @@ The "initial release"
 
 ### Fixed
 - favicon support
+- license document
+
+### Changed
+- documentation

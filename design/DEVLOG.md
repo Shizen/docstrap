@@ -14,6 +14,10 @@ Developer log, scratch pad and todo list for `shinstrap`.
 
 - Review docstrap's toc building code
 
+- Add an svg badge builder?  And some mechanism to tie its use into the template's custom output facilities.
+
+- I'm torn, because jsdoc generation to `docs/` and serving them via github pages seems to work well enough, but there is also [`wicked`](https://github.com/thlorenz/wicked) which writes straight to github wiki "format".  I haven't played with github wikis yet, because they weren't necessary, but when I do, I may find having this sort of functionality in `shinstrap` (or `shinzen`) would be good and wise :).
+
 ## Issues/Futures, the Dev Edition
 
 - [Meta]: The link to Usage.md in the README.md is broken because I haven't figured out how to reconcile its url with the url it will present when served via github pages on the `https://shizen.github.io/shinstrap` site.  I had hoped to use a `base` tag, but unfortunately, github inserts extra junk into relpaths on [github rendered markdown](https://blog.github.com/2013-01-31-relative-links-in-markup-files/).  Which is sad.
@@ -48,6 +52,14 @@ Developer log, scratch pad and todo list for `shinstrap`.
 - Added `supplementalFonts` support...  this is getting a bit rediculous.  Perhaps I should have a manifest section that lists all static files to bring over, rather than this ever growing colloection of piecemeal include lists...
 
 ## Notes
+
+### Bootstrap
+
+#{ Reference
+
+- Bootstrap
+
+}
 
 ### Access
 
