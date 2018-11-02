@@ -86,11 +86,12 @@ What this template adds to the pantheon of capabilities of jsdoc/docstrap are fo
 
   tmpl files in this directory will be used before any in `shinstrap`'s default `tmpl/` directory.  This allows you to either override an existing template, if you find yourself in need there of, as well as to provide new templates should you find you need complex handling for a new tag you add.
 
-4. The ability to add an extra `css` file.
+4. The ability to add extra resource files.
 
         "supplementalCSS": "local.css",
+        "supplementalJS": [ "local1.js", "local2.js" ]
 
-  While `docstrap` already allows you to theme and modify via its grunt-less-bootstrap build system, sometimes it is convenient to be able to add simple bits of css patchwork.  Some people may feel that allowing such a "back door" opens the way to abuse and bad practices, bad structure and violation of the spirit and purpose of `less`, `bootstrap` or `docstrap`.  So don't do that.  Practically speaking, however, I find it is often convenient to be able to quickly add in small bits of finalizing css.
+  While `docstrap` already allows you to theme and modify via its grunt-less-bootstrap build system, sometimes it is convenient to be able to add simple bits of css patchwork.  Some people may feel that allowing such a "back door" opens the way to abuse and bad practices, bad structure and violation of the spirit and purpose of `less`, `bootstrap` or `docstrap`.  So don't do that.  Practically speaking, however, I find it is often convenient to be able to quickly add in small bits of finalizing css.  Similarly (and conceptually related) you can also add additional javascript and font files.
 
 ## Adding Tags <a name="addtags"></a>
 
@@ -382,6 +383,7 @@ To quickly add a new tag and see it working, follow these steps.
 
 ## Specifications in Detail 
 
+- [favicon](#favicon)
 - [supplementalCSS](#supplementalCSS)
 - [supplementalJS](#supplementalJS)
 - [supplementalFonts](#supplementalFonts)
@@ -392,6 +394,15 @@ To quickly add a new tag and see it working, follow these steps.
   - [template sections](#customizeOutput.templates)
     - [order field](#customizeOutput.templates.order)
     - [tags field](#customizeOutput.templates.tags)
+
+    
+<a name="favicon"></a>
+
+### `favicon`
+
+This template setting allows you to specify an image to be used as the favicon for your generated documents (this is the icon that typically appears in the window tab in your browser).  This feature is currently experimental (see below).  At the moment, `shinstrap` will encode any image specified into base64 and store it in a datauri on every page it generates.
+
+Note: Chrome seems to have some issues with this icon.  I have not dug deeply enough to determine if it is simply aggressive caching issues or if it is a security constraint.  Chrome will not serve a favicon off disk.  Internally I'm tracking this at like.. P3?--not terribly important.
 
 <a name="supplementalCSS"></a>
 
