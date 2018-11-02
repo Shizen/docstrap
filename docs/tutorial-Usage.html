@@ -115,7 +115,7 @@
 </header>
 
 <article>
-    <h1>Usage instructions</h1><p>(Author: <a href="mailto:&#x73;&#104;&#x69;&#110;&#64;&#x73;&#104;&#x69;&#x6e;&#x77;&#x6f;&#114;&#x6b;&#x73;&#46;&#x63;&#x6f;">&#x73;&#104;&#x69;&#110;&#64;&#x73;&#104;&#x69;&#x6e;&#x77;&#x6f;&#114;&#x6b;&#x73;&#46;&#x63;&#x6f;</a>)</p>
+    <h1>Usage instructions</h1><p>(Author: <a href="mailto:&#x73;&#x68;&#105;&#x6e;&#x40;&#115;&#x68;&#105;&#x6e;&#x77;&#x6f;&#114;&#107;&#115;&#46;&#x63;&#x6f;">&#x73;&#x68;&#105;&#x6e;&#x40;&#115;&#x68;&#105;&#x6e;&#x77;&#x6f;&#114;&#107;&#115;&#46;&#x63;&#x6f;</a>)</p>
 <p>Skip to | <a href="#details">Specification Documentation</a> |</p>
 <p>The <code>shinstrap</code> template is intended to be an &quot;in-place&quot; replacement for <a href="https://github.com/docstrap/docstrap"><code>ink-docstrap</code></a>.  In theory, all the bootstrappy goodness you could leverage with docstrap also works with shinstrap.  This mainly boils down to a toc, theming, sunlight highlighting and searching (although last I checked docstrap's theming was temporarily? broken).  </p>
 <p>What this template adds to the pantheon of capabilities of jsdoc/docstrap are four features.</p>
@@ -167,8 +167,9 @@
 <li><p>The ability to override this template's provided <code>tmpl</code> files (as well as provide your own).</p>
 <pre class="prettyprint source"><code> &quot;templateOverrideDir&quot;: &quot;localTmpl&quot;,</code></pre><p>tmpl files in this directory will be used before any in <code>shinstrap</code>'s default <code>tmpl/</code> directory.  This allows you to either override an existing template, if you find yourself in need there of, as well as to provide new templates should you find you need complex handling for a new tag you add.</p>
 </li>
-<li><p>The ability to add an extra <code>css</code> file.</p>
-<pre class="prettyprint source"><code> &quot;supplementalCSS&quot;: &quot;local.css&quot;,</code></pre><p>While <code>docstrap</code> already allows you to theme and modify via its grunt-less-bootstrap build system, sometimes it is convenient to be able to add simple bits of css patchwork.  Some people may feel that allowing such a &quot;back door&quot; opens the way to abuse and bad practices, bad structure and violation of the spirit and purpose of <code>less</code>, <code>bootstrap</code> or <code>docstrap</code>.  So don't do that.  Practically speaking, however, I find it is often convenient to be able to quickly add in small bits of finalizing css.</p>
+<li><p>The ability to add extra resource files.</p>
+<pre class="prettyprint source"><code> &quot;supplementalCSS&quot;: &quot;local.css&quot;,
+ &quot;supplementalJS&quot;: [ &quot;local1.js&quot;, &quot;local2.js&quot; ]</code></pre><p>While <code>docstrap</code> already allows you to theme and modify via its grunt-less-bootstrap build system, sometimes it is convenient to be able to add simple bits of css patchwork.  Some people may feel that allowing such a &quot;back door&quot; opens the way to abuse and bad practices, bad structure and violation of the spirit and purpose of <code>less</code>, <code>bootstrap</code> or <code>docstrap</code>.  So don't do that.  Practically speaking, however, I find it is often convenient to be able to quickly add in small bits of finalizing css.  Similarly (and conceptually related) you can also add additional javascript and font files.</p>
 </li>
 </ol>
 <h2>Adding Tags <a name="addtags"></a></h2><p>| Skip to the <a href="#newtag.quickstart">Add a New Tag Quickstart</a> |</p>
@@ -372,6 +373,7 @@
 </ol>
 <p><a name="details"></a></p>
 <h2>Specifications in Detail</h2><ul>
+<li><a href="#favicon">favicon</a></li>
 <li><a href="#supplementalCSS">supplementalCSS</a></li>
 <li><a href="#supplementalJS">supplementalJS</a></li>
 <li><a href="#supplementalFonts">supplementalFonts</a></li>
@@ -387,6 +389,9 @@
 </ul>
 </li>
 </ul>
+<p><a name="favicon"></a></p>
+<h3><code>favicon</code></h3><p>This template setting allows you to specify an image to be used as the favicon for your generated documents (this is the icon that typically appears in the window tab in your browser).  This feature is currently experimental (see below).  At the moment, <code>shinstrap</code> will encode any image specified into base64 and store it in a datauri on every page it generates.</p>
+<p>Note: Chrome seems to have some issues with this icon.  I have not dug deeply enough to determine if it is simply aggressive caching issues or if it is a security constraint.  Chrome will not serve a favicon off disk.  Internally I'm tracking this at like.. P3?--not terribly important.</p>
 <p><a name="supplementalCSS"></a></p>
 <h3><code>supplementalCSS</code></h3><p>This is a simple configuration setting to specify an additional css file to include with all generated documentation.  It follows the same discovery rules as all other <code>jsdoc</code> resource files.  It is added after other css files for overriding porpoises.</p>
 <pre class="prettyprint source"><code>&quot;supplementalCSS&quot;: &quot;local.css&quot;</code></pre><p><a name="supplementalJS"></a></p>

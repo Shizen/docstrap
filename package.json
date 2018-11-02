@@ -3,12 +3,12 @@
   "version": "0.0.1-alpha.26",
   "decription": "A customizable template for JSDoc3 based on Bootstrap and Bootswatch;  Forked from docstrap",
   "scripts": {
-    "build-docs": "./node_modules/.bin/jsdoc -c ./.jsdoc.json -d docs/ -R README.md -r .",
-    "internal-docs": "./node_modules/.bin/jsdoc -p -c ./.jsdoc.json -d internaldocs/ -R README.md -r .",
-    "reference-docs": "./node_modules/.bin/jsdoc -p -c ./.jsdoc.json -t node_modules/jsdoc/templates/default -d refdocs/ -R README.md -r .",
-    "test-docs": "./node_modules/.bin/jsdoc -T -c ./.jsdoc.json -d docs/ -R README.md -r .",
-    "log-docs": "./node_modules/.bin/jsdoc -X -c ./.jsdoc.json -d docs/ -R README.md -r . > gen.log",
-    "debug-docs": "node --inspect-brk ./node_modules/jsdoc/jsdoc.js -c ./.jsdoc.json -d docs/ -R README.md -r ."
+    "build-docs": "./node_modules/.bin/jsdoc -c ./.jsdoc.json -d docs/ -R docs/README.md -r .",
+    "internal-docs": "./node_modules/.bin/jsdoc -p -c ./.jsdoc.json -d internaldocs/ -R docs/README.md -r .",
+    "reference-docs": "./node_modules/.bin/jsdoc -p -c ./.jsdoc.json -t node_modules/jsdoc/templates/default -d refdocs/ -R docs/README.md -r .",
+    "test-docs": "./node_modules/.bin/jsdoc -T -c ./.jsdoc.json -d docs/ -R docs/README.md -r .",
+    "log-docs": "./node_modules/.bin/jsdoc -X -c ./.jsdoc.json -d docs/ -R docs/README.md -r . > gen.log",
+    "debug-docs": "node --inspect-brk ./node_modules/jsdoc/jsdoc.js -c ./.jsdoc.json -d docs/ -R docs/README.md -r ."
   },
   "devDependencies": {
     "async": "~2.0.1",
