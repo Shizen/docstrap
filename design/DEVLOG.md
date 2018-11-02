@@ -13,6 +13,8 @@ Developer log, scratch pad and todo list for `shinstrap`.
 - I'm really feeling the need for a `manifest` to deal with various link up issues with github :(.
 - Again I have an issue with being able to link an image for reference both in github and in the docs.  For the moment I'm going to cheat, but this ought to be solvable.  The problem is I can't use `<base>` because of shims.  Apparently I can't do direct links either, at least for images, again because of shims.  I could do some sort of processing, of course, on the `docs/` to fix/alter its links.
 
+    So one possible alternate solution is to try moving my README.md file into my `docs/` directory.  Supposedly github will read and present it from there.
+
 - Review docstrap's toc building code
 
 - Add an svg badge builder?  And some mechanism to tie its use into the template's custom output facilities.
