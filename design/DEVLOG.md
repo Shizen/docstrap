@@ -9,8 +9,8 @@ Developer log, scratch pad and todo list for `shinstrap`.
     - I should probably clean up my language between "display [item]", "listing" and "entry".
     - ? add new lines to `<code>` samples to lessen need for scrollbars?
 - Fix or rollback notes as `<details>`
-- I need a license doc
 - Fix the default color issue from docstrap in the `lumen` theme
+- I'm really feeling the need for a `manifest` to deal with various link up issues with github :(.
 
 - Review docstrap's toc building code
 
