@@ -85,6 +85,10 @@ fieldset.jsdoc-redirect hr {
   display: none;
 }
 
-.navbar-brand-min {
-  min-width: 140px;
+
+@import url("font-awesome.min.css");
+/* This is a cheat because I know I have font-awesome from Shinmark--except that I don't */
+.fa-github-square:before {
+  font-family: FontAwesome;
+  content:"\f092"
 }

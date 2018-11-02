@@ -384,6 +384,7 @@ To quickly add a new tag and see it working, follow these steps.
 ## Specifications in Detail 
 
 - [favicon](#favicon)
+- [repoIcon & repository](#repoicon)
 - [supplementalCSS](#supplementalCSS)
 - [supplementalJS](#supplementalJS)
 - [supplementalFonts](#supplementalFonts)
@@ -403,6 +404,12 @@ To quickly add a new tag and see it working, follow these steps.
 This template setting allows you to specify an image to be used as the favicon for your generated documents (this is the icon that typically appears in the window tab in your browser).  This feature is currently experimental (see below).  At the moment, `shinstrap` will encode any image specified into base64 and store it in a datauri on every page it generates.
 
 Note: Chrome seems to have some issues with this icon.  I have not dug deeply enough to determine if it is simply aggressive caching issues or if it is a security constraint.  Chrome will not serve a favicon off disk.  Internally I'm tracking this at like.. P3?--not terribly important.
+
+<a name="repoicon"></a>
+
+### `repoIcon` & `repository`
+
+Another experimental feature.  If *both* settings are set, `shinstrap` will emit a link the to specified url (specified by `repository`) using the image specified in `repoIcon` (which for the moment is also being included as a datauri, even though this seems unnecessary).  `repository` should be a string containing a valid url (no validation is done currently).  `repoIcon` should be the path to an image file (this setting uses the standard resource path discovery mechanism).
 
 <a name="supplementalCSS"></a>
 

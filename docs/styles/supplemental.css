@@ -79,3 +79,14 @@
 .jsdoc-attrib-abstract {
   background-color: #666;
 }
+
+.navbar-brand-min {
+  min-width: 140px;
+}
+.navbar-repos {
+  vertical-align: text-top;
+  padding-left: 0.1em;
+}
+.navbar-repos img {
+  max-height: 16px;
+}

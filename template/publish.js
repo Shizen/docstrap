@@ -783,13 +783,25 @@ exports.publish = function(taffyData, opts, tutorials) {
 
   view.supplementalJS = justTheFilenames(conf.supplementalJS);
 
+  var Datauri = require('datauri');
+  var pTmp, datauri; // I miss let
+  
+  if(conf.repository && conf.repoIcon) {
+    view.repository = conf.repository;    // Validate url in any way?
+    pTmp = path.getResourcePath(path.dirname(conf.repoIcon), path.basename(conf.repoIcon));
+    if(pTmp) {
+      datauri = new Datauri(pTmp);
+      view.repoIcon = datauri;
+    } else {
+      // warn("Failed to find specified repoIcon `%s`", conf.repoIcon);
+    }
+  } // Is conf.repository valid without a repoIcon?
 
   if(conf.favicon) {
-    var Datauri = require('datauri');
     // Search paths
-    var p = path.getResourcePath(path.dirname(conf.favicon), path.basename(conf.favicon));
-    if(p) {
-      var datauri = new Datauri(p);
+    pTmp = path.getResourcePath(path.dirname(conf.favicon), path.basename(conf.favicon));
+    if(pTmp) {
+      datauri = new Datauri(pTmp);
       view.favicon = datauri;
     } else {
       // warn("Failed to find specified favicon `%s`", conf.favicon);

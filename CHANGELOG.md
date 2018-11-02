@@ -9,6 +9,7 @@ The "initial release"
 ### Added
 - support for `supplementalFonts`
 - This CHANGELOG (and other documentation ;)
+- prelim support for `repoIcon` and `repository`
 - support for `favicon`
 - support for `supplementalCSS`
 - support for `supplementalJS`

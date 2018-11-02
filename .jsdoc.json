@@ -19,6 +19,8 @@
   "templates": {
     "logoFile": "img/ShinworksBW.png",
     "favicon": "assets/Shinworks.svg",
+    "repository": "https://github.com/Shizen/shinstrap",
+    "repoIcon": "assets/GitHub-Mark-32px.png",
     "cleverLinks": false,
     "monospaceLinks": false,
     "dateFormat": "ddd MMM Do YYYY",
