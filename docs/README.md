@@ -1,5 +1,5 @@
 
-What is shinstrap?
+What is `shinstrap`?
 
 [`shinstrap`](https://github.com/Shizen/shinstrap) is a WIP fork of the [`ink-docstrap`](https://github.com/docstrap/docstrap) [`jsdoc`](https://github.com/jsdoc3/jsdoc) template.  `jsdoc` allows you to comment your code following particular patterns which can then be processed (by jsdoc) to generate documentation automatically.  `docstrap` is a template designed to generate jsdoc documentation with certain features--sunlight syntax highlighting for code blocks, full text search, bootstrap styling, to name a few.  
 
