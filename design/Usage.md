@@ -505,7 +505,7 @@ This is a bit of a dangerous curves section and best ignored by most users. It i
 
 Currently, only three templates are wired to "honor" template customization specifications--`container.tmpl`, `method.tmpl`, and `details.tmpl`.  Each of these takes an "order" specification and a "tags" specification.  The "tags" specification is always under the key `tags` as an object with the name of each tag specification as a key (each tag specification is, itself, an object).  The tag specification format is described [here](#customizeOutput.templates.tags).  The "order" specification is listed under a field name based on the circumstances to which it applies (`"all"` being the default case).  For `method.tmpl` ("customizeOutput.method") and `details.tmpl` ("customizeOutput.details") `"all"` is the only valid case.  `container.tmpl` is more complicated however.  
 
-The container template has two sections--an "overview" section and a "body".  Further, the "overview" section has a two separate rendering paths, depending on the doclet being rendered--It might be a module containing other modules, or it could be something (anything) else (`container.tmpl` as the root template is invoked to render `class`es, but these it punts to `method.tmp`).  The specifications for these cases are delineated by the keys used to contain those specifications.  The `templates.customizeOutput.container.body` covers the specifications for the "body" section of the container.  The `templates.customizeOutput.container.overview` section covers specifications for the "overview" section.  This section is further potentially divided by its two render cases--`templates.customizeOutput.container.overview.module-with-modules` and `templates.customizeOutput.container.overview.default`.  For this section the `templates.customizeOutput.container.overview.all` will be used as a fallback for any of the above which are not specified.  All these branches use the same "tags" section, it is the "order" section which varies.  The "order" specification is described [here](#customizeOutput.templates.order).
+The container template has two sections--an "overview" section and a "body".  Further, the "overview" section has a two separate rendering paths, depending on the doclet being rendered--It might be a module containing other modules, or it could be something (anything) else (`container.tmpl` as the root template is invoked to render `class`es, but these it punts to `method.tmpl`).  The specifications for these cases are delineated by the keys used to contain those specifications.  The `templates.customizeOutput.container.body` covers the specifications for the "body" section of the container.  The `templates.customizeOutput.container.overview` section covers specifications for the "overview" section.  This section is further potentially divided by its two render cases--`templates.customizeOutput.container.overview.module-with-modules` and `templates.customizeOutput.container.overview.default`.  For this section the `templates.customizeOutput.container.overview.all` will be used as a fallback for any of the above which are not specified.  All these branches use the same "tags" section, it is the "order" section which varies.  The "order" specification is described [here](#customizeOutput.templates.order).
 
     "customizeOutput": {
       "container" : {
@@ -614,7 +614,7 @@ The container template has two sections--an "overview" section and a "body".  Fu
 
 ##### The "Order" field
 
-An "order" field specifies the order in which listings should be rendered for a given doclet.  This field takes an `array` of `string`s which specifies the order by tag name in which the listings should be rendered.  The special identifier `"*"` is a catch all, meaning *"all the __default__ listings which I have not explictly placed elsewhere"*.  Note the *default* callout.  Each template (from `docstrap`) has a default, expected set of listing to output.  So, for instance, `shinstrap` normally displays the following tags in `method.tmpl`:
+An "order" field specifies the order in which listings should be rendered for a given doclet.  This field takes an `array` of `string`s which specifies the order by tag name in which the listings should be rendered.  The special identifier `"*"` is a catch all, meaning *"all the __default__ listings which I have not explictly placed elsewhere"*.  Note the *default* callout.  Each template (from `docstrap`) has a default, expected set of listings to output.  So, for instance, `shinstrap` normally displays the following tags in `method.tmpl`:
 
     [ "description", "augments", "type", "this", "params", "details", "requires", "fires", "listens", "listeners", "exceptions", "returns", "examples" ]
 
@@ -706,15 +706,29 @@ Most settings are "ignored" if not present for a given tag.  Each scaffolded tem
 :   An awkward setting 8D.  This is an object with two keys `singular` and `plural`.  If the associated `data` is has only one value (`length === 1`), the string value of the key `singular` will be used.  More than one, and the `plural` value will be used for the title.
 
 `titleInterpolation` {string}
-:   :es6: This setting instructs `shinstrap` to interpret the provide value as a template string and use it for the listing's title.
+:   :es6: This setting instructs `shinstrap` to interpret the provided value as a template string and use it for the listing's title.  I have generally avoided using ES6 in `shinstrap` for backward compatibility.  This setting should be considered experimental.
+
+And finally we have...
+
+`entityWrapper` {string}
+:   Specifies an html tag to wrap the entire listing in (both title tags and data wrapper tags).  There are a few "structurally sensitive" html tags for which this can be helpful.  For example, if you wanted to put some values in a `<fieldset>`, with the title as the `<legend>`, you would use this setting.
+
+`entityWrapperAttributes` {string}
+:   The attributes for the `entityWrapper` tag.
 
 There are also a few more advanced setting options.
 
 ###### Identifying the data
 
-By default, in most cases, the presence of data needing to be rendered is inferred implicitly from the name of the tag.  `"notes"` above implies the presence of a `doclet.notes` value.  If that value is not present it means that there are no notes to render for this entity.  In the unlikely case that additional validation is required, it can be specified in a `validate` setting.  The value of this setting is a string which must evaluate to true in order for the perspective listing to be considered "valid" or necessary for rendering. See [writing eval expression](#customizeOutput.templates.tags.evals) for more information.
+By default, in most cases, the presence of data needing to be rendered is inferred implicitly from the name of the tag.  `"notes"` above implies the presence of a `doclet.notes` value.  If that value is not present it means that there are no notes to render for this entity.  In the unlikely case that additional validation is required, it can be specified in a `validate` setting.  The value of this setting is a string expression which must evaluate to true in order for the perspective listing to be considered "valid" or necessary for rendering. See [writing eval expression](#customizeOutput.templates.tags.evals) for more information.
 
-For certain types of data, particularly associating disparate `doclet`s with each other, it is necessary to instead specify a `find`.  When a `find` is indicated, a value on `doclet` is not looked for.  Instead, `shinstrap` performs a `find` (taffyDB) with the parameters specified.  As written, `find` currently only will accept a `kind` and a `memberof` field.  `kind` is taken literally, but for legacy purposes, `memberof` is evaluated, in the event that the `memberof` needs to reference another object (like the doclet itself--e.g doclet.longname).  See [writing eval expression](#customizeOutput.templates.tags.evals) below for more information.  For specifics on how `find` works, see {@link module:template/publish.handleScaffolding}.
+For certain types of data, particularly associating disparate `doclet`s with each other, it is necessary to instead specify a `find`.  When a `find` is indicated, a value on `doclet` is not looked for.  Instead, `shinstrap` performs a `find` (taffyDB) with the parameters specified.  The properties of the `find` setting are each evaluated as string expressions and their results passed into to the `taffyDB` function of the same name (`find()`).  For example `find.memberof` is evaluated, in the event that the `memberof` needs to reference another object (like the doclet itself--e.g doclet.longname).  See [writing eval expression](#customizeOutput.templates.tags.evals) below for more information.  For more specifics on how `find` works, see {@link module:template/publish.handleScaffolding}.
+
+`validate` {string}
+:   :evaluated: A string expression which must evaluate to true in order for a given listing to be considered valid for the current doclet.
+
+`find` {object}
+:   Find is currently the only aggregator specifier.  Find lets you create pseudo-doclets or establish relationships between doclets.  This mirror exactly the mechanism by which jsdoc makes other such assocations between various doclets (for instance, `method`s are associated with a `class` by doing a `find` on `doclet`s of `kind` `method` who are `memberof` the class doclet in question (by `longname` typically)).  The properties of `find` are the associations which `shinstrap` should look for when assessing if this listing should be generated for the current `doclet`.
 
 ###### Handling "Complex" Entries
 
