@@ -121,7 +121,7 @@
   * @memberof module:template/publish
   * @honors {string} entryWrapper The tag which the entire entry should be wrapped in.  For situations where you want to wrap both the title and
   * the contents.  For example, when making a `<details>` entry or a `<fieldset>` entry.
-  * @honors {string} entryWrapperAttributes The attributes which should be rendered for the entityWrapper.  Only valid if entityWrapper has a 
+  * @honors {string} entryWrapperAttributes The attributes which should be rendered for the entryWrapper.  Only valid if entryWrapper has a 
   * value.
   * @honors {boolean} suppressTitle If true, no title will be generated.  This causes `title`, `titleCaption` and `titleAttributes` to be ignored.
   * @honors {string} outerTitleWrapper The "outer" wrapper for the title (title only supports two "tiers" of wrappers).

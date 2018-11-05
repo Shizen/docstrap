@@ -710,11 +710,11 @@ Most settings are "ignored" if not present for a given tag.  Each scaffolded tem
 
 And finally we have...
 
-`entityWrapper` {string}
+`entryWrapper` {string}
 :   Specifies an html tag to wrap the entire listing in (both title tags and data wrapper tags).  There are a few "structurally sensitive" html tags for which this can be helpful.  For example, if you wanted to put some values in a `<fieldset>`, with the title as the `<legend>`, you would use this setting.
 
-`entityWrapperAttributes` {string}
-:   The attributes for the `entityWrapper` tag.
+`entryWrapperAttributes` {string}
+:   The attributes for the `entryWrapper` tag.
 
 There are also a few more advanced setting options.
 
